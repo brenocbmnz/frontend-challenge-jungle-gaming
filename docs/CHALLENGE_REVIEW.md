@@ -1,6 +1,6 @@
 # Conferência do enunciado — 17/10/2026
 
-> As constatações abaixo registram a auditoria inicial. Após autorização, foram implementados seleção de rede no checkout, campos adicionais mobile, validação compartilhada, atalhos acessíveis e os testes complementares. O fechamento da validação está em [VALIDATION.md](VALIDATION.md). A publicação na Vercel continua a cargo do usuário, conforme solicitado.
+> As constatações abaixo registram a auditoria inicial. Após autorização, foram implementados seleção de rede no checkout, campos adicionais mobile, validação compartilhada, atalhos acessíveis e os testes complementares. O fechamento da validação está em [VALIDATION.md](VALIDATION.md). O usuário publicou na Vercel; a URL está no README e a conferência do host está em VALIDATION.md.
 
 Fonte consultada nesta revisão: https://github.com/junglegaming/frontend-challenge (README, seções 1–12).
 
@@ -16,7 +16,7 @@ Esta é uma revisão de requisitos por leitura do código, documentação e test
 | Instalação sem dependências pré-existentes | `npm ci`, tipos, lint e build verificados em cópia isolada |
 | Lighthouse atualizado | Medianas: desktop 100/100; mobile 92/93 em performance; demais categorias 100 |
 | Relatórios HTML/JSON e configuração | Incluídos em `reports`, com detalhes em [VALIDATION.md](VALIDATION.md) |
-| Deploy público e URL no README | Etapa do usuário após importar a branch `main` na Vercel |
+| Deploy público e URL no README | Publicado pelo usuário; URL incluída e fluxo principal conferido |
 
 ## Já presente
 
@@ -76,4 +76,4 @@ Antes de enviar, executar instalação/build/testes em checkout limpo, com as ve
 
 Blockchain real, extensão real de carteira, gateway real, páginas editoriais, suporte, atividade, ofertas e downloads estão explicitamente fora do escopo. A prioridade deve ser fechar as pendências acima, sem ampliar o produto.
 
-A auditoria inicial foi somente de leitura; as correções posteriores e a preparação da entrega foram autorizadas em seguida. Não houve deploy em uma conta Vercel/Netlify.
+A auditoria inicial foi somente de leitura; as correções posteriores e a preparação da entrega foram autorizadas em seguida. Posteriormente, o usuário realizou a publicação na Vercel.

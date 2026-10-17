@@ -2,6 +2,8 @@
 
 Implementação do [desafio Jungle](https://github.com/junglegaming/frontend-challenge), usando o [Figma de Breno](https://www.figma.com/design/Cr33D1M0iVHRVZBUpr7uov/Frontend-Challenge---Breno).
 
+**Aplicação publicada:** https://frontend-challenge-jungle-gaming-rosy.vercel.app/
+
 ## Executar
 
 Node.js 22.12+ e npm. Nenhum backend ou serviço privado é necessário.

@@ -24,6 +24,8 @@ Importe o mesmo repositório, usando `npm ci`, `npm run build` e publicação de
 - Carrinho permanece após atualizar. Checkout simulado gera recibo e não movimenta fundos.
 - Dados ficam no navegador; não existe backend compartilhado entre visitantes.
 
-Nenhuma publicação foi realizada em uma conta Vercel/Netlify nesta sessão. A URL pública deve ser adicionada ao README após o deploy.
+## Publicação realizada pelo usuário
 
-Após a publicação, copie a URL `https://...vercel.app` para o README e envie o link junto com o repositório. A ausência dessa URL continua sendo a única etapa externa da entrega; a configuração local não substitui o deploy obrigatório.
+URL: https://frontend-challenge-jungle-gaming-rosy.vercel.app/
+
+O projeto está conectado ao repositório. Novos pushes na branch de produção podem iniciar outro deploy automaticamente; acompanhe a conclusão em Deployments. Use a URL curta acima na entrega. Os filtros ativos podem acrescentar parâmetros; valores vazios e padrões são omitidos.

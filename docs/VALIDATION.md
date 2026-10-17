@@ -33,5 +33,11 @@ A entrada JavaScript pequena carrega interface e mocks em paralelo e só monta o
 
 - [Conferência dos requisitos](CHALLENGE_REVIEW.md), [contratos REST/eventos](API.md) e [arquitetura](../ARCHITECTURE.md).
 - A revisão visual e os desvios conhecidos estão em [DESIGN_REVIEW.md](DESIGN_REVIEW.md). O limite da integração Figma ainda impede certificar fidelidade integral a referências não recuperadas.
-- As configurações e instruções de Vercel/Netlify estão em [DEPLOY.md](DEPLOY.md). O usuário realizará o deploy. Depois, deve adicionar a URL pública ao README e conferir rotas diretas, refresh, service workers, mocks e tempo real no host publicado.
+- As configurações e instruções de Vercel/Netlify estão em [DEPLOY.md](DEPLOY.md). A publicação foi realizada pelo usuário na Vercel e a URL foi incluída no README.
 - Repositório de entrega: https://github.com/brenocbmnz/frontend-challenge-jungle-gaming.
+
+## Ajuste da URL após publicação — 17/10/2026
+
+O catálogo agora omite parâmetros vazios e valores padrão usando o middleware do TanStack Router. Filtros ativos continuam na URL; links antigos com os padrões são normalizados. Build e lint passaram. Seis testes de produção direcionados passaram em desktop/mobile, cobrindo normalização, filtros, ordenação, paginação, refresh e histórico ([relatório](../reports/playwright-url/index.html)). Esta execução complementa os 52 testes anteriores; não substitui a suíte completa nem as medições Lighthouse acima.
+
+No domínio público informado pelo usuário, foram verificados carregamento do catálogo, service workers JavaScript com HTTP 200, acesso direto e refresh de detalhe, login e checkout simulado até o recibo, sem erros de página. Essa conferência ocorreu antes da publicação do ajuste da URL.

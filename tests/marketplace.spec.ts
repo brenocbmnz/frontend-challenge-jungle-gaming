@@ -18,7 +18,7 @@ test("catálogo compõe filtros, ordenação, paginação e histórico", async (
   } else {
     await page.getByLabel("Ordenar NFTs").selectOption("price-asc");
   }
-  await expect(page).toHaveURL(/page=1/);
+  await expect(page).not.toHaveURL(/[?&]page=/);
   const scope =
     info.project.name === "mobile"
       ? page.getByRole("dialog")
@@ -37,6 +37,34 @@ test("catálogo compõe filtros, ordenação, paginação e histórico", async (
       JSON.parse(new URL(page.url()).searchParams.get("networks") || "[]"),
     )
     .toEqual([]);
+});
+test("URL omite padrões, normaliza links antigos e preserva filtros ativos", async ({
+  page,
+}) => {
+  await expect.poll(() => new URL(page.url()).search).toBe("");
+  await page.goto(
+    "/?q=&categories=%5B%5D&networks=%5B%5D&min=&max=&sort=recent&page=1&tab=all",
+  );
+  await expect(page.locator(".nft-grid .nft-card")).toHaveCount(9);
+  await expect.poll(() => new URL(page.url()).search).toBe("");
+  await page.getByRole("button", { name: "Página 2", exact: true }).click();
+  await expect.poll(() => new URL(page.url()).search).toBe("?page=2");
+  await page.reload();
+  await expect(page.locator(".pagination [aria-current]")).toHaveText("2");
+  await page.goto("/");
+  await expect.poll(() => new URL(page.url()).search).toBe("");
+  await page.goto("/?q=Emerald&sort=price-asc");
+  await expect(page.locator(".nft-grid .nft-card").first()).toContainText(
+    "Emerald",
+  );
+  const search = new URL(page.url()).searchParams;
+  expect(search.get("q")).toBe("Emerald");
+  expect(search.get("sort")).toBe("price-asc");
+  expect([...search.keys()].sort()).toEqual(["q", "sort"]);
+  await page.reload();
+  await expect(page.locator(".nft-grid .nft-card").first()).toContainText(
+    "Emerald",
+  );
 });
 test("busca e resultado vazio", async ({ page }) => {
   await page.getByRole("button", { name: "Buscar NFTs", exact: true }).click();

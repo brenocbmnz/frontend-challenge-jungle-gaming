@@ -2,11 +2,12 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
+  stripSearchParams,
   Outlet,
   Link,
 } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
-import { validateSearch } from "./api/queries";
+import { defaultSearch, validateSearch } from "./api/queries";
 import { SessionProvider } from "./components/session";
 import { Realtime } from "./components/realtime";
 import { Home } from "./pages/home";
@@ -71,6 +72,7 @@ const home = createRoute({
   getParentRoute: () => root,
   path: "/",
   validateSearch,
+  search: { middlewares: [stripSearchParams(defaultSearch)] },
   component: Home,
 });
 const detail = createRoute({
