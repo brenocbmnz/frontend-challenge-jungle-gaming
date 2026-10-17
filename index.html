@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#140d0a" />
+    <meta
+      name="description"
+      content="Kurio: descubra arte digital, explore coleções e simule sua experiência como colecionador de NFTs."
+    />
+    <link
+      rel="preload"
+      href="/fonts/roboto-mono-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <title>Kurio — Arte digital e NFTs</title>
+  </head>
+  <body>
+    <div id="root">
+      <div
+        role="status"
+        aria-label="Carregando aplicação"
+        style="
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-content: center;
+          gap: 16px;
+          text-align: center;
+          background: #140d0a;
+          color: #cfb28c;
+          font-family: monospace;
+        "
+      >
+        <strong style="color: #e89b55; font-size: 24px; letter-spacing: 4px"
+          >KURIO</strong
+        ><span>Carregando coleção…</span>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,245 @@
+{
+  "date": "2026-10-17T20:22:45.765Z",
+  "environment": {
+    "node": "v22.17.1",
+    "lighthouse": "12.8.2",
+    "chromium": "156.0.8078.4",
+    "os": "Linux 6.6.87.2-microsoft-standard-WSL2",
+    "cpu": "12th Gen Intel(R) Core(TM) i5-12450H",
+    "notes": "Build otimizado com Brotli/gzip no preview, mocks padrão ativos e versões responsivas dos assets originais locais. Sem simplificações exclusivas para auditoria. O host compartilhado pode afetar as medições."
+  },
+  "results": [
+    {
+      "page": "inicio",
+      "profile": "desktop",
+      "runs": [
+        {
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 784.022,
+            "CLS": 0,
+            "TBT": 0
+          }
+        },
+        {
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 769.7159999999999,
+            "CLS": 0,
+            "TBT": 0
+          }
+        },
+        {
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 721.422,
+            "CLS": 0,
+            "TBT": 0
+          }
+        }
+      ],
+      "median": {
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "LCP": 769.7159999999999,
+          "CLS": 0,
+          "TBT": 0
+        }
+      }
+    },
+    {
+      "page": "detalhe",
+      "profile": "desktop",
+      "runs": [
+        {
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 781.0574999999999,
+            "CLS": 0,
+            "TBT": 0
+          }
+        },
+        {
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 758.7935,
+            "CLS": 0,
+            "TBT": 0
+          }
+        },
+        {
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 760.8489999999999,
+            "CLS": 0,
+            "TBT": 0
+          }
+        }
+      ],
+      "median": {
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "LCP": 760.8489999999999,
+          "CLS": 0,
+          "TBT": 0
+        }
+      }
+    },
+    {
+      "page": "inicio",
+      "profile": "mobile",
+      "runs": [
+        {
+          "scores": {
+            "performance": 91,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 3401.8819999999996,
+            "CLS": 0,
+            "TBT": 95
+          }
+        },
+        {
+          "scores": {
+            "performance": 91,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 3300.620000000001,
+            "CLS": 0,
+            "TBT": 100.33999999999946
+          }
+        },
+        {
+          "scores": {
+            "performance": 91,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 3402.0585,
+            "CLS": 0,
+            "TBT": 107
+          }
+        }
+      ],
+      "median": {
+        "scores": {
+          "performance": 91,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "LCP": 3401.8819999999996,
+          "CLS": 0,
+          "TBT": 100.33999999999946
+        }
+      }
+    },
+    {
+      "page": "detalhe",
+      "profile": "mobile",
+      "runs": [
+        {
+          "scores": {
+            "performance": 91,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 3497.982000000001,
+            "CLS": 0,
+            "TBT": 0
+          }
+        },
+        {
+          "scores": {
+            "performance": 91,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 3381.9855000000002,
+            "CLS": 0,
+            "TBT": 6
+          }
+        },
+        {
+          "scores": {
+            "performance": 90,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "LCP": 3575.5829999999996,
+            "CLS": 0,
+            "TBT": 10
+          }
+        }
+      ],
+      "median": {
+        "scores": {
+          "performance": 91,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "LCP": 3497.982000000001,
+          "CLS": 0,
+          "TBT": 6
+        }
+      }
+    }
+  ]
+}
