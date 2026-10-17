@@ -2,7 +2,6 @@ import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import {
   Search,
   ShoppingCart,
-  LogIn,
   ArrowLeft,
   UserRound,
   Menu,
@@ -83,7 +82,11 @@ export function Header() {
               to={user ? "/perfil" : "/login"}
               aria-label={user ? "Meu perfil" : "Entrar"}
             >
-              {user ? <UserRound size={17} /> : <LogIn size={17} />}
+              {user ? (
+                <UserRound size={17} />
+              ) : (
+                <img src="/assets/62554.svg" alt="" />
+              )}
               <span>{user ? "Meu perfil" : "Entrar"}</span>
             </Link>
           </Button>
@@ -212,7 +215,6 @@ export function Footer() {
             Receba lançamentos selecionados, histórias de criadores e novidades
             do mercado.
           </p>
-          <small>Inscrições indisponíveis nesta demonstração.</small>
         </div>
       </div>
       <div className="brand-band">
@@ -304,15 +306,22 @@ export function Page({
   children,
   account = false,
   className = "",
+  background = false,
 }: {
   children: ReactNode;
   account?: boolean;
   className?: string;
+  background?: boolean;
 }) {
   return (
     <div className={`shell ${account ? "account-shell" : ""} ${className}`}>
       <Header />
-      <main id="main-content">{children}</main>
+      <main
+        id={background ? undefined : "main-content"}
+        tabIndex={background ? undefined : -1}
+      >
+        {children}
+      </main>
       {!account && <Footer />}
     </div>
   );

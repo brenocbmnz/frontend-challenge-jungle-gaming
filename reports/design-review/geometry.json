@@ -1,0 +1,3072 @@
+{
+  "desktop-home": [
+    {
+      "selector": "shell  home-shell",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 3669,
+        "top": 0,
+        "right": 1440,
+        "bottom": 3669,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header ",
+      "rect": {
+        "x": 120,
+        "y": 24,
+        "width": 1200,
+        "height": 45,
+        "top": 24,
+        "right": 1320,
+        "bottom": 69,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "hero",
+      "rect": {
+        "x": 120,
+        "y": 101,
+        "width": 1200,
+        "height": 450,
+        "top": 101,
+        "right": 1320,
+        "bottom": 551,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog",
+      "rect": {
+        "x": 120,
+        "y": 647,
+        "width": 1200,
+        "height": 1373,
+        "top": 647,
+        "right": 1320,
+        "bottom": 2020,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog-toolbar",
+      "rect": {
+        "x": 478,
+        "y": 647,
+        "width": 842,
+        "height": 18,
+        "top": 647,
+        "right": 1320,
+        "bottom": 665,
+        "left": 478
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "sort-label",
+      "rect": {
+        "x": 988.9375,
+        "y": 647,
+        "width": 331.0625,
+        "height": 18,
+        "top": 647,
+        "right": 1320,
+        "bottom": 665,
+        "left": 988.9375
+      },
+      "font": "15px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "nft-grid",
+      "rect": {
+        "x": 478,
+        "y": 697,
+        "width": 842,
+        "height": 1200,
+        "top": 697,
+        "right": 1320,
+        "bottom": 1897,
+        "left": 478
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promos",
+      "rect": {
+        "x": 120,
+        "y": 2116,
+        "width": 1200,
+        "height": 250,
+        "top": 2116,
+        "right": 1320,
+        "bottom": 2366,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 120,
+        "y": 2116,
+        "width": 586,
+        "height": 250,
+        "top": 2116,
+        "right": 706,
+        "bottom": 2366,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 734,
+        "y": 2116,
+        "width": 586,
+        "height": 250,
+        "top": 2116,
+        "right": 1320,
+        "bottom": 2366,
+        "left": 734
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "journal",
+      "rect": {
+        "x": 120,
+        "y": 2462,
+        "width": 1200,
+        "height": 477,
+        "top": 2462,
+        "right": 1320,
+        "bottom": 2939,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 120,
+        "y": 3035,
+        "width": 1200,
+        "height": 610,
+        "top": 3035,
+        "right": 1320,
+        "bottom": 3645,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 120,
+        "y": 3035,
+        "width": 1200,
+        "height": 250,
+        "top": 3035,
+        "right": 1320,
+        "bottom": 3285,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 120,
+        "y": 3285,
+        "width": 1200,
+        "height": 88,
+        "top": 3285,
+        "right": 1320,
+        "bottom": 3373,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 120,
+        "y": 3373,
+        "width": 1200,
+        "height": 236,
+        "top": 3373,
+        "right": 1320,
+        "bottom": 3609,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "desktop-detail": [
+    {
+      "selector": "shell  ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 2274,
+        "top": 0,
+        "right": 1440,
+        "bottom": 2274,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header market-header",
+      "rect": {
+        "x": 120,
+        "y": 24,
+        "width": 1200,
+        "height": 45,
+        "top": 24,
+        "right": 1320,
+        "bottom": 69,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "breadcrumb",
+      "rect": {
+        "x": 120,
+        "y": 101,
+        "width": 1200,
+        "height": 20,
+        "top": 101,
+        "right": 1320,
+        "bottom": 121,
+        "left": 120
+      },
+      "font": "14px / 20px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "20px"
+    },
+    {
+      "selector": "product",
+      "rect": {
+        "x": 120,
+        "y": 133,
+        "width": 1200,
+        "height": 448,
+        "top": 133,
+        "right": 1320,
+        "bottom": 581,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "product-gallery",
+      "rect": {
+        "x": 120,
+        "y": 133,
+        "width": 573,
+        "height": 448,
+        "top": 133,
+        "right": 693,
+        "bottom": 581,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "product-info",
+      "rect": {
+        "x": 725,
+        "y": 133,
+        "width": 595,
+        "height": 448,
+        "top": 133,
+        "right": 1320,
+        "bottom": 581,
+        "left": 725
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "product-price",
+      "rect": {
+        "x": 725,
+        "y": 182,
+        "width": 595,
+        "height": 20,
+        "top": 182,
+        "right": 1320,
+        "bottom": 202,
+        "left": 725
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "product-description-section",
+      "rect": {
+        "x": 120,
+        "y": 677,
+        "width": 1200,
+        "height": 355,
+        "top": 677,
+        "right": 1320,
+        "bottom": 1032,
+        "left": 120
+      },
+      "font": "14px / 24px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "24px"
+    },
+    {
+      "selector": "related",
+      "rect": {
+        "x": 120,
+        "y": 1128,
+        "width": 1200,
+        "height": 416,
+        "top": 1128,
+        "right": 1320,
+        "bottom": 1544,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 120,
+        "y": 1640,
+        "width": 1200,
+        "height": 610,
+        "top": 1640,
+        "right": 1320,
+        "bottom": 2250,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 120,
+        "y": 1640,
+        "width": 1200,
+        "height": 250,
+        "top": 1640,
+        "right": 1320,
+        "bottom": 1890,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 120,
+        "y": 1890,
+        "width": 1200,
+        "height": 88,
+        "top": 1890,
+        "right": 1320,
+        "bottom": 1978,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 120,
+        "y": 1978,
+        "width": 1200,
+        "height": 236,
+        "top": 1978,
+        "right": 1320,
+        "bottom": 2214,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "desktop-cart": [
+    {
+      "selector": "shell  ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1783.34375,
+        "top": 0,
+        "right": 1440,
+        "bottom": 1783.34375,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header market-header",
+      "rect": {
+        "x": 120,
+        "y": 24,
+        "width": 1200,
+        "height": 45,
+        "top": 24,
+        "right": 1320,
+        "bottom": 69,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "breadcrumb",
+      "rect": {
+        "x": 120,
+        "y": 101,
+        "width": 1200,
+        "height": 20,
+        "top": 101,
+        "right": 1320,
+        "bottom": 121,
+        "left": 120
+      },
+      "font": "14px / 20px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "20px"
+    },
+    {
+      "selector": "cart-layout",
+      "rect": {
+        "x": 120,
+        "y": 133,
+        "width": 1200,
+        "height": 408.34375,
+        "top": 133,
+        "right": 1320,
+        "bottom": 541.34375,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "cart-summary",
+      "rect": {
+        "x": 988,
+        "y": 133,
+        "width": 332,
+        "height": 408.34375,
+        "top": 133,
+        "right": 1320,
+        "bottom": 541.34375,
+        "left": 988
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "related",
+      "rect": {
+        "x": 120,
+        "y": 637.34375,
+        "width": 1200,
+        "height": 416,
+        "top": 637.34375,
+        "right": 1320,
+        "bottom": 1053.34375,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 120,
+        "y": 1149.34375,
+        "width": 1200,
+        "height": 610,
+        "top": 1149.34375,
+        "right": 1320,
+        "bottom": 1759.34375,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 120,
+        "y": 1149.34375,
+        "width": 1200,
+        "height": 250,
+        "top": 1149.34375,
+        "right": 1320,
+        "bottom": 1399.34375,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 120,
+        "y": 1399.34375,
+        "width": 1200,
+        "height": 88,
+        "top": 1399.34375,
+        "right": 1320,
+        "bottom": 1487.34375,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 120,
+        "y": 1487.34375,
+        "width": 1200,
+        "height": 236,
+        "top": 1487.34375,
+        "right": 1320,
+        "bottom": 1723.34375,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "desktop-login": [
+    {
+      "selector": "shell  home-shell",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 3669,
+        "top": 0,
+        "right": 1440,
+        "bottom": 3669,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header ",
+      "rect": {
+        "x": 120,
+        "y": 24,
+        "width": 1200,
+        "height": 45,
+        "top": 24,
+        "right": 1320,
+        "bottom": 69,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "hero",
+      "rect": {
+        "x": 120,
+        "y": 101,
+        "width": 1200,
+        "height": 450,
+        "top": 101,
+        "right": 1320,
+        "bottom": 551,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog",
+      "rect": {
+        "x": 120,
+        "y": 647,
+        "width": 1200,
+        "height": 1373,
+        "top": 647,
+        "right": 1320,
+        "bottom": 2020,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog-toolbar",
+      "rect": {
+        "x": 478,
+        "y": 647,
+        "width": 842,
+        "height": 18,
+        "top": 647,
+        "right": 1320,
+        "bottom": 665,
+        "left": 478
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "sort-label",
+      "rect": {
+        "x": 988.9375,
+        "y": 647,
+        "width": 331.0625,
+        "height": 18,
+        "top": 647,
+        "right": 1320,
+        "bottom": 665,
+        "left": 988.9375
+      },
+      "font": "15px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "nft-grid",
+      "rect": {
+        "x": 478,
+        "y": 697,
+        "width": 842,
+        "height": 1200,
+        "top": 697,
+        "right": 1320,
+        "bottom": 1897,
+        "left": 478
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promos",
+      "rect": {
+        "x": 120,
+        "y": 2116,
+        "width": 1200,
+        "height": 250,
+        "top": 2116,
+        "right": 1320,
+        "bottom": 2366,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 120,
+        "y": 2116,
+        "width": 586,
+        "height": 250,
+        "top": 2116,
+        "right": 706,
+        "bottom": 2366,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 734,
+        "y": 2116,
+        "width": 586,
+        "height": 250,
+        "top": 2116,
+        "right": 1320,
+        "bottom": 2366,
+        "left": 734
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "journal",
+      "rect": {
+        "x": 120,
+        "y": 2462,
+        "width": 1200,
+        "height": 477,
+        "top": 2462,
+        "right": 1320,
+        "bottom": 2939,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 120,
+        "y": 3035,
+        "width": 1200,
+        "height": 610,
+        "top": 3035,
+        "right": 1320,
+        "bottom": 3645,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 120,
+        "y": 3035,
+        "width": 1200,
+        "height": 250,
+        "top": 3035,
+        "right": 1320,
+        "bottom": 3285,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 120,
+        "y": 3285,
+        "width": 1200,
+        "height": 88,
+        "top": 3285,
+        "right": 1320,
+        "bottom": 3373,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 120,
+        "y": 3373,
+        "width": 1200,
+        "height": 236,
+        "top": 3373,
+        "right": 1320,
+        "bottom": 3609,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "auth-card ",
+      "rect": {
+        "x": 470,
+        "y": 158,
+        "width": 500,
+        "height": 560,
+        "top": 158,
+        "right": 970,
+        "bottom": 718,
+        "left": 470
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "desktop-signup": [
+    {
+      "selector": "shell  home-shell",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 3669,
+        "top": 0,
+        "right": 1440,
+        "bottom": 3669,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header ",
+      "rect": {
+        "x": 120,
+        "y": 24,
+        "width": 1200,
+        "height": 45,
+        "top": 24,
+        "right": 1320,
+        "bottom": 69,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "hero",
+      "rect": {
+        "x": 120,
+        "y": 101,
+        "width": 1200,
+        "height": 450,
+        "top": 101,
+        "right": 1320,
+        "bottom": 551,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog",
+      "rect": {
+        "x": 120,
+        "y": 647,
+        "width": 1200,
+        "height": 1373,
+        "top": 647,
+        "right": 1320,
+        "bottom": 2020,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog-toolbar",
+      "rect": {
+        "x": 478,
+        "y": 647,
+        "width": 842,
+        "height": 18,
+        "top": 647,
+        "right": 1320,
+        "bottom": 665,
+        "left": 478
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "sort-label",
+      "rect": {
+        "x": 988.9375,
+        "y": 647,
+        "width": 331.0625,
+        "height": 18,
+        "top": 647,
+        "right": 1320,
+        "bottom": 665,
+        "left": 988.9375
+      },
+      "font": "15px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "nft-grid",
+      "rect": {
+        "x": 478,
+        "y": 697,
+        "width": 842,
+        "height": 1200,
+        "top": 697,
+        "right": 1320,
+        "bottom": 1897,
+        "left": 478
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promos",
+      "rect": {
+        "x": 120,
+        "y": 2116,
+        "width": 1200,
+        "height": 250,
+        "top": 2116,
+        "right": 1320,
+        "bottom": 2366,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 120,
+        "y": 2116,
+        "width": 586,
+        "height": 250,
+        "top": 2116,
+        "right": 706,
+        "bottom": 2366,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 734,
+        "y": 2116,
+        "width": 586,
+        "height": 250,
+        "top": 2116,
+        "right": 1320,
+        "bottom": 2366,
+        "left": 734
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "journal",
+      "rect": {
+        "x": 120,
+        "y": 2462,
+        "width": 1200,
+        "height": 477,
+        "top": 2462,
+        "right": 1320,
+        "bottom": 2939,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 120,
+        "y": 3035,
+        "width": 1200,
+        "height": 610,
+        "top": 3035,
+        "right": 1320,
+        "bottom": 3645,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 120,
+        "y": 3035,
+        "width": 1200,
+        "height": 250,
+        "top": 3035,
+        "right": 1320,
+        "bottom": 3285,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 120,
+        "y": 3285,
+        "width": 1200,
+        "height": 88,
+        "top": 3285,
+        "right": 1320,
+        "bottom": 3373,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 120,
+        "y": 3373,
+        "width": 1200,
+        "height": 236,
+        "top": 3373,
+        "right": 1320,
+        "bottom": 3609,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "auth-card register-card",
+      "rect": {
+        "x": 470,
+        "y": 158,
+        "width": 500,
+        "height": 656,
+        "top": 158,
+        "right": 970,
+        "bottom": 814,
+        "left": 470
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "desktop-checkout": [
+    {
+      "selector": "shell  ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1748.5,
+        "top": 0,
+        "right": 1440,
+        "bottom": 1748.5,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header market-header",
+      "rect": {
+        "x": 120,
+        "y": 24,
+        "width": 1200,
+        "height": 45,
+        "top": 24,
+        "right": 1320,
+        "bottom": 69,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "breadcrumb",
+      "rect": {
+        "x": 120,
+        "y": 101,
+        "width": 1200,
+        "height": 20,
+        "top": 101,
+        "right": 1320,
+        "bottom": 121,
+        "left": 120
+      },
+      "font": "14px / 20px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "20px"
+    },
+    {
+      "selector": "checkout-layout",
+      "rect": {
+        "x": 120,
+        "y": 139,
+        "width": 1200,
+        "height": 879.5,
+        "top": 139,
+        "right": 1320,
+        "bottom": 1018.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "collector-form ",
+      "rect": {
+        "x": 120,
+        "y": 139,
+        "width": 763,
+        "height": 879.5,
+        "top": 139,
+        "right": 883,
+        "bottom": 1018.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "profile-grid",
+      "rect": {
+        "x": 120,
+        "y": 171,
+        "width": 763,
+        "height": 388,
+        "top": 171,
+        "right": 883,
+        "bottom": 559,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "checkout-summary",
+      "rect": {
+        "x": 915,
+        "y": 139,
+        "width": 405,
+        "height": 879.5,
+        "top": 139,
+        "right": 1320,
+        "bottom": 1018.5,
+        "left": 915
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 120,
+        "y": 1114.5,
+        "width": 1200,
+        "height": 610,
+        "top": 1114.5,
+        "right": 1320,
+        "bottom": 1724.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 120,
+        "y": 1114.5,
+        "width": 1200,
+        "height": 250,
+        "top": 1114.5,
+        "right": 1320,
+        "bottom": 1364.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 120,
+        "y": 1364.5,
+        "width": 1200,
+        "height": 88,
+        "top": 1364.5,
+        "right": 1320,
+        "bottom": 1452.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 120,
+        "y": 1452.5,
+        "width": 1200,
+        "height": 236,
+        "top": 1452.5,
+        "right": 1320,
+        "bottom": 1688.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "desktop-profile": [
+    {
+      "selector": "shell account-shell ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 875.5,
+        "top": 0,
+        "right": 1440,
+        "bottom": 875.5,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header ",
+      "rect": {
+        "x": 120,
+        "y": 24,
+        "width": 1200,
+        "height": 45,
+        "top": 24,
+        "right": 1320,
+        "bottom": 69,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "account-layout",
+      "rect": {
+        "x": 120,
+        "y": 101,
+        "width": 1200,
+        "height": 750.5,
+        "top": 101,
+        "right": 1320,
+        "bottom": 851.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "profile-grid",
+      "rect": {
+        "x": 458,
+        "y": 149,
+        "width": 862,
+        "height": 296,
+        "top": 149,
+        "right": 1320,
+        "bottom": 445,
+        "left": 458
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "desktop-wallets": [
+    {
+      "selector": "shell account-shell ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 976.5,
+        "top": 0,
+        "right": 1440,
+        "bottom": 976.5,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header ",
+      "rect": {
+        "x": 120,
+        "y": 24,
+        "width": 1200,
+        "height": 45,
+        "top": 24,
+        "right": 1320,
+        "bottom": 69,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "account-layout",
+      "rect": {
+        "x": 120,
+        "y": 101,
+        "width": 1200,
+        "height": 851.5,
+        "top": 101,
+        "right": 1320,
+        "bottom": 952.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "wallet-form wallet-primary-form",
+      "rect": {
+        "x": 458,
+        "y": 184,
+        "width": 862,
+        "height": 539.5,
+        "top": 184,
+        "right": 1320,
+        "bottom": 723.5,
+        "left": 458
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "desktop-review": [
+    {
+      "selector": "shell  ",
+      "rect": {
+        "x": 0,
+        "y": -15,
+        "width": 1440,
+        "height": 1744.5,
+        "top": -15,
+        "right": 1440,
+        "bottom": 1729.5,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header market-header",
+      "rect": {
+        "x": 120,
+        "y": 9,
+        "width": 1200,
+        "height": 45,
+        "top": 9,
+        "right": 1320,
+        "bottom": 54,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "breadcrumb",
+      "rect": {
+        "x": 120,
+        "y": 86,
+        "width": 1200,
+        "height": 20,
+        "top": 86,
+        "right": 1320,
+        "bottom": 106,
+        "left": 120
+      },
+      "font": "14px / 20px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "20px"
+    },
+    {
+      "selector": "checkout-layout",
+      "rect": {
+        "x": 120,
+        "y": 124,
+        "width": 1200,
+        "height": 875.5,
+        "top": 124,
+        "right": 1320,
+        "bottom": 999.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "collector-form ",
+      "rect": {
+        "x": 120,
+        "y": 124,
+        "width": 763,
+        "height": 875.5,
+        "top": 124,
+        "right": 883,
+        "bottom": 999.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "profile-grid",
+      "rect": {
+        "x": 120,
+        "y": 156,
+        "width": 763,
+        "height": 388,
+        "top": 156,
+        "right": 883,
+        "bottom": 544,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "checkout-summary",
+      "rect": {
+        "x": 915,
+        "y": 124,
+        "width": 405,
+        "height": 875.5,
+        "top": 124,
+        "right": 1320,
+        "bottom": 999.5,
+        "left": 915
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 120,
+        "y": 1095.5,
+        "width": 1200,
+        "height": 610,
+        "top": 1095.5,
+        "right": 1320,
+        "bottom": 1705.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 120,
+        "y": 1095.5,
+        "width": 1200,
+        "height": 250,
+        "top": 1095.5,
+        "right": 1320,
+        "bottom": 1345.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 120,
+        "y": 1345.5,
+        "width": 1200,
+        "height": 88,
+        "top": 1345.5,
+        "right": 1320,
+        "bottom": 1433.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 120,
+        "y": 1433.5,
+        "width": 1200,
+        "height": 236,
+        "top": 1433.5,
+        "right": 1320,
+        "bottom": 1669.5,
+        "left": 120
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "desktop-receipt": [
+    {
+      "selector": "receipt",
+      "rect": {
+        "x": 431,
+        "y": 166,
+        "width": 578,
+        "height": 930,
+        "top": 166,
+        "right": 1009,
+        "bottom": 1096,
+        "left": 431
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "mobile-home": [
+    {
+      "selector": "shell  home-shell",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 414,
+        "height": 4623.5,
+        "top": 0,
+        "right": 414,
+        "bottom": 4623.5,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "hero",
+      "rect": {
+        "x": 24,
+        "y": 101,
+        "width": 366,
+        "height": 190,
+        "top": 101,
+        "right": 390,
+        "bottom": 291,
+        "left": 24
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog",
+      "rect": {
+        "x": 24,
+        "y": 307,
+        "width": 366,
+        "height": 1474,
+        "top": 307,
+        "right": 390,
+        "bottom": 1781,
+        "left": 24
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog-toolbar",
+      "rect": {
+        "x": 24,
+        "y": 307,
+        "width": 366,
+        "height": 23,
+        "top": 307,
+        "right": 390,
+        "bottom": 330,
+        "left": 24
+      },
+      "font": "15px / 22.5px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "22.5px"
+    },
+    {
+      "selector": "sort-label",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "15px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "nft-grid",
+      "rect": {
+        "x": 24,
+        "y": 346,
+        "width": 366,
+        "height": 1336,
+        "top": 346,
+        "right": 390,
+        "bottom": 1682,
+        "left": 24
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promos",
+      "rect": {
+        "x": 24,
+        "y": 1829,
+        "width": 366,
+        "height": 420,
+        "top": 1829,
+        "right": 390,
+        "bottom": 2249,
+        "left": 24
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 24,
+        "y": 1829,
+        "width": 366,
+        "height": 200,
+        "top": 1829,
+        "right": 390,
+        "bottom": 2029,
+        "left": 24
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 24,
+        "y": 2049,
+        "width": 366,
+        "height": 200,
+        "top": 2049,
+        "right": 390,
+        "bottom": 2249,
+        "left": 24
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "journal",
+      "rect": {
+        "x": 24,
+        "y": 2297,
+        "width": 366,
+        "height": 925,
+        "top": 2297,
+        "right": 390,
+        "bottom": 3222,
+        "left": 24
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 24,
+        "y": 3270,
+        "width": 366,
+        "height": 1253.5,
+        "top": 3270,
+        "right": 390,
+        "bottom": 4523.5,
+        "left": 24
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 24,
+        "y": 3270,
+        "width": 366,
+        "height": 550,
+        "top": 3270,
+        "right": 390,
+        "bottom": 3820,
+        "left": 24
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 24,
+        "y": 3820,
+        "width": 366,
+        "height": 193,
+        "top": 3820,
+        "right": 390,
+        "bottom": 4013,
+        "left": 24
+      },
+      "font": "12px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 24,
+        "y": 4013,
+        "width": 366,
+        "height": 414.5,
+        "top": 4013,
+        "right": 390,
+        "bottom": 4427.5,
+        "left": 24
+      },
+      "font": "11px / 16.5px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "16.5px"
+    }
+  ],
+  "mobile-detail": [
+    {
+      "selector": "shell  ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 414,
+        "height": 896,
+        "top": 0,
+        "right": 414,
+        "bottom": 896,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header market-header",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "breadcrumb",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 20px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "20px"
+    },
+    {
+      "selector": "product",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 414,
+        "height": 896,
+        "top": 0,
+        "right": 414,
+        "bottom": 896,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "product-gallery",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 414,
+        "height": 392,
+        "top": 0,
+        "right": 414,
+        "bottom": 392,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "product-info",
+      "rect": {
+        "x": 0,
+        "y": 392,
+        "width": 414,
+        "height": 504,
+        "top": 392,
+        "right": 414,
+        "bottom": 896,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "product-price",
+      "rect": {
+        "x": 303.515625,
+        "y": 424,
+        "width": 86.484375,
+        "height": 27,
+        "top": 424,
+        "right": 390,
+        "bottom": 451,
+        "left": 303.515625
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "product-description-section",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 24px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "24px"
+    },
+    {
+      "selector": "related",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "12px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "11px / 16.5px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "16.5px"
+    }
+  ],
+  "mobile-cart": [
+    {
+      "selector": "shell  ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 414,
+        "height": 789,
+        "top": 0,
+        "right": 414,
+        "bottom": 789,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header market-header",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "breadcrumb",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 20px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "20px"
+    },
+    {
+      "selector": "cart-layout",
+      "rect": {
+        "x": 28,
+        "y": 91,
+        "width": 358,
+        "height": 698,
+        "top": 91,
+        "right": 386,
+        "bottom": 789,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "cart-summary",
+      "rect": {
+        "x": 0,
+        "y": 435,
+        "width": 414,
+        "height": 354,
+        "top": 435,
+        "right": 414,
+        "bottom": 789,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "related",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "12px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "11px / 16.5px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "16.5px"
+    }
+  ],
+  "mobile-login": [
+    {
+      "selector": "shell  home-shell",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "hero",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog-toolbar",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "15px / 22.5px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "22.5px"
+    },
+    {
+      "selector": "sort-label",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "15px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "nft-grid",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promos",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "journal",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "12px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "11px / 16.5px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "16.5px"
+    },
+    {
+      "selector": "auth-card ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 414,
+        "height": 896,
+        "top": 0,
+        "right": 414,
+        "bottom": 896,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "mobile-signup": [
+    {
+      "selector": "shell  home-shell",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "hero",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "catalog-toolbar",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "15px / 22.5px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "22.5px"
+    },
+    {
+      "selector": "sort-label",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "15px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "nft-grid",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promos",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "promo",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "journal",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "12px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "11px / 16.5px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "16.5px"
+    },
+    {
+      "selector": "auth-card register-card",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 414,
+        "height": 942,
+        "top": 0,
+        "right": 414,
+        "bottom": 942,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "mobile-checkout": [
+    {
+      "selector": "shell  ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 414,
+        "height": 978,
+        "top": 0,
+        "right": 414,
+        "bottom": 978,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header market-header",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "breadcrumb",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 20px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "20px"
+    },
+    {
+      "selector": "checkout-layout",
+      "rect": {
+        "x": 28,
+        "y": 91,
+        "width": 358,
+        "height": 863,
+        "top": 91,
+        "right": 386,
+        "bottom": 954,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "collector-form ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "profile-grid",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "checkout-summary",
+      "rect": {
+        "x": 28,
+        "y": 91,
+        "width": 358,
+        "height": 863,
+        "top": 91,
+        "right": 386,
+        "bottom": 954,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "12px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "11px / 16.5px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "16.5px"
+    }
+  ],
+  "mobile-profile": [
+    {
+      "selector": "shell account-shell ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 414,
+        "height": 1202,
+        "top": 0,
+        "right": 414,
+        "bottom": 1202,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header ",
+      "rect": {
+        "x": 28,
+        "y": 24,
+        "width": 358,
+        "height": 42,
+        "top": 24,
+        "right": 386,
+        "bottom": 66,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "account-layout",
+      "rect": {
+        "x": 28,
+        "y": 90,
+        "width": 358,
+        "height": 1088,
+        "top": 90,
+        "right": 386,
+        "bottom": 1178,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "profile-grid",
+      "rect": {
+        "x": 28,
+        "y": 249,
+        "width": 358,
+        "height": 531.5,
+        "top": 249,
+        "right": 386,
+        "bottom": 780.5,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "mobile-wallets": [
+    {
+      "selector": "shell account-shell ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 414,
+        "height": 1456,
+        "top": 0,
+        "right": 414,
+        "bottom": 1456,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header ",
+      "rect": {
+        "x": 28,
+        "y": 24,
+        "width": 358,
+        "height": 42,
+        "top": 24,
+        "right": 386,
+        "bottom": 66,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "account-layout",
+      "rect": {
+        "x": 28,
+        "y": 90,
+        "width": 358,
+        "height": 1342,
+        "top": 90,
+        "right": 386,
+        "bottom": 1432,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "wallet-form wallet-primary-form",
+      "rect": {
+        "x": 28,
+        "y": 305,
+        "width": 358,
+        "height": 923,
+        "top": 305,
+        "right": 386,
+        "bottom": 1228,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ],
+  "mobile-review": [
+    {
+      "selector": "shell  ",
+      "rect": {
+        "x": 0,
+        "y": -66,
+        "width": 414,
+        "height": 962,
+        "top": -66,
+        "right": 414,
+        "bottom": 896,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "header market-header",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "breadcrumb",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 20px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "20px"
+    },
+    {
+      "selector": "checkout-layout",
+      "rect": {
+        "x": 28,
+        "y": 25,
+        "width": 358,
+        "height": 847,
+        "top": 25,
+        "right": 386,
+        "bottom": 872,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "collector-form ",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "profile-grid",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "checkout-summary",
+      "rect": {
+        "x": 28,
+        "y": 25,
+        "width": 358,
+        "height": 847,
+        "top": 25,
+        "right": 386,
+        "bottom": 872,
+        "left": 28
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "footer-features",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    },
+    {
+      "selector": "brand-band",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "12px / 18px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "18px"
+    },
+    {
+      "selector": "footer-columns",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "font": "11px / 16.5px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "16.5px"
+    }
+  ],
+  "mobile-receipt": [
+    {
+      "selector": "receipt",
+      "rect": {
+        "x": 16,
+        "y": 32,
+        "width": 382,
+        "height": 990.5,
+        "top": 32,
+        "right": 398,
+        "bottom": 1022.5,
+        "left": 16
+      },
+      "font": "14px / 21px \"Roboto Mono Variable\", monospace",
+      "lineHeight": "21px"
+    }
+  ]
+}

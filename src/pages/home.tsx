@@ -123,7 +123,7 @@ export function Related({ title = "Mais desta coleção" }: { title?: string }) 
         </div>
       )}
       <div className="carousel-dots" aria-hidden="true">
-        ○●○
+        <img src="/assets/8db8a.svg" alt="" />
       </div>
     </section>
   );
@@ -254,7 +254,7 @@ function Filters({
     </div>
   );
 }
-export function Home() {
+export function Home({ background = false }: { background?: boolean }) {
   const search = validateSearch(useSearch({ strict: false }));
   const navigate = useNavigate();
   const q = useQuery(catalogQuery(search));
@@ -271,7 +271,7 @@ export function Home() {
   };
   return (
     <>
-      <Page className="home-shell">
+      <Page className="home-shell" background={background}>
         <section className="hero">
           <img className="hero-bg" src="/assets/dc76c.svg" alt="" />
           <div className="hero-copy">
@@ -371,17 +371,32 @@ export function Home() {
                 ))}
               </div>
               <label className="sort-label">
-                Ordenar por:{" "}
-                <select
-                  aria-label="Ordenar NFTs"
-                  value={search.sort}
-                  onChange={(e) => update({ sort: e.target.value })}
-                >
-                  <option value="recent">Listados recentemente</option>
-                  <option value="price-asc">Menor preço</option>
-                  <option value="price-desc">Maior preço</option>
-                  <option value="popular">Mais populares</option>
-                </select>
+                <span>Ordenar por:</span>
+                <span className="sort-control">
+                  <span aria-hidden="true">
+                    {
+                      {
+                        recent: "Listados recentemente",
+                        "price-asc": "Menor preço",
+                        "price-desc": "Maior preço",
+                        popular: "Mais populares",
+                      }[search.sort]
+                    }
+                  </span>
+                  <span className="sort-chevron" aria-hidden="true">
+                    <img src="/assets/7e373.svg" alt="" />
+                  </span>
+                  <select
+                    aria-label="Ordenar NFTs"
+                    value={search.sort}
+                    onChange={(e) => update({ sort: e.target.value })}
+                  >
+                    <option value="recent">Listados recentemente</option>
+                    <option value="price-asc">Menor preço</option>
+                    <option value="price-desc">Maior preço</option>
+                    <option value="popular">Mais populares</option>
+                  </select>
+                </span>
               </label>
             </div>
             <form
@@ -492,7 +507,20 @@ export function Home() {
                 loading="lazy"
               />
               <div>
-                <h2>{title}</h2>
+                <h2>
+                  {i ? (
+                    <>
+                      Arte digital selecionada
+                      <br />e muito mais
+                    </>
+                  ) : (
+                    <>
+                      Lançamentos gênesis
+                      <br />
+                      de edição limitada
+                    </>
+                  )}
+                </h2>
                 <p>{description}</p>
                 <Button
                   size="sm"
@@ -540,10 +568,10 @@ export function Home() {
               ],
               [
                 "b7cfc.png",
-                "18",
-                "3",
+                "15",
+                "2",
                 "Como proteger sua carteira",
-                "Proteja sua coleção, confira permissões e negocie com segurança.",
+                "Proteja sua carteira, seus ativos e sua identidade.",
               ],
             ].map(([img, day, min, title, desc]) => (
               <article key={title}>

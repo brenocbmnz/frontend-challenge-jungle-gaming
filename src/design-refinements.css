@@ -1,0 +1,812 @@
+/* Optical and layout corrections measured against the saved Figma contexts. */
+:root {
+  text-rendering: geometricPrecision;
+}
+.sort-label {
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 18px;
+}
+.sort-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.sort-chevron {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.sort-control select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  opacity: 0;
+}
+.sort-control:focus-within {
+  outline: 2px solid #e89b55;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.product-rating .desktop-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: normal;
+  color: #f5f1eb;
+}
+.rating-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.rating-star {
+  display: grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+}
+.rating-star img {
+  width: auto;
+  height: auto;
+  max-width: none;
+}
+.product-rating .mobile-rating {
+  display: none;
+}
+.header-actions .account-link > img {
+  width: auto;
+  height: auto;
+}
+
+@media (min-width: 1301px) {
+  .hero h1 {
+    font-size: 44px;
+  }
+  .catalog-toolbar {
+    height: 18px;
+    min-height: 18px;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .catalog-tabs {
+    gap: 20px;
+  }
+  .catalog-tabs button {
+    position: relative;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 16px;
+    border-bottom: 0;
+  }
+  .catalog-tabs button.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 21px;
+    height: 2px;
+    width: min(101px, 100%);
+    background: #d28a4c;
+  }
+  .promo {
+    border-radius: 8px;
+  }
+  .promo-art {
+    width: 287px;
+    flex: none;
+  }
+  .promo > div {
+    position: absolute;
+    inset: 0 30px 0 auto;
+    width: 263px;
+    padding: 0;
+  }
+  .promo h2 {
+    position: absolute;
+    top: 37px;
+    right: 0;
+    white-space: nowrap;
+  }
+  .promo p {
+    position: absolute;
+    top: 94px;
+    right: 0;
+    width: 263px;
+    margin: 0;
+    line-height: 24px;
+  }
+  .promo button {
+    position: absolute;
+    top: 164px;
+    right: 0;
+    width: 140px;
+    min-height: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .promo:nth-child(2) > div {
+    right: 35px;
+    width: 262px;
+  }
+  .promo:nth-child(2) .promo-art {
+    margin-left: 2px;
+  }
+  .promo:nth-child(2) p {
+    right: 4px;
+    width: 252px;
+  }
+  .journal > h2 {
+    font-size: 28px;
+    line-height: normal;
+  }
+  .journal-grid {
+    grid-template-columns: repeat(4, 268px);
+  }
+  .journal article {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .journal h3 {
+    font-size: 16px;
+    line-height: normal;
+  }
+  .journal small,
+  .journal article p {
+    font-weight: 500;
+    line-height: 16px;
+  }
+  .footer-features {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) 357px;
+    gap: 0;
+    min-height: 250px;
+    padding: 32px;
+  }
+  .feature {
+    padding-inline: 16px;
+  }
+  .feature h3 {
+    font-size: 17px;
+    line-height: 20px;
+  }
+  .newsletter {
+    padding-inline: 16px;
+  }
+  .newsletter h3 {
+    font-size: 18px;
+    line-height: 16px;
+  }
+  .newsletter form {
+    margin: 16px 0;
+  }
+  .newsletter button {
+    width: 85px;
+    flex: none;
+    padding: 0;
+    font-size: 18px;
+  }
+  .newsletter button:disabled {
+    opacity: 1;
+  }
+  .newsletter p {
+    min-height: 89px;
+  }
+  .brand-band {
+    height: 88px;
+    min-height: 88px;
+    padding: 24px 32px;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) 228px;
+    gap: 92px;
+  }
+  .brand-band p,
+  .brand-band a {
+    line-height: 22px;
+    white-space: nowrap;
+  }
+  .footer-columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) 228px;
+    gap: 124px;
+    height: 236px;
+  }
+  .footer-columns h3 {
+    font-size: 18px;
+    line-height: 16px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+  }
+  .footer-columns > div:last-child > h3:first-child {
+    margin-bottom: 20px;
+  }
+  .footer-columns > div:last-child > h3.mt-8 {
+    margin-top: 32px;
+    margin-bottom: 20px;
+    white-space: normal;
+  }
+  .wallet-chip {
+    font-size: 8px;
+  }
+  .copyright {
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 6px;
+  }
+}
+@media (max-width: 768px) {
+  .product-rating .desktop-rating {
+    display: none;
+  }
+  .product-rating .mobile-rating {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    color: #cfb28c;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .mobile-rating > span:first-of-type {
+    color: #f5f1eb;
+  }
+  .product-price > .product-rating {
+    padding: 5px;
+    height: 27px;
+  }
+  .promo h2 br {
+    display: none;
+  }
+  .sort-label {
+    display: none;
+  }
+}
+
+.account-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+.account-icon img {
+  width: auto;
+  height: auto;
+  max-width: none;
+}
+.checkout-coupon-toggle,
+.checkout-wallet-toggle {
+  color: #cfb28c;
+  font-size: 12px;
+  text-align: left;
+  padding: 0;
+}
+.checkout-coupon-toggle {
+  margin: 16px 0;
+}
+.share {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.share a,
+.share button {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+}
+.share img {
+  width: auto;
+  height: auto;
+  max-width: none;
+}
+@media (min-width: 1301px) {
+  .product-thumbs,
+  .product-thumbs img {
+    width: 100px;
+  }
+  .product-thumbs img {
+    height: 100px;
+  }
+  .product-gallery {
+    gap: 29px;
+  }
+  .product-main-image {
+    display: grid;
+    place-items: center;
+  }
+  .product-main-image > img {
+    width: 404px;
+    height: 404px;
+  }
+  .zoom-button {
+    top: 15px;
+    right: 13px;
+    padding: 0;
+  }
+  .product-info h1 {
+    line-height: normal;
+  }
+  .product-price {
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+  .product-price > strong {
+    font-size: 22px;
+    line-height: 16px;
+  }
+  .product-purchase {
+    margin-top: 14px;
+    margin-bottom: 12px;
+  }
+  .product-purchase > .quantity {
+    gap: 12px;
+    font-size: 20px;
+  }
+  .product-purchase .quantity button {
+    width: 33px;
+    height: 49.5px;
+  }
+  .product-purchase > button {
+    min-width: 130px;
+    height: 40px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+  .edition-selector button {
+    height: 28px;
+    padding: 0 6px;
+    line-height: 26px;
+  }
+  .checkout-layout {
+    grid-template-columns: minmax(0, 763px) minmax(0, 405px);
+    gap: 32px;
+  }
+  .collector-form h1 {
+    font-size: 17px;
+    line-height: 16px;
+    margin-bottom: 12px;
+  }
+  .collector-form .profile-grid {
+    gap: 28px;
+  }
+  .collector-form .field > label {
+    line-height: 20px;
+    white-space: nowrap;
+  }
+  .collector-form .field:nth-child(8) > label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .collector-form .field:nth-child(8) {
+    align-self: end;
+  }
+  .note-field {
+    width: 350px;
+    max-width: 100%;
+    font-size: 15px;
+    margin-top: 28px;
+  }
+  .note-field textarea {
+    height: 152px;
+  }
+  .checkout-summary > h2 {
+    font-size: 15px;
+    line-height: 16px;
+    margin-bottom: 16px;
+  }
+  .checkout-lines > div {
+    background: #241612;
+    padding: 6px;
+    margin: 8px 0;
+    gap: 12px;
+  }
+  .checkout-lines img {
+    width: 64px;
+    height: 64px;
+  }
+  .checkout-lines span {
+    font-size: 14px;
+  }
+  .checkout-lines small {
+    font-size: 12px;
+  }
+  .checkout-lines strong {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .checkout-wallets:not(.is-expanded) {
+    display: none;
+  }
+  .checkout-wallet-toggle {
+    margin-bottom: 12px;
+  }
+  .checkout-summary .wallet-heading {
+    margin-top: 20px;
+  }
+  .checkout-summary .wallet-heading h2 {
+    font-size: 15px;
+  }
+  .checkout-summary .wallet-heading a {
+    font-size: 12px;
+  }
+  .checkout-summary > h2.mt-4 {
+    margin-top: 0;
+  }
+  .provider-options {
+    gap: 12px;
+  }
+  .provider-options label {
+    min-height: 40px;
+    padding: 10px 12px;
+    border: 1px solid #3f2319;
+    border-radius: 3px;
+    background: transparent;
+    font-size: 12px;
+  }
+  .provider-options label > input {
+    order: -1;
+    margin-left: 0;
+  }
+  .provider-icon {
+    display: none;
+  }
+  .confirm-purchase {
+    min-height: 40px;
+    margin-top: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .shell:has(.product) .product-description-section,
+  .shell:has(.product) .related,
+  .shell:has(.product) .footer {
+    display: none;
+  }
+  .product-info {
+    padding-bottom: 164px;
+  }
+  .product-info h1 {
+    line-height: 16px;
+  }
+  .shell:has(.detail-loading) .footer,
+  .detail-loading-description,
+  .detail-loading-related {
+    display: none;
+  }
+  .detail-loading {
+    height: 896px;
+    min-height: 896px;
+  }
+  .checkout-wallet-toggle {
+    display: none;
+  }
+}
+.provider-icon img {
+  max-width: 30px;
+  max-height: 28px;
+  width: auto;
+  height: auto;
+}
+.receipt-page {
+  min-height: 100dvh;
+  padding: 166px 24px 48px;
+  background: #140d0a;
+}
+.receipt-page .receipt {
+  width: 578px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 0;
+  border-bottom: 10px solid #d28a4c;
+}
+.receipt-page .receipt-heading {
+  height: 156px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.receipt-heading > img {
+  width: auto;
+  height: 80px;
+}
+.receipt-page .receipt-heading h1 {
+  font-size: 16px;
+  line-height: 20px;
+  color: #cfb28c;
+}
+.receipt-page .receipt-meta {
+  padding: 12px 36px;
+  gap: 12px;
+  border-top: 1px solid #d28a4c;
+  border-bottom: 1px solid #d28a4c;
+  font-size: 14px;
+}
+.receipt-page .receipt-meta dd {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.receipt-page .receipt-body {
+  padding: 24px 36px;
+}
+.receipt-page .receipt-body > h2 {
+  font-size: 16px;
+}
+.receipt-page .receipt-body h3 {
+  font-size: 15px;
+}
+.receipt-page .receipt-body > article {
+  gap: 12px;
+}
+.receipt-page .receipt-body > article img {
+  width: 64px;
+  height: 64px;
+}
+.receipt-page .receipt-body > article strong {
+  font-size: 15px;
+  white-space: nowrap;
+}
+@media (min-width: 1301px) {
+  .promo p {
+    line-height: 20px;
+  }
+  .footer-features {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) 337px;
+  }
+  .newsletter p {
+    min-height: 0;
+  }
+  .feature h3 {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .checkout-layout {
+    margin-top: 18px;
+  }
+  .collector-form h1 {
+    margin-bottom: 16px;
+  }
+  .collector-form .profile-grid {
+    gap: 17px 24px;
+  }
+  .collector-form .field > label {
+    margin-bottom: 4px;
+  }
+  .collector-form .checkout-wallet-toggle {
+    display: block;
+    margin: 24px 0 0;
+    font-size: 15px;
+  }
+  .collector-form .checkout-wallet-toggle::before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #d28a4c;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: -2px;
+  }
+  .note-field {
+    margin-top: 24px;
+  }
+  .checkout-line-head {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #3f2319;
+    padding-bottom: 12px;
+  }
+  .checkout-lines > div {
+    height: 70px;
+    padding: 0 6px;
+    margin: 12px 0;
+  }
+  .checkout-lines img {
+    width: 70px;
+    height: 70px;
+  }
+  .checkout-lines em {
+    font-style: normal;
+  }
+  .checkout-summary .wallet-heading {
+    margin-top: 12px;
+  }
+  .checkout-summary .totals {
+    margin-top: 0;
+  }
+  .checkout-summary > h2.mt-4 {
+    text-align: center;
+    font-size: 18px;
+  }
+}
+@media (max-width: 768px) {
+  .checkout-line-head {
+    display: none;
+  }
+  .receipt-page {
+    padding: 32px 16px;
+  }
+  .receipt-page .receipt-meta {
+    padding: 16px;
+  }
+  .receipt-page .receipt-body {
+    padding: 24px 16px;
+  }
+}
+.avatar-placeholder {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #3f2319;
+  border-radius: 50%;
+  background: #2f1d15;
+}
+.avatar-placeholder img {
+  width: auto;
+  height: auto;
+}
+@media (min-width: 1301px) {
+  .account-sidebar h2 {
+    padding: 10px;
+    line-height: 24px;
+  }
+  .profile-form .profile-grid {
+    row-gap: 30px;
+  }
+  .profile-form .field > label {
+    margin-bottom: 16px;
+  }
+  .profile-form .avatar-field > div {
+    gap: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .shell:has(.product) {
+    padding-bottom: 0;
+  }
+  .product-info h1 {
+    line-height: 26px;
+  }
+  .product-info .product-price {
+    top: 32px;
+  }
+  .product-rating .mobile-rating {
+    gap: 0;
+  }
+  .mobile-rating > img {
+    margin-right: 4px;
+  }
+}
+@media (min-width: 1301px) {
+  .promo:nth-child(2) p {
+    width: 254px;
+  }
+  .catalog .nft-price {
+    line-height: 16px;
+  }
+  .footer-features {
+    height: 250px;
+    min-height: 250px;
+    padding-bottom: 16px;
+  }
+  .footer .feature h3 {
+    font-size: 17px;
+    line-height: 16px;
+    white-space: nowrap;
+  }
+  .journal > p {
+    line-height: normal;
+  }
+  .journal article > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .journal small {
+    display: block;
+  }
+  .journal h3,
+  .journal article p {
+    margin: 0;
+  }
+  .journal article button {
+    align-self: flex-start;
+    line-height: 16px;
+    font-weight: 700;
+  }
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    height: 12px;
+  }
+  .carousel-dots img {
+    width: auto;
+    height: auto;
+    max-width: none;
+  }
+}
+@media (min-width: 1301px) {
+  /* Allow the complete last word to fit with the browser's fractional glyph advance. */
+  .promo:nth-child(2) p {
+    width: 264px;
+  }
+}
+.input-wrap > button > img {
+  width: auto;
+  height: auto;
+}
+@media (min-width: 1301px) {
+  .auth-scrim {
+    background: transparent;
+  }
+  .profile-form .field > label > .text-accent {
+    color: #f0805f;
+  }
+}
+@media (min-width: 1301px) {
+  .nft-card > a {
+    display: block;
+  }
+  .copyright {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 1301px) {
+  .promo h2 {
+    font-size: 17px;
+  }
+  .promo p {
+    font-size: 13px;
+  }
+  .promo:nth-child(2) p {
+    width: 252px;
+  }
+}
+@media (min-width: 1301px) {
+  .catalog .nft-card:nth-child(n + 4) .nft-price {
+    margin-top: 6px;
+  }
+}
+
+/* Checkout fields remain available without changing the mobile opening screen. */
+.network-choice select {
+  width: 100%;
+  height: 40px;
+}
+.collector-toggle {
+  padding: 12px 0;
+  color: #e89b55;
+  text-align: left;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .checkout-summary > .network-choice {
+    display: block;
+    margin-top: 20px;
+  }
+  .checkout-summary > .network-choice select {
+    display: block;
+    margin-top: 8px;
+  }
+  .collector-form.is-expanded {
+    display: block;
+  }
+  .collector-form.is-expanded .field:nth-child(n + 4) {
+    display: block;
+  }
+}

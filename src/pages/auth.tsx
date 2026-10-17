@@ -45,10 +45,14 @@ export function Auth({ register = false }: { register?: boolean }) {
   return (
     <div className="auth-page">
       <div className="auth-backdrop" aria-hidden="true" inert>
-        <Home />
+        <Home background />
       </div>
       <div className="auth-scrim" />
-      <main className={`auth-card ${register ? "register-card" : ""}`}>
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className={`auth-card ${register ? "register-card" : ""}`}
+      >
         <Link to="/" aria-label="Kurio — Início" className="auth-logo">
           KURIO
         </Link>

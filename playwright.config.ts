@@ -1,6 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
 const production = process.env.PLAYWRIGHT_PRODUCTION === "1";
-const baseURL = production ? "http://127.0.0.1:4173" : "http://127.0.0.1:5173";
+const port = Number(process.env.PLAYWRIGHT_PORT || (production ? 4173 : 5173));
+if (!Number.isInteger(port) || port < 1024 || port > 65535)
+  throw new Error("PLAYWRIGHT_PORT inválida");
+const baseURL = `http://127.0.0.1:${port}`;
 export default defineConfig({
   testDir: "./tests",
   timeout: 60000,
@@ -33,7 +36,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: production ? "npm run preview" : "npm run dev",
+    command: production
+      ? `npm run preview -- --port ${port}`
+      : `npm run dev -- --port ${port}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
   },

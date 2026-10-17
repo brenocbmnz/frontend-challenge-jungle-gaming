@@ -4,7 +4,7 @@ import {
   type InputHTMLAttributes,
   type ReactNode,
 } from "react";
-import { Eye, EyeOff, Minus, Plus } from "lucide-react";
+import { Eye, Minus, Plus } from "lucide-react";
 import { errorData } from "../api/client";
 import { Button } from "./ui/button";
 export function Field({
@@ -41,7 +41,11 @@ export function Field({
             aria-label={visible ? "Ocultar senha" : "Mostrar senha"}
             onClick={() => setVisible((v) => !v)}
           >
-            {visible ? <Eye size={17} /> : <EyeOff size={17} />}
+            {visible ? (
+              <Eye size={17} />
+            ) : (
+              <img src="/assets/76790.svg" alt="" />
+            )}
           </button>
         )}
       </div>

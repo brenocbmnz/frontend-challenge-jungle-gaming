@@ -1,15 +1,15 @@
 # Lighthouse
 
-Execução: 2026-10-17T20:22:45.765Z. Node v22.17.1; Lighthouse 12.8.2.
+Execução: 2026-10-17T21:58:41.941Z. Node v22.17.1; Lighthouse 12.8.2.
 
 Medianas de três execuções por página e perfil. LCP/TBT em ms.
 
 | Página | Perfil | Performance | Acessibilidade | Boas práticas | SEO | LCP | CLS | TBT |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| inicio | desktop | 100 | 100 | 100 | 100 | 770 | 0.000 | 0 |
-| detalhe | desktop | 100 | 100 | 100 | 100 | 761 | 0.000 | 0 |
-| inicio | mobile | 91 | 100 | 100 | 100 | 3402 | 0.000 | 100 |
-| detalhe | mobile | 91 | 100 | 100 | 100 | 3498 | 0.000 | 6 |
+| inicio | desktop | 100 | 100 | 100 | 100 | 761 | 0.000 | 0 |
+| detalhe | desktop | 100 | 100 | 100 | 100 | 729 | 0.000 | 0 |
+| inicio | mobile | 92 | 100 | 100 | 100 | 3251 | 0.000 | 52 |
+| detalhe | mobile | 93 | 100 | 100 | 100 | 3135 | 0.000 | 10 |
 
 Ambiente e resultados completos: [summary.json](summary.json). Os relatórios individuais HTML/JSON acompanham esta pasta.
 

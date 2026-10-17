@@ -57,7 +57,9 @@ test("acesso direto ao detalhe e NFT inexistente", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "Emerald Ape #042", exact: true }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "ABERTA", exact: true }).isDisabled();
+  await expect(
+    page.getByRole("button", { name: "ABERTA", exact: true }),
+  ).toBeDisabled();
   await page.goto("/nft/unknown");
   await expect(page.getByRole("alert")).toContainText("NFT não encontrado");
   await page.goto("/rota-inexistente");

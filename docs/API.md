@@ -29,7 +29,7 @@ Base `/api`. JSON. Toda chamada REST da aplicação passa pelo Axios. Credenciai
 | GET /orders/:id | Token | Order e snapshot |
 | GET /orders/by-key/:key | Token | Order da tentativa |
 
-Nft contém identidade, nome, token, imagem local, categoria, rede, preço, estoque, edições e versão. Quote contém linhas com preço unitário/subtotal/estoque/versão, subtotal, desconto, taxa, total, cupom, validade e conflitos. Order preserva quote e wallet no momento da compra, status, referência e data.
+Nft contém identidade, nome, token, imagem local, categoria, rede, preço, estoque, edições e versão. Quote contém linhas com preço unitário/subtotal/estoque/versão, subtotal, desconto, taxa, total, cupom, validade e conflitos. O campo opcional `token` das linhas da cotação contém o ID real do token; recibos antigos podem não conter esse campo. Order preserva quote e wallet no momento da compra, status, referência e data.
 
 Wallet aceita também `displayName`, `email`, `profileName`, `ens`, `secondaryAddress` e `referral` opcionais no editor principal. Os campos são persistidos junto da carteira; e-mail informado é validado.
 
@@ -44,6 +44,8 @@ Formato `{ message, fields?: Record<string,string>, code?: string }`.
 - 503 e falha de conexão: cenários transitórios reproduzíveis.
 
 O mesmo token não dá acesso a pedidos de outro usuário. Estado privado não é retornado sem sessão válida.
+
+O pedido valida nome, usuário, e-mail e os formatos dos campos opcionais informados (ENS, carteira secundária, indicação e limites de texto). Erros 422 incluem `fields` com as chaves de `Collector` ou `note`. A interface associa essas mensagens aos controles, sem tornar os campos opcionais obrigatórios.
 
 ## Eventos Socket.IO
 

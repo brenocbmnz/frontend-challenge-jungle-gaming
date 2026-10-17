@@ -146,7 +146,7 @@ export function CartPage() {
                   <div>
                     <h2>{line.name}</h2>
                     <p className="desktop-only">
-                      ID do token: #{line.nftId.padStart(4, "0")}
+                      ID do token: #{line.token || line.nftId.padStart(4, "0")}
                     </p>
                     <p className="mobile-only">Edição: {line.edition}</p>
                     <strong className="mobile-only">

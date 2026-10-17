@@ -6,15 +6,32 @@ import lighthouse from "lighthouse";
 
 const directory = "reports/lighthouse";
 await fs.mkdir(directory, { recursive: true });
-const server = spawn("npm", ["run", "preview", "--", "--port", "4173"], {
-  stdio: "ignore",
-});
-const base = "http://127.0.0.1:4173";
+const port = Number(process.env.LIGHTHOUSE_PORT || 4175);
+if (!Number.isInteger(port) || port < 1024 || port > 65535)
+  throw new Error("LIGHTHOUSE_PORT inválida");
+const server = spawn(
+  process.execPath,
+  ["scripts/preview.mjs", "--port", String(port)],
+  { stdio: "ignore" },
+);
+const base = `http://127.0.0.1:${port}`;
+let ready = false;
 for (let i = 0; i < 60; i++) {
+  if (server.exitCode !== null)
+    throw new Error(
+      "O servidor da auditoria não iniciou. Confira LIGHTHOUSE_PORT.",
+    );
   try {
-    if ((await fetch(base)).ok) break;
+    if ((await fetch(base)).ok) {
+      ready = true;
+      break;
+    }
   } catch {}
   await new Promise((resolve) => setTimeout(resolve, 500));
+}
+if (!ready) {
+  server.kill("SIGTERM");
+  throw new Error("Timeout ao iniciar o servidor da auditoria.");
 }
 const results = [];
 let chromiumVersion = "";

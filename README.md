@@ -23,12 +23,17 @@ npx playwright install chromium
 npm test
 PLAYWRIGHT_PRODUCTION=1 npm test # após o build, valida a entrega otimizada
 npm run test:report
+npm run test:export # prepara reports/playwright/index.html para a entrega
 npm run audit
 ```
 
 `node scripts/optimize-assets.mjs` recria as versões WebP responsivas e copia a fonte local preservando os assets originais.
 
+`PLAYWRIGHT_PORT=4183 PLAYWRIGHT_PRODUCTION=1 npm test` permite validar uma cópia isolada em outra porta.
+
 `npm run test:update` gera/atualiza as baselines visuais. Revise as imagens antes de aceitar mudanças. O relatório Playwright fica em `playwright-report/`; screenshots e traces de falha ficam em `test-results/`. Os testes usam contextos isolados, relógio controlado e passam por MSW e socket.io-client.
+
+No pagamento, escolha uma rede com carteira cadastrada; a conexão e a revisão precisam ser refeitas ao trocar carteira, rede ou provedor. No mobile, expanda “Dados do colecionador” para editar os campos adicionais e a observação.
 
 ## Publicar
 
@@ -84,5 +89,8 @@ A UI deve atualizar o total e exigir revisão. `type: 'sold-out'` esgota a obra;
 - [Contratos REST e eventos](docs/API.md)
 - [Arquitetura e decisões](ARCHITECTURE.md)
 - [Verificação e pendências](docs/VALIDATION.md)
+- [Relatório Playwright](docs/TEST_REPORTS.md)
+- [Resultados Lighthouse](reports/lighthouse/README.md)
+- [Galeria da revisão visual](reports/design-review/index.html)
 
 Os arquivos em `design/reference/` preservam o contexto de design recebido; não são código da aplicação. Imagens, SVGs e a fonte são locais. Transações, links de exploração e conexões de carteira são simulados; não há movimentação de fundos.

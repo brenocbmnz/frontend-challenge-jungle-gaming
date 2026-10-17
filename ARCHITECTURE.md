@@ -53,6 +53,10 @@ Diferenças e pontos ainda sujeitos à revisão:
 - Perfil, carteiras e recibo foram adaptados para mobile conforme o enunciado.
 - A confirmação indica explicitamente que a transação é simulada e apresenta referência textual em lugar de um link enganoso a um explorador real.
 
+A revisão de medidas, capturas e ajustes ópticos posteriores à exportação está em [docs/DESIGN_REVIEW.md](docs/DESIGN_REVIEW.md). Nos cards promocionais desktop, título/descrição usam 17/13 px para evitar contato com a imagem e sobreposição com o botão nas métricas reais da fonte no navegador.
+
+No pagamento, a rede é escolhida explicitamente entre as redes de carteiras cadastradas. Alterar a rede seleciona uma carteira compatível e invalida a conexão e a revisão anteriores; não altera silenciosamente o cadastro da carteira. A conexão é identificada por carteira, rede e provedor. No mobile, “Dados do colecionador” expande os mesmos campos do desktop. O diálogo mantém os três campos principais para edição rápida. Cliente e handler de pedidos compartilham a validação de transporte; erros são associados aos campos e o formulário é revelado quando precisa de correção.
+
 ## Publicação
 
 Build estático em `dist/`, com assets e worker MSW incluídos. O build também gera variantes Brotli/gzip dos arquivos textuais. `npm run preview` serve essas variantes conforme Accept-Encoding e aplica fallback de SPA, preservando arquivos estáticos e 404 para assets ausentes. O CDN de produção pode aplicar sua própria compressão. O host deve servir `index.html` como fallback de rotas, mas preservar `/mockServiceWorker.js` e assets estáticos. Configurações para Vercel, Netlify e Cloudflare Pages acompanham a entrega.
@@ -64,3 +68,5 @@ MSW fixado em 2.10.5, compatível com @mswjs/socket.io-binding 0.2.0. A versão 
 O plugin `route-artwork-preload` do Vite deriva o mapa de imagens da própria fixture, sem duplicar dados do catálogo. O HTML antecipa o asset da rota atual usando o mesmo `srcset` e `sizes` da imagem renderizada, em todas as rotas de NFT conhecidas e na home. Rotas sem artwork não antecipam imagens do catálogo.
 
 O build incorpora a folha CSS ao HTML antes de gerar Brotli/gzip, eliminando uma requisição bloqueante sem alterar regras ou o conteúdo visual. O cenário padrão não acrescenta espera artificial às respostas; `slow` mantém 1,8 s e `out-of-order` conserva suas latências específicas. `PLAYWRIGHT_PRODUCTION=1 npm test` valida o build pelo mesmo servidor estático comprimido usado no Lighthouse.
+
+A entrada `src/main.tsx` permanece pequena e importa a interface (`src/app.tsx`) e a inicialização MSW em paralelo. O React só monta depois que o worker termina de registrar os handlers. Isso evita que a transferência e avaliação de React DOM bloqueiem o início dos mocks, preservando a ordem necessária para REST e Socket.IO. Na home sem filtros, as três artes iniciais do catálogo são antecipadas; imagens adicionais usam prioridade baixa para não competir com a fonte e os módulos essenciais. Nenhuma imagem, fluxo, mock ou funcionalidade é desativado para a auditoria.

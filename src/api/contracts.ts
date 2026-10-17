@@ -48,6 +48,7 @@ export interface Cart {
   coupon: string;
 }
 export interface QuoteLine extends CartItem {
+  token?: string;
   name: string;
   image: string;
   price: string;

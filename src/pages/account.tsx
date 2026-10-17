@@ -1,13 +1,7 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useState, type FormEvent } from "react";
-import {
-  Heart,
-  LogOut,
-  MapPin,
-  UserRound,
-  Wallet as WalletIcon,
-} from "lucide-react";
+import { Wallet as WalletIcon } from "lucide-react";
 import type { Network, User, Wallet } from "../api/contracts";
 import { api, errorData, get } from "../api/client";
 import {
@@ -31,31 +25,50 @@ export function AccountSidebar() {
       <h2>Meu perfil</h2>
       <nav aria-label="Conta do colecionador">
         <Link to="/perfil" activeProps={{ className: "active" }}>
-          <UserRound size={18} />
+          <i className="account-icon">
+            <img src="/assets/55e96.svg" alt="" />
+          </i>
           Dados do perfil
         </Link>
         <Link to="/carteiras" activeProps={{ className: "active" }}>
-          <MapPin size={18} />
+          <i className="account-icon">
+            <img src="/assets/8a4e9.svg" alt="" />
+          </i>
           Carteiras
         </Link>
+        <span aria-disabled="true">
+          <i className="account-icon">
+            <img src="/assets/0586d.svg" alt="" />
+          </i>
+          Atividade
+        </span>
         <Link to="/favoritos" activeProps={{ className: "active" }}>
-          <Heart size={18} />
+          <i className="account-icon">
+            <img src="/assets/8b13b.svg" alt="" />
+          </i>
           Lista de interesse
         </Link>
-        {["Atividade", "Ofertas", "Arquivos baixados", "Suporte"].map(
-          (label) => (
-            <span key={label} aria-disabled="true">
-              {label}
-            </span>
-          ),
-        )}
+        {[
+          ["Ofertas", "83e14"],
+          ["Arquivos baixados", "65d5d"],
+          ["Suporte", "8d6ff"],
+        ].map(([label, icon]) => (
+          <span key={label} aria-disabled="true">
+            <i className="account-icon">
+              <img src={`/assets/${icon}.svg`} alt="" />
+            </i>
+            {label}
+          </span>
+        ))}
         <button
           onClick={async () => {
             await logout();
             await navigate({ to: "/" });
           }}
         >
-          <LogOut size={18} />
+          <i className="account-icon">
+            <img src="/assets/eaa87.svg" alt="" />
+          </i>
           Sair
         </button>
       </nav>
@@ -157,7 +170,9 @@ function ProfileForm({ profile }: { profile: User }) {
               {form.avatar ? (
                 <img src={form.avatar} alt="Seu avatar" />
               ) : (
-                <UserRound size={35} />
+                <i className="avatar-placeholder">
+                  <img src="/assets/19cc8.svg" alt="" />
+                </i>
               )}
               <label className="upload-button" htmlFor="avatar">
                 Alterar

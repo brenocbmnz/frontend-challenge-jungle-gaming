@@ -1,7 +1,7 @@
 import { Artwork } from "../components/artwork";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { Heart, Star, ZoomIn, ArrowLeft, Check } from "lucide-react";
+import { Heart, ArrowLeft, Check } from "lucide-react";
 import { useState } from "react";
 import type { Cart, Edition } from "../api/contracts";
 import { api } from "../api/client";
@@ -150,18 +150,18 @@ export function Detail() {
             <Artwork
               src={n.image}
               alt={n.name}
-              width="412"
-              height="412"
+              width="404"
+              height="404"
               fetchPriority="high"
               loading="eager"
-              sizes="(max-width:768px) calc(100vw - 56px), 412px"
+              sizes="(max-width:768px) calc(100vw - 56px), 404px"
             />
             <button
               className="zoom-button"
               aria-label="Ampliar imagem"
               onClick={() => setZoom(true)}
             >
-              <ZoomIn size={24} />
+              <img src="/assets/9ae7b.svg" alt="" />
             </button>
           </div>
         </div>
@@ -169,12 +169,27 @@ export function Detail() {
           <h1>{n.name}</h1>
           <div className="product-price">
             <strong>{eth(n.price)}</strong>
-            <span>
-              <Star size={14} fill="currentColor" />{" "}
+            <span
+              className="product-rating"
+              aria-label="Avaliação: 4,8 de 5, em 19 avaliações"
+            >
               <span className="desktop-rating">
-                ★★★★ 19 avaliações de colecionadores
+                <span className="rating-stars" aria-hidden="true">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <span className="rating-star" key={i}>
+                      <img
+                        src={`/assets/${i === 4 ? "89357" : "19a5f"}.svg`}
+                        alt=""
+                      />
+                    </span>
+                  ))}
+                </span>
+                <span>19 avaliações de colecionadores</span>
               </span>
-              <span className="mobile-rating">4.8 (19)</span>
+              <span className="mobile-rating">
+                <img src="/assets/6c41c.svg" alt="" /> <span>4.8</span>{" "}
+                <span>(19)</span>
+              </span>
             </span>
           </div>
           <h2>Sobre este NFT:</h2>
@@ -279,11 +294,30 @@ export function Detail() {
           </div>
           <p className="share">
             Compartilhar este NFT:{" "}
-            <button
-              onClick={() => void navigator.clipboard?.writeText(location.href)}
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Compartilhar no LinkedIn"
             >
-              Copiar link
+              <img src="/assets/a4abe.svg" alt="" />
+            </a>
+            <button
+              aria-label="Copiar link do NFT"
+              onClick={() =>
+                void navigator.clipboard?.writeText(window.location.href)
+              }
+            >
+              <img src="/assets/bec29.svg" alt="" />
             </button>
+            <a
+              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Compartilhar no X"
+            >
+              <img src="/assets/fbcbd.svg" alt="" />
+            </a>
           </p>
         </div>
       </section>

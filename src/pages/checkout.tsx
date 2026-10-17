@@ -2,7 +2,7 @@ import { Artwork } from "../components/artwork";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
-import { CheckCircle2, Wallet as WalletIcon, XCircle } from "lucide-react";
+import { XCircle } from "lucide-react";
 import axios from "axios";
 import type { Collector, Order, Quote, User, Wallet } from "../api/contracts";
 import { api, errorData, get } from "../api/client";
@@ -18,6 +18,7 @@ import { Empty, ErrorBox, Field, Skeleton } from "../components/common";
 import { Button } from "../components/ui/button";
 import { Dialog } from "../components/ui/dialog";
 import { eth } from "../lib/money";
+import { validateCollector } from "../lib/collector";
 import { Coupon, Totals } from "./cart";
 interface Attempt {
   key: string;
@@ -34,10 +35,14 @@ export function Checkout() {
   const wallets = useQuery(walletsQuery(uid));
   const navigate = useNavigate();
   const [selected, setSelected] = useState("");
+  const [chooseWallet, setChooseWallet] = useState(false);
+  const [showCoupon, setShowCoupon] = useState(false);
   const [provider, setProvider] = useState("");
   const [connected, setConnected] = useState("");
   const [review, setReview] = useState<Quote>();
   const [note, setNote] = useState("");
+  const [showCollector, setShowCollector] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [collector, setCollector] = useState<Collector>({
     name: user?.name || "",
     email: user?.email || "",
@@ -70,27 +75,54 @@ export function Checkout() {
         wallets.data?.[0]?.id),
   );
   const selectedProvider = provider || activeWallet?.provider || "MetaMask";
+  const connectionKey = activeWallet
+    ? `${activeWallet.id}:${activeWallet.network}:${selectedProvider}`
+    : "";
+  function validateDetails() {
+    const errors = validateCollector(collector, note);
+    setFieldErrors(errors);
+    if (Object.keys(errors).length) {
+      setShowCollector(true);
+      requestAnimationFrame(() => {
+        const invalid = Array.from(
+          document.querySelectorAll<HTMLElement>('[aria-invalid="true"]'),
+        ).find((el) => el.getClientRects().length);
+        invalid?.focus();
+      });
+      throw new Error("Revise os dados destacados do colecionador.");
+    }
+  }
+  function selectNetwork(network: string) {
+    const wallet =
+      wallets.data?.find(
+        (w) => w.network === network && w.id === activeWallet?.id,
+      ) || wallets.data?.find((w) => w.network === network);
+    if (!wallet) return;
+    setSelected(wallet.id);
+    setProvider("");
+    setConnected("");
+    setReview(undefined);
+  }
+  const networkOptions = [
+    ...new Set(wallets.data?.map((w) => w.network) || []),
+  ];
   const connect = useMutation({
     mutationFn: async () => {
       if (!activeWallet)
         throw new Error("Cadastre uma carteira para continuar.");
-      return api.post("/wallets/connect", {
+      await api.post("/wallets/connect", {
         walletId: activeWallet.id,
         network: activeWallet.network,
         provider: selectedProvider,
       });
+      return connectionKey;
     },
-    onSuccess: () => setConnected(activeWallet!.id),
+    onSuccess: (key) => setConnected(key),
   });
   const reviewMutation = useMutation({
     mutationFn: async () => {
-      if (
-        !collector.name.trim() ||
-        !/^\S+@\S+\.\S+$/.test(collector.email) ||
-        !collector.username.trim()
-      )
-        throw new Error("Preencha nome, nome de usuário e e-mail válido.");
-      if (!activeWallet || connected !== activeWallet.id)
+      validateDetails();
+      if (!activeWallet || connected !== connectionKey)
         throw new Error("Conecte a carteira selecionada antes de continuar.");
       const data = (await api.post<Quote>("/quote")).data;
       queryClient.setQueryData(["quote", uid], data);
@@ -107,6 +139,7 @@ export function Checkout() {
       try {
         let attempt = pendingAttempt;
         if (!attempt) {
+          validateDetails();
           if (!review || !activeWallet)
             throw new Error("Revise a compra antes de confirmar.");
           const current = (await api.post<Quote>("/quote")).data;
@@ -166,6 +199,8 @@ export function Checkout() {
         setReview(undefined);
         void q.refetch();
       }
+      const fields = errorData(error).fields;
+      if (fields) setFieldErrors(fields);
       setFormError(errorData(error).message);
     },
   });
@@ -203,11 +238,15 @@ export function Checkout() {
       <Breadcrumb>Pagamento</Breadcrumb>
       <MobileTitle title="Pagamento com carteira" back="/carrinho" />
       <div className="checkout-layout">
-        <section className="collector-form">
+        <section
+          id="collector-details"
+          className={`collector-form ${showCollector ? "is-expanded" : ""}`}
+        >
           <h1>Perfil do colecionador</h1>
           <div className="profile-grid">
             <Field
               label="Nome de exibição"
+              error={fieldErrors.name}
               value={collector.name}
               onChange={(e) =>
                 setCollector({ ...collector, name: e.target.value })
@@ -216,6 +255,7 @@ export function Checkout() {
             />
             <Field
               label="Nome de usuário"
+              error={fieldErrors.username}
               value={collector.username}
               onChange={(e) =>
                 setCollector({ ...collector, username: e.target.value })
@@ -225,6 +265,7 @@ export function Checkout() {
             <Field
               label="E-mail"
               type="email"
+              error={fieldErrors.email}
               value={collector.email}
               onChange={(e) =>
                 setCollector({ ...collector, email: e.target.value })
@@ -233,6 +274,7 @@ export function Checkout() {
             />
             <Field
               label="Nome ENS"
+              error={fieldErrors.ens}
               value={collector.ens}
               onChange={(e) =>
                 setCollector({ ...collector, ens: e.target.value })
@@ -244,9 +286,24 @@ export function Checkout() {
               value={activeWallet?.address || ""}
               readOnly
             />
-            <Field label="Rede" value={activeWallet?.network || ""} readOnly />
+            <div className="field network-choice">
+              <label htmlFor="checkout-network">Rede</label>
+              <div className="input-wrap">
+                <select
+                  id="checkout-network"
+                  value={activeWallet?.network || ""}
+                  onChange={(e) => selectNetwork(e.target.value)}
+                  disabled={!networkOptions.length}
+                >
+                  {networkOptions.map((network) => (
+                    <option key={network}>{network}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
             <Field
               label="Nome do perfil"
+              error={fieldErrors.profileName}
               value={collector.profileName}
               onChange={(e) =>
                 setCollector({ ...collector, profileName: e.target.value })
@@ -254,6 +311,8 @@ export function Checkout() {
             />
             <Field
               label="ENS ou carteira secundária (opcional)"
+              placeholder="ENS ou carteira secundária (opcional)"
+              error={fieldErrors.secondaryWallet}
               value={collector.secondaryWallet}
               onChange={(e) =>
                 setCollector({ ...collector, secondaryWallet: e.target.value })
@@ -261,28 +320,45 @@ export function Checkout() {
             />
             <Field
               label="Código de indicação"
+              error={fieldErrors.referralCode}
               value={collector.referralCode}
               onChange={(e) =>
                 setCollector({ ...collector, referralCode: e.target.value })
               }
             />
-            <Field
-              label="Tipo de carteira"
-              value={activeWallet?.provider || ""}
-              readOnly
-            />
+            <Field label="Tipo de carteira" value={selectedProvider} readOnly />
           </div>
+          <button
+            className="checkout-wallet-toggle desktop-only"
+            onClick={() => setChooseWallet(!chooseWallet)}
+            aria-expanded={chooseWallet}
+          >
+            Usar outra carteira?
+          </button>
           <label className="note-field">
             Observação do colecionador (opcional)
             <textarea
+              aria-invalid={!!fieldErrors.note}
+              aria-describedby={
+                fieldErrors.note ? "checkout-note-error" : undefined
+              }
               value={note}
               onChange={(e) => setNote(e.target.value)}
               maxLength={500}
             />
+            {fieldErrors.note && (
+              <span id="checkout-note-error" className="field-error">
+                {fieldErrors.note}
+              </span>
+            )}
           </label>
         </section>
         <section className="checkout-summary">
           <h2 className="desktop-only">Seus NFTs</h2>
+          <div className="checkout-line-head desktop-only">
+            <span>NFTs</span>
+            <span>Subtotal</span>
+          </div>
           <div className="checkout-lines desktop-only">
             {q.data?.lines.map((l) => (
               <div key={l.nftId + l.edition}>
@@ -290,7 +366,8 @@ export function Checkout() {
                 <span>
                   {l.name}
                   <small>
-                    Edição: {l.edition} (× {l.quantity})
+                    ID do token: #{l.token || l.nftId.padStart(4, "0")}{" "}
+                    <em>(× {l.quantity})</em>
                   </small>
                 </span>
                 <strong>{eth(l.subtotal)}</strong>
@@ -300,16 +377,29 @@ export function Checkout() {
           <div className="desktop-only">
             {q.data && (
               <>
-                <Coupon current={q.data.coupon} />
+                <button
+                  className="checkout-coupon-toggle"
+                  onClick={() => setShowCoupon(!showCoupon)}
+                >
+                  Tem um código promocional? Aplique aqui
+                </button>
+                {showCoupon && <Coupon current={q.data.coupon} />}
                 <Totals quote={q.data} />
               </>
             )}
           </div>
           <div className="wallet-heading">
-            <h2>Carteira {connected ? "conectada" : "selecionada"}</h2>
+            <h2>
+              Carteira{" "}
+              {connected === connectionKey && !!connectionKey
+                ? "conectada"
+                : "selecionada"}
+            </h2>
             <Link to="/carteiras">Trocar carteira</Link>
           </div>
-          <div className="checkout-wallets">
+          <div
+            className={`checkout-wallets ${chooseWallet ? "is-expanded" : ""}`}
+          >
             {wallets.data?.map((w) => (
               <label className="checkout-wallet" key={w.id}>
                 <input
@@ -341,12 +431,33 @@ export function Checkout() {
               </Button>
             </Empty>
           )}
+          <label className="mobile-only network-choice">
+            Rede
+            <select
+              aria-label="Rede do pagamento"
+              value={activeWallet?.network || ""}
+              onChange={(e) => selectNetwork(e.target.value)}
+              disabled={!networkOptions.length}
+            >
+              {networkOptions.map((network) => (
+                <option key={network}>{network}</option>
+              ))}
+            </select>
+          </label>
+          <button
+            className="collector-toggle mobile-only"
+            aria-controls="collector-details"
+            aria-expanded={showCollector}
+            onClick={() => setShowCollector(!showCollector)}
+          >
+            Dados do colecionador {showCollector ? "−" : "+"}
+          </button>
           <h2 className="mt-4">Carteira e rede</h2>
           <div className="provider-options">
             {["WalletConnect", "MetaMask", "Coinbase Wallet"].map((p, i) => (
               <label key={p}>
                 <span className="provider-icon">
-                  {i === 2 ? <WalletIcon size={22} /> : p[0]}
+                  {i === 2 ? <img src="/assets/75870.svg" alt="" /> : p[0]}
                 </span>
                 <span>{p}</span>
                 <input
@@ -362,7 +473,7 @@ export function Checkout() {
               </label>
             ))}
           </div>
-          {connected === activeWallet?.id ? (
+          {!!connectionKey && connected === connectionKey ? (
             <button
               className="disconnect-wallet"
               onClick={async () => {
@@ -437,6 +548,7 @@ export function Checkout() {
             <div className="mobile-only review-collector">
               <Field
                 label="Nome de exibição"
+                error={fieldErrors.name}
                 value={collector.name}
                 onChange={(e) =>
                   setCollector({ ...collector, name: e.target.value })
@@ -446,6 +558,7 @@ export function Checkout() {
               <Field
                 label="E-mail"
                 type="email"
+                error={fieldErrors.email}
                 value={collector.email}
                 onChange={(e) =>
                   setCollector({ ...collector, email: e.target.value })
@@ -454,6 +567,7 @@ export function Checkout() {
               />
               <Field
                 label="Nome de usuário"
+                error={fieldErrors.username}
                 value={collector.username}
                 onChange={(e) =>
                   setCollector({ ...collector, username: e.target.value })
@@ -540,18 +654,17 @@ export function OrderPage() {
       </Page>
     );
   return (
-    <Page>
+    <main id="main-content" tabIndex={-1} className="receipt-page">
       <Receipt order={order} />
-    </Page>
+    </main>
   );
 }
 function Receipt({ order }: { order: Order }) {
   return (
     <section className="receipt">
       <div className="receipt-heading">
-        <CheckCircle2 size={56} />
+        <img src="/assets/21283.svg" alt="" />
         <h1>Seus NFTs agora estão na sua carteira</h1>
-        <p>Compra simulada confirmada · {order.id}</p>
       </div>
       <dl className="receipt-meta">
         <div>
@@ -601,6 +714,7 @@ function Receipt({ order }: { order: Order }) {
         </Button>
         <details>
           <summary>Referência da transação simulada</summary>
+          <p>Pedido {order.id}</p>
           <p className="break-all">{order.transaction}</p>
           <p>Não existe registro real em exploradores de blockchain.</p>
         </details>

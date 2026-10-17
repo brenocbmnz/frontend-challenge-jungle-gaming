@@ -108,6 +108,7 @@ export function quote(owner: string): Quote {
       {
         ...item,
         name: n.name,
+        token: n.token,
         image: n.image,
         price: n.price,
         subtotal: decimal(wei(n.price) * BigInt(item.quantity)),

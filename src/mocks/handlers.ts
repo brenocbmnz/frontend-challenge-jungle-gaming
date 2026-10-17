@@ -20,6 +20,7 @@ import {
 } from "./database";
 import { changeNft, disconnect, nftUpdated, orderUpdated } from "./realtime";
 import { wei } from "../lib/money";
+import { validateCollector } from "../lib/collector";
 const fail = (
   message: string,
   status = 400,
@@ -418,12 +419,9 @@ export const handlers = [
       notifyOrder(existing);
       return HttpResponse.json(existing);
     }
-    if (
-      !b.collector?.name ||
-      !/^\S+@\S+\.\S+$/.test(b.collector.email) ||
-      !b.collector.username
-    )
-      return fail("Preencha os dados do colecionador.", 422);
+    const collectorErrors = validateCollector(b.collector, b.note || "");
+    if (Object.keys(collectorErrors).length)
+      return fail("Revise os dados do colecionador.", 422, collectorErrors);
     const connection = db.connections[uid];
     if (!connection || connection.walletId !== b.walletId)
       return fail(

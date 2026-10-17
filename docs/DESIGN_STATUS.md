@@ -1,5 +1,7 @@
 # Referência visual
 
+A revisão local posterior à exportação do usuário está documentada em [DESIGN_REVIEW.md](DESIGN_REVIEW.md). Ela lista diferenças corrigidas e limites da comparação.
+
 Contexto recebido do Figma em 17/10/2026:
 
 | Frame | Node | Contexto detalhado |

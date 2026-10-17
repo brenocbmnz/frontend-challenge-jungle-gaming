@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-17T22:03:10.568Z",
+  "node": "v22.17.1",
+  "playwright": "1.64.1",
+  "cleanInstallation": "npm ci --no-audit --no-fund",
+  "sourceFilesCompared": 54,
+  "sourceSha256": "85a750db12a4399c81fee75722a1e4d66711640c8d5f0cc5ef047c2401fd9110",
+  "buildHtmlSha256": "f8f21bdc5c00a0d7bbf5cd351e1c14412bb8c700fa74d9ef97feceb72f3c72d5",
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "e2e": {
+      "passed": 52,
+      "failed": 0,
+      "baselinesUpdated": false,
+      "profiles": [
+        "desktop 1440x1000",
+        "mobile 390x844"
+      ],
+      "report": "playwright/index.html"
+    },
+    "lighthouse": {
+      "runs": 12,
+      "allGoalsMet": true,
+      "summary": "lighthouse/summary.json"
+    }
+  },
+  "deployment": "User will deploy main on Vercel"
+}
