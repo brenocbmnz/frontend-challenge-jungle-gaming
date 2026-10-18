@@ -1,0 +1,18 @@
+{
+  "cli": "shadcn@4.22.0",
+  "command": "npx --yes shadcn@4.22.0 add button dialog --overwrite --yes",
+  "style": "new-york",
+  "registry": "https://ui.shadcn.com/r/styles/new-york-v4",
+  "files": {
+    "button": {
+      "installedSourceSha256": "79dd6f75f8136394442202d6b8b922fb269eaad0a5dba579397c9d5b41f893bb",
+      "unmodifiedSnapshot": "design/reference/shadcn/button.tsx.txt",
+      "registryUrl": "https://ui.shadcn.com/r/styles/new-york-v4/button.json"
+    },
+    "dialog": {
+      "installedSourceSha256": "dcd488cc5d713da215ce2037efd644f35904df755c70f31534706643db488514",
+      "unmodifiedSnapshot": "design/reference/shadcn/dialog.tsx.txt",
+      "registryUrl": "https://ui.shadcn.com/r/styles/new-york-v4/dialog.json"
+    }
+  }
+}

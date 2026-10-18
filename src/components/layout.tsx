@@ -20,7 +20,7 @@ import { useState, type ReactNode } from "react";
 import { cartQuery, validateSearch } from "../api/queries";
 import { useSession } from "./session";
 import { Button } from "./ui/button";
-import { Dialog } from "./ui/dialog";
+import { Dialog } from "./dialog";
 import { useReducedMotion } from "../lib/motion";
 export function Header() {
   const { user, uid } = useSession();

@@ -27,7 +27,7 @@ import { useSession } from "../components/session";
 import { eth } from "../lib/money";
 import { Page, BottomNav } from "../components/layout";
 import { Button } from "../components/ui/button";
-import { Dialog } from "../components/ui/dialog";
+import { Dialog } from "../components/dialog";
 import { Empty, ErrorBox, Skeleton } from "../components/common";
 const categories = [
   "Arte digital",
