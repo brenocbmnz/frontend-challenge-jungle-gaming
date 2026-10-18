@@ -29,7 +29,7 @@ Base `/api`. JSON. Toda chamada REST da aplicação passa pelo Axios. Credenciai
 | GET /orders/:id | Token | Order e snapshot |
 | GET /orders/by-key/:key | Token | Order da tentativa |
 
-Nft contém identidade, nome, token, imagem local, categoria, rede, preço, estoque, edições e versão. Quote contém linhas com preço unitário/subtotal/estoque/versão, subtotal, desconto, taxa, total, cupom, validade e conflitos. O campo opcional `token` das linhas da cotação contém o ID real do token; recibos antigos podem não conter esse campo. Order preserva quote e wallet no momento da compra, status, referência e data.
+Nft contém identidade, nome, token, imagem local, categoria, raridade (`rarity: "common" | "rare"`), rede, preço, estoque, edições e versão. A raridade é um metadado declarado das fixtures, independente da posição na listagem, do preço e da ordenação; somente `rare` recebe a tag “RARO”. O campo acompanha listagem, detalhe e eventos `nft.updated`. Dados locais anteriores recebem esse atributo na inicialização sem resetar contas, carrinhos ou pedidos. Quote contém linhas com preço unitário/subtotal/estoque/versão, subtotal, desconto, taxa, total, cupom, validade e conflitos. O campo opcional `token` das linhas da cotação contém o ID real do token; recibos antigos podem não conter esse campo. Order preserva quote e wallet no momento da compra, status, referência e data.
 
 Wallet aceita também `displayName`, `email`, `profileName`, `ens`, `secondaryAddress` e `referral` opcionais no editor principal. Os campos são persistidos junto da carteira; e-mail informado é validado.
 
@@ -52,7 +52,7 @@ O pedido valida nome, usuário, e-mail e os formatos dos campos opcionais inform
 Endpoint lógico `wss://realtime.kurio.test`, path `/socket.io/`, transporte WebSocket simulado pelo MSW. O evento de cliente `session` envia o token atual e associa a conexão à conta.
 
 ```ts
-nft.updated: { id, resourceId, version, nft: Nft }
+nft.updated: { id, resourceId, version, userId?, orderId?, nft: Nft }
 order.updated: { id, resourceId, version, userId, order: Order }
 ```
 
@@ -63,3 +63,10 @@ A atualização de NFT modifica o mesmo banco consultado pela REST antes de emit
 `POST /__mock/reset { scenario? }`, `POST /__mock/scenario { scenario }`, `POST /__mock/event { type, id?, duplicate?, stale? }` e `GET /__mock/state`.
 
 Os controles devem ser chamados pelo navegador sob o worker MSW; o request context do Playwright não atravessa o Service Worker. Não são uma API de produção.
+
+Quando uma compra confirmada reduz o estoque, o evento `nft.updated` inclui `userId` e `orderId` da compra de origem. O cliente atualiza o cache normalmente, mas não exibe o alerta de revisão de carrinho para o próprio comprador. Atualizações externas continuam exibindo o aviso. Pedidos recusados não geram atualização de estoque.
+
+
+### Tamanho das páginas do catálogo
+
+`GET /api/nfts` aceita `pageSize=6` para o catálogo até 768 px; o padrão e os demais valores usam 9 itens por página. `items` e `pages` são calculados a partir desse tamanho, mantendo os filtros, busca, ordenação e contadores. A interface mostra somente os itens da página selecionada na URL, sem acumular páginas ou carregar itens ao rolar. O cache distingue os tamanhos para não misturar os resultados após mudança de viewport.

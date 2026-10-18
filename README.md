@@ -2,7 +2,7 @@
 
 Desenvolvi este projeto para o [desafio frontend da Jungle](https://github.com/junglegaming/frontend-challenge), seguindo o [Figma original do desafio](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge?node-id=0-1&p=f&t=M8JHLECPG2jJbmct-0).
 
-Implementei os fluxos de descoberta, compra e conta do colecionador em desktop e mobile. Usei React e TypeScript, TanStack Router e Query, Axios, Tailwind CSS, componentes no padrão shadcn/ui sobre Radix, MSW e Socket.IO. Para validar a entrega, incluí testes com Playwright e auditorias com Lighthouse.
+Implementei os fluxos de descoberta, compra e conta do colecionador em desktop e mobile. Usei React e TypeScript, TanStack Router e Query, Axios, Tailwind CSS, shadcn/ui (Button e Dialog personalizados para o Figma), MSW e Socket.IO. Para validar a entrega, incluí testes com Playwright e auditorias com Lighthouse.
 
 **Aplicação publicada:** https://frontend-challenge-jungle-gaming-rosy.vercel.app/
 
@@ -35,7 +35,7 @@ Também implementei o cadastro de novas contas. No cadastro, login e perfil, nor
 
 Implementei as rotas `/`, `/nft/:id`, `/carrinho`, `/pagamento`, `/pedido/:id`, `/login`, `/cadastro`, `/perfil`, `/carteiras`, `/favoritos` e `/demonstracao`.
 
-No catálogo, mantive busca, filtros, ordenação e paginação na URL para permitir refresh e navegação pelo histórico. Os menus superiores navegam suavemente pelas seções, preservando os filtros. A paginação mantém a posição da tela e os cards durante o carregamento. Os efeitos respeitam a preferência por movimento reduzido.
+No catálogo, mantive busca, filtros, ordenação e paginação na URL para permitir refresh e navegação pelo histórico. Os menus superiores navegam suavemente pelas seções, preservando os filtros. No desktop, a paginação mantém a posição da tela e os cards durante o carregamento. No mobile (até 768 px), limito a listagem a 6 NFTs por página, com botões de paginação e sem carregamento automático ao rolar. Assim, as informações abaixo do catálogo continuam próximas da listagem. A página selecionada também permanece na URL e no histórico. Os efeitos respeitam a preferência por movimento reduzido. No mobile, organizei a navegação da conta em um painel recolhível com a seção atual destacada, que abre sobre o conteúdo sem deslocar o formulário. No mobile, mantenho o avatar no painel da conta e no formulário, com borda laranja e a foto salva; as telas de Perfil, Carteiras e Lista de interesse usam título e seta de retorno no topo. Nas demais telas, o cabeçalho mobile tem apenas busca, carrinho e menu. No desktop, mantive a lateral e o editor originais, com avatar e rótulo “Perfil” no cabeçalho. Para sair no mobile, uso Minha conta → Sair. Mantive o Salvar flutuante no rodapé do perfil mobile, visível somente quando há alterações, com uma entrada leve, e a rolagem suave do botão central até o catálogo; ambos respeitam movimento reduzido.
 
 Protegi checkout, recibos, favoritos, perfil e carteiras com sessão. Ao entrar, o usuário retorna ao destino anterior e o carrinho do visitante é mesclado com o da conta, respeitando o estoque. Configurei a sessão para durar uma hora; logout e expiração limpam o cache privado e encerram a conexão anterior.
 
@@ -116,7 +116,7 @@ npm run test:export # copia o relatório HTML para reports/playwright
 npm run audit
 ```
 
-Na última execução completa, os **66 testes de produção passaram** em Chromium desktop e mobile. Mantive contextos isolados, controle de relógio e cenários reproduzíveis. O relatório Playwright fica em `playwright-report/`; screenshots e traces de falhas ficam em `test-results/`. Os resultados e as condições das auditorias estão nos documentos abaixo.
+Na última execução completa, os **92 testes de produção passaram** em Chromium desktop e mobile. Mantive contextos isolados, controle de relógio e cenários reproduzíveis. O relatório Playwright fica em `playwright-report/`; screenshots e traces de falhas ficam em `test-results/`. Os resultados e as condições das auditorias estão nos documentos abaixo.
 
 Para executar os testes de produção em outra porta, use `PLAYWRIGHT_PORT=4183 PLAYWRIGHT_PRODUCTION=1 npm test`. O comando `npm run test:update` atualiza as imagens de referência dos testes visuais; essas alterações precisam ser revisadas antes de serem aceitas.
 
@@ -128,6 +128,7 @@ Publiquei a aplicação na Vercel e incluí configuração para Vercel e Netlify
 
 Organizei os detalhes da implementação nestes documentos:
 
+- [Origem e personalização dos componentes shadcn/ui](docs/SHADCN.md)
 - [Contratos REST e eventos](docs/API.md)
 - [Arquitetura, decisões e limitações](ARCHITECTURE.md)
 - [Validações realizadas](docs/VALIDATION.md)
@@ -138,3 +139,7 @@ Organizei os detalhes da implementação nestes documentos:
 Mantive imagens, SVGs e fontes no projeto para permitir a execução local. Os arquivos em `design/reference/` reúnem as referências usadas durante a implementação. Registrei os desvios e limites da comparação com o Figma em `ARCHITECTURE.md` e na documentação da revisão visual.
 
 Conforme o escopo do desafio, simulei autenticação, transações, links de exploração e conexões de carteira. Não há movimentação de fundos. Login social e recuperação de senha informam a limitação; páginas editoriais, suporte, atividade, ofertas e downloads não fazem parte da implementação.
+
+## Organização do histórico
+
+Organizei os refinamentos recentes em branches por assunto e integrei cada uma à `main` com um commit de merge. Fiz essa separação após a implementação; os commits registram essa organização, sem representar uma cronologia anterior. Os detalhes estão em [VERSIONING.md](docs/VERSIONING.md).
