@@ -1,0 +1,83 @@
+[
+  {
+    "url": "http://127.0.0.1:4173/assets/browser-ChXE-7XY.js",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/browser-ChXE-7XY.js",
+        "initiator": "parser"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4173/assets/money-DS-pY2hq.js",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/money-DS-pY2hq.js",
+        "initiator": "parser"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4173/assets/esm-CMr3pE9S.js",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/esm-CMr3pE9S.js",
+        "initiator": "parser"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4173/assets/collector-BR3b6W2o.js",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/collector-BR3b6W2o.js",
+        "initiator": "parser"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4173/assets/app-BfufsWW0.js",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/app-BfufsWW0.js",
+        "initiator": "parser"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4173/assets/index-CtWw-guC.js",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/index-CtWw-guC.js",
+        "initiator": "parser"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4173/assets/button-fCcIdcST.js",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/button-fCcIdcST.js",
+        "initiator": "parser"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4173/assets/layout-3-UoXOKJ.js",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/layout-3-UoXOKJ.js",
+        "initiator": "parser"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4173/assets/esm-eEqqWr8O.js",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/esm-eEqqWr8O.js",
+        "initiator": "script"
+      }
+    ]
+  }
+]

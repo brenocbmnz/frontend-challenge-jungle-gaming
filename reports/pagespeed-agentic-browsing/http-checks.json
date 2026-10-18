@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "/llms.txt",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bodyValid": true
+    },
+    {
+      "path": "/.well-known/ai-catalog.json",
+      "status": 200,
+      "contentType": "application/json",
+      "bodyValid": true
+    }
+  ],
+  "spaFallbackPreserved": true,
+  "vercelRewritePatternChecked": true,
+  "ardSchemaErrors": 0,
+  "ardSchemaWarnings": 0
+}

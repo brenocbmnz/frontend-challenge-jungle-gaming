@@ -1,0 +1,70 @@
+{
+  "viewport": 412,
+  "deviceScaleFactor": 1.75,
+  "scope": "Unique image resources selected by banner companion, promos and journal; not total-page network bytes",
+  "before": [
+    {
+      "path": "public/assets/83794-320.webp",
+      "bytes": 17224
+    },
+    {
+      "path": "public/assets/8f387-480.webp",
+      "bytes": 36262
+    },
+    {
+      "path": "public/assets/9add2-480.webp",
+      "bytes": 29528
+    },
+    {
+      "path": "public/assets/83794-480.webp",
+      "bytes": 32986
+    },
+    {
+      "path": "public/assets/b7cfc-480.webp",
+      "bytes": 39238
+    }
+  ],
+  "after": [
+    {
+      "path": "public/assets/83794-128.webp",
+      "bytes": 3104
+    },
+    {
+      "path": "public/assets/8f387-384.webp",
+      "bytes": 17560
+    },
+    {
+      "path": "public/assets/9add2-384.webp",
+      "bytes": 13926
+    },
+    {
+      "path": "public/assets/9add2-320.webp",
+      "bytes": 10632
+    },
+    {
+      "path": "public/assets/8f387-320.webp",
+      "bytes": 13442
+    },
+    {
+      "path": "public/assets/83794-320.webp",
+      "bytes": 11338
+    },
+    {
+      "path": "public/assets/b7cfc-320.webp",
+      "bytes": 14062
+    }
+  ],
+  "beforeBytes": 155238,
+  "afterBytes": 84064,
+  "savedBytes": 71174,
+  "reductionPercent": 45.84831033638671,
+  "unchangedGeometryAtWidths": [
+    320,
+    390,
+    412,
+    768,
+    1024,
+    1300,
+    1440
+  ]
+}

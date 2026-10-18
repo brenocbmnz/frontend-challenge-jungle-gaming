@@ -1,0 +1,80 @@
+{
+  "beforeScore": 0,
+  "afterScore": 0,
+  "beforePaths": [
+    [
+      "/",
+      "/assets/index-CtWw-guC.js",
+      "/assets/layout-3-UoXOKJ.js",
+      "/api/nfts"
+    ],
+    [
+      "/",
+      "/assets/index-CtWw-guC.js",
+      "/assets/layout-3-UoXOKJ.js",
+      "/api/cart"
+    ],
+    [
+      "/",
+      "/assets/index-CtWw-guC.js",
+      "/assets/layout-3-UoXOKJ.js",
+      "/assets/esm-eEqqWr8O.js"
+    ],
+    [
+      "/",
+      "/assets/index-CtWw-guC.js",
+      "/assets/app-BfufsWW0.js"
+    ],
+    [
+      "/",
+      "/assets/index-CtWw-guC.js",
+      "/assets/browser-ChXE-7XY.js"
+    ],
+    [
+      "/",
+      "/assets/index-CtWw-guC.js",
+      "/assets/button-fCcIdcST.js"
+    ],
+    [
+      "/",
+      "/assets/index-CtWw-guC.js",
+      "/assets/collector-BR3b6W2o.js"
+    ],
+    [
+      "/",
+      "/assets/index-CtWw-guC.js",
+      "/assets/esm-CMr3pE9S.js"
+    ],
+    [
+      "/",
+      "/assets/index-CtWw-guC.js",
+      "/assets/money-DS-pY2hq.js"
+    ]
+  ],
+  "afterPaths": [
+    [
+      "/",
+      "/assets/index-CtWw-guC.js"
+    ]
+  ],
+  "beforeLongestMs": 368,
+  "afterLongestMs": 154,
+  "performance": 0.86,
+  "LCP": 3526.204,
+  "lcpDiscoveryScore": 1,
+  "lighthouseVersion": "12.8.2",
+  "date": "2026-10-18",
+  "branch": "perf/pagespeed-insights",
+  "build": "passed",
+  "typecheck": "passed",
+  "lint": "passed",
+  "targetedTests": {
+    "passed": 18,
+    "failed": 0,
+    "report": "../playwright-network-dependencies/index.html"
+  },
+  "fullSuiteRerun": false,
+  "baselinesUpdated": false,
+  "limitation": "Single local runs on Lighthouse 12.8.2; network insight remains score 0, not certified passed on PageSpeed Lighthouse 13.5. No general performance improvement claim.",
+  "phase": "Intermediate validation with preloads at end of head; final head-prepend validation is in summary.json and mobile-lh13.report.json"
+}

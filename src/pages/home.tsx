@@ -47,6 +47,7 @@ export function NftCard({ nft, index = 0 }: { nft: Nft; index?: number }) {
             src={nft.image}
             alt={nft.name}
             loading={index < 3 ? "eager" : "lazy"}
+            fetchPriority={index === 2 ? "high" : undefined}
             width="250"
             height="250"
           />
@@ -363,6 +364,7 @@ export function Home({ background = false }: { background?: boolean }) {
               sizes="(max-width:768px) 38vw, 450px"
             />
             <Artwork
+              thumbnail
               className="hero-companion"
               src="/assets/83794.png"
               alt=""
@@ -556,6 +558,7 @@ export function Home({ background = false }: { background?: boolean }) {
             <div className="promo" key={title}>
               <img className="promo-mask" src="/assets/68d8c.svg" alt="" />
               <Artwork
+                sizes="(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px"
                 className="promo-art"
                 src={"/assets/" + image}
                 alt=""
@@ -635,6 +638,7 @@ export function Home({ background = false }: { background?: boolean }) {
                   alt=""
                   width="268"
                   height="195"
+                  sizes="(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px"
                   loading="lazy"
                 />
                 <div>

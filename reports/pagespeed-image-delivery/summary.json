@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-18",
+  "branch": "perf/pagespeed-insights",
+  "scope": "Improve image delivery; no merge to main",
+  "lighthouseVersion": "13.5.0",
+  "viewport": {
+    "width": 412,
+    "height": 823,
+    "deviceScaleFactor": 1.75
+  },
+  "imageDeliveryScore": 1,
+  "remainingEstimatedWastedBytes": 0,
+  "lcpDiscoveryScore": 1,
+  "networkDependencyTreeScore": 1,
+  "singleLocalRun": {
+    "performanceScore": 0.77,
+    "lcpMs": 3898.162025
+  },
+  "selectedResourceBytes": {
+    "scope": "Unique image resources selected by banner companion, promos and journal; not total-page network bytes",
+    "before": 155238,
+    "after": 84064,
+    "reductionPercent": 45.84831033638671
+  },
+  "webpQuality": 86,
+  "imageWidths": [
+    320,
+    384,
+    480,
+    640,
+    960
+  ],
+  "thumbnailWidths": [
+    64,
+    128,
+    192
+  ],
+  "originalPngsChanged": false,
+  "layoutGeometryUnchangedAtWidths": [
+    320,
+    390,
+    412,
+    768,
+    1024,
+    1300,
+    1440
+  ],
+  "build": "passed",
+  "typecheck": "passed",
+  "lint": "passed",
+  "targetedTests": {
+    "passed": 6,
+    "failed": 0,
+    "report": "../playwright-image-delivery/index.html"
+  },
+  "baselinesUpdated": false,
+  "fullSuiteRerun": false,
+  "buildHtmlSha256": "09e89dc48ecb2392d62db90f2290ab074cc53a74408a36bfd2e2c5a030b82db3",
+  "limitation": "Single local audit, not a new production PageSpeed measurement. Resource comparison covers selected assets in the affected sections, not total page transfer size."
+}

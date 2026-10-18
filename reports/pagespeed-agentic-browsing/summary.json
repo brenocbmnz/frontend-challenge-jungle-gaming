@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-18",
+  "branch": "perf/pagespeed-insights",
+  "scope": "Agentic Browsing discovery metadata; no merge to main",
+  "lighthouseVersion": "13.5.0",
+  "categoryScore": 1,
+  "applicableAudits": 4,
+  "passedAudits": 4,
+  "auditResults": [
+    {
+      "id": "agent-accessibility-tree",
+      "score": 1,
+      "mode": "binary"
+    },
+    {
+      "id": "webmcp-form-coverage",
+      "score": null,
+      "mode": "notApplicable"
+    },
+    {
+      "id": "webmcp-registered-tools",
+      "score": null,
+      "mode": "notApplicable"
+    },
+    {
+      "id": "webmcp-schema-validity",
+      "score": null,
+      "mode": "notApplicable"
+    },
+    {
+      "id": "cumulative-layout-shift",
+      "score": 1,
+      "mode": "numeric"
+    },
+    {
+      "id": "llms-txt",
+      "score": 1,
+      "mode": "binary"
+    },
+    {
+      "id": "ard-schema",
+      "score": 1,
+      "mode": "binary"
+    }
+  ],
+  "files": [
+    "/llms.txt",
+    "/.well-known/ai-catalog.json"
+  ],
+  "catalogEntries": 0,
+  "catalogReason": "No agent, MCP or A2A resources are offered by this demo; do not advertise nonexistent services.",
+  "build": "passed",
+  "typecheck": "passed",
+  "lint": "passed",
+  "httpContentTypeAndBodyChecks": "passed",
+  "ardSchemaErrors": 0,
+  "ardSchemaWarnings": 0,
+  "vercelRewritePatternChecks": "passed; actual hosted deployment not exercised",
+  "spaFallbackPreserved": true,
+  "fullSuiteRerun": false,
+  "performanceAuditsRerun": false,
+  "buildHtmlSha256": "2d93b836f53069999b1c618ca90cd33ca48b2212fe9275d53f8b214816118d1a",
+  "limitation": "Local Lighthouse 13.5 validation, not a new audit of the published production site."
+}

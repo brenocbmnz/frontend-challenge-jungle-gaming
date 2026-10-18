@@ -1,0 +1,42 @@
+[
+  {
+    "width": 390,
+    "priority": "high",
+    "preload": [
+      {
+        "href": "http://127.0.0.1:4173/assets/9add2-480.webp",
+        "fetchPriority": "high"
+      }
+    ],
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/9add2-320.webp",
+        "priority": "High"
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/9add2-320.webp",
+        "priority": "Low"
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "priority": "high",
+    "preload": [
+      {
+        "href": "http://127.0.0.1:4173/assets/9add2-480.webp",
+        "fetchPriority": "high"
+      }
+    ],
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4173/assets/9add2-480.webp",
+        "priority": "High"
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/9add2-480.webp",
+        "priority": "Low"
+      }
+    ]
+  }
+]

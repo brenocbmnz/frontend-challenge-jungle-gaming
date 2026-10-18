@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-18",
+  "branch": "perf/pagespeed-insights",
+  "scope": "Network dependency tree; no merge to main",
+  "lighthouseVersion": "13.5.0",
+  "auditNodeVersion": "22.22.0 (isolated tool, project dependencies unchanged)",
+  "networkDependencyTreeScore": 1,
+  "lcpDiscoveryScore": 1,
+  "criticalTree": {
+    "type": "network-tree",
+    "chains": {
+      "EFD6E54E3B47AE2F517DC31E39273072": {
+        "url": "http://127.0.0.1:4173/",
+        "navStartToEndTime": 73,
+        "transferSize": 17340,
+        "isLongest": true,
+        "children": {}
+      }
+    },
+    "longestChain": {
+      "duration": 73
+    }
+  },
+  "performanceScore": 0.8,
+  "lcpMs": 3716.374925,
+  "modulePreloads": 8,
+  "secondaryRouteAndDialogPreloads": false,
+  "build": "passed",
+  "typecheck": "passed",
+  "lint": "passed",
+  "buildHtmlSha256": "6b79cdbc1e09ee448f13375ca68112fb804cf598c0ba796e6b22c31c660c1b65",
+  "fullSuiteRerun": false,
+  "baselinesUpdated": false,
+  "limitation": "Single local Lighthouse 13.5 run. Earlier comparison uses Lighthouse 12.8.2 and an intermediate preload position; no general performance before/after claim.",
+  "targetedTests": {
+    "passed": 18,
+    "failed": 0,
+    "profiles": [
+      "desktop",
+      "mobile"
+    ],
+    "report": "../playwright-network-dependencies/index.html"
+  },
+  "duplicateModuleRequests": 0
+}
