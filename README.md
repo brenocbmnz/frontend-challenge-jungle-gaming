@@ -48,7 +48,7 @@ Projeto preparado para Vercel e Netlify, com build em `dist` e fallback de rotas
 | nova@kurio.test | Kurio123! |
 | breno@kurio.test | Kurio123! |
 
-Também é possível criar uma conta. Apenas hashes SHA-256 com prefixo de domínio são persistidos nos mocks. Esta simulação não representa um sistema de autenticação de produção.
+Também é possível criar uma conta. Cadastro, login e perfil ignoram espaços externos e diferenças entre maiúsculas e minúsculas no e-mail; a senha é preservada exatamente como digitada. Apenas hashes SHA-256 com prefixo de domínio são persistidos nos mocks. Esta simulação não representa um sistema de autenticação de produção.
 
 ## Rotas
 

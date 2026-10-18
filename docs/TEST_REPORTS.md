@@ -1,10 +1,10 @@
 # Playwright — preparação para deploy
 
-A suíte de produção tem **52 testes**, em Chromium desktop (1440 × 1000) e mobile (390 × 844). A validação foi realizada em cópia isolada instalada com `npm ci`, usando a porta 4183, sem atualizar as baselines na execução final.
+A suíte atual de produção tem **60 testes**, em Chromium desktop (1440 × 1000) e mobile (390 × 844). Inclui os casos de normalização de URL e as regressões de autenticação: conflito de e-mail, persistência do endereço normalizado, login após cadastro/edição e erros associados aos campos. As baselines não foram atualizadas nesta execução.
 
 [Relatório HTML da suíte](../reports/playwright/index.html).
 
-Tipos, lint e build passaram na mesma cópia. O HTML do build final foi comparado com o da área de trabalho e é idêntico. Os testes mantêm MSW e Socket.IO ativos, usam contextos isolados e controlam relógio/cenários. Traces e screenshots de falhas são gerados em `test-results/` quando necessário.
+Tipos, lint e build passaram na área de trabalho atual. A validação anterior de 52 testes também foi executada em cópia isolada instalada com `npm ci`; a comparação de arquivos e HTML registrada naquela etapa se refere ao build anterior às correções de URL e autenticação. Os testes mantêm MSW e Socket.IO ativos, usam contextos isolados e controlam relógio/cenários. Traces e screenshots de falhas são gerados em `test-results/` quando necessário.
 
 Reprodução:
 

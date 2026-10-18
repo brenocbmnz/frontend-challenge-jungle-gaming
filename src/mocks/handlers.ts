@@ -21,6 +21,9 @@ import {
 import { changeNft, disconnect, nftUpdated, orderUpdated } from "./realtime";
 import { wei } from "../lib/money";
 import { validateCollector } from "../lib/collector";
+const normalizeEmail = (value: unknown) =>
+  typeof value === "string" ? value.trim().toLowerCase() : "";
+
 const fail = (
   message: string,
   status = 400,
@@ -135,8 +138,16 @@ export const handlers = [
   }),
   http.post("/api/login", async ({ request }) => {
     const b = await body<{ email: string; password: string }>(request);
+    b.email = normalizeEmail(b.email);
+    const fields: Record<string, string> = {};
+    if (!b.email) fields.email = "Informe seu e-mail.";
+    else if (!/^\S+@\S+\.\S+$/.test(b.email))
+      fields.email = "Informe um e-mail válido.";
+    if (!b.password) fields.password = "Informe sua senha.";
+    if (Object.keys(fields).length)
+      return fail("Revise os campos indicados.", 422, fields);
     const u = db.users.find(
-      (u) => u.email.toLowerCase() === b.email.toLowerCase() && u.passwordHash,
+      (u) => normalizeEmail(u.email) === b.email && u.passwordHash,
     );
     if (!u || u.passwordHash !== (await hash(b.password)))
       return fail("E-mail ou senha incorretos.", 422);
@@ -174,6 +185,7 @@ export const handlers = [
       password: string;
       confirm: string;
     }>(request);
+    b.email = normalizeEmail(b.email);
     const fields: Record<string, string> = {};
     if (!/^[\w.-]{3,30}$/.test(b.username || ""))
       fields.username = "Use de 3 a 30 letras, números, pontos ou traços.";
@@ -185,7 +197,11 @@ export const handlers = [
       fields.confirm = "As senhas devem ser iguais.";
     if (Object.keys(fields).length)
       return fail("Revise os campos indicados.", 422, fields);
-    if (db.users.some((u) => u.email === b.email || u.username === b.username))
+    if (
+      db.users.some(
+        (u) => normalizeEmail(u.email) === b.email || u.username === b.username,
+      )
+    )
       return fail("E-mail ou nome de usuário já cadastrado.", 409, {
         email: "Já existe uma conta com estes dados.",
       });
@@ -290,6 +306,7 @@ export const handlers = [
       }
     >(request);
     const u = db.users.find((u) => u.id === uid)!;
+    b.email = normalizeEmail(b.email);
     const fields: Record<string, string> = {};
     if (!b.name?.trim()) fields.name = "Informe seu nome.";
     if (!b.username || b.username.length < 3)
@@ -299,7 +316,8 @@ export const handlers = [
     if (
       db.users.some(
         (v) =>
-          v.id !== uid && (v.email === b.email || v.username === b.username),
+          v.id !== uid &&
+          (normalizeEmail(v.email) === b.email || v.username === b.username),
       )
     )
       fields.email = "E-mail ou usuário já cadastrado.";

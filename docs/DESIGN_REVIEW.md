@@ -45,7 +45,7 @@ As capturas selecionadas estão em `reports/design-review`. Na etapa inicial, os
 
 A galeria pode ser aberta em [reports/design-review/index.html](../reports/design-review/index.html). São 20 capturas atuais e quatro comparações com a versão anterior. As capturas atuais usam o build de produção; avisos temporários foram fechados pelo controle da própria interface para a conferência visual. Medidas coletadas do DOM estão em `reports/design-review/geometry.json`.
 
-## Validação da primeira etapa de ajustes
+## Validação histórica da primeira etapa de ajustes
 
 - TypeScript, ESLint, build e `git diff --check`: aprovados.
 - Fluxos de produção: 40 testes aprovados, incluindo filtros, compra, recuperação de pedido, autenticação, perfil, carteiras e integridade dos assets.
@@ -54,3 +54,5 @@ A galeria pode ser aberta em [reports/design-review/index.html](../reports/desig
 - O ponto de partida da revisão foi `e02c2ec389d0be96347ece497ea5db9da168d087`. O envio posterior ao GitHub foi autorizado pelo usuário.
 
 Na etapa de preparação para deploy foram incluídos seleção explícita de rede, seção expansível de dados do colecionador no mobile e erros associados aos campos. Esses controles complementam os estados do layout para cumprir os comportamentos exigidos pelo desafio. A galeria foi atualizada com o build dessa etapa.
+
+A situação atual dos testes e da entrega está em [VALIDATION.md](VALIDATION.md); os números acima registram somente a primeira etapa visual.

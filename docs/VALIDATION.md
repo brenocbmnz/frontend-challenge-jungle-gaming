@@ -2,9 +2,9 @@
 
 ## Execução reproduzível
 
-Uma cópia isolada, sem `node_modules` nem build anterior, foi instalada com `npm ci`. Tipos, ESLint e build passaram. Os arquivos de código, testes e configuração foram comparados com a área de trabalho; o HTML do build final é idêntico nas duas cópias.
+Na etapa anterior de preparação, uma cópia isolada, sem `node_modules` nem build anterior, foi instalada com `npm ci`. Tipos, ESLint e build passaram. Os arquivos de código, testes e configuração foram comparados com a área de trabalho; o HTML do build final é idêntico nas duas cópias.
 
-A suíte final de produção contém **52 testes** em Chromium, nos viewports desktop de 1440 × 1000 e mobile de 390 × 844. Inclui os fluxos anteriores e os novos casos de cupom expirado/remoção, recusa e desconexão de carteira, seleção de rede, dados adicionais do colecionador, validação da API, edição das carteiras, conflito de idempotência e foco do atalho de conteúdo.
+A suíte daquela etapa de produção continha **52 testes** em Chromium, nos viewports desktop de 1440 × 1000 e mobile de 390 × 844. Inclui os fluxos anteriores e os novos casos de cupom expirado/remoção, recusa e desconexão de carteira, seleção de rede, dados adicionais do colecionador, validação da API, edição das carteiras, conflito de idempotência e foco do atalho de conteúdo.
 
 As telas privadas também foram verificadas em 390, 768 e 1440 px, além de 720 e 320 CSS px, correspondentes ao reflow de 200% em 1440 px e 400% em 1280 px. Essas verificações não substituem uma auditoria manual de todas as combinações de navegador e zoom.
 
@@ -14,7 +14,7 @@ As telas privadas também foram verificadas em 390, 768 e 1440 px, além de 720 
 
 Oito baselines de início, detalhe, carrinho e pagamento acompanham `tests/visual.spec.ts-snapshots/`. Traces e screenshots de falhas são configurados em `test-results/`; o relatório entregue registra a execução aprovada. Assets originais e fonte permanecem locais.
 
-## Lighthouse do build final
+## Lighthouse do build anterior aos ajustes de URL e autenticação
 
 Medianas de três execuções por página e perfil, com os mocks padrão e todas as funcionalidades ativos:
 
@@ -41,3 +41,9 @@ A entrada JavaScript pequena carrega interface e mocks em paralelo e só monta o
 O catálogo agora omite parâmetros vazios e valores padrão usando o middleware do TanStack Router. Filtros ativos continuam na URL; links antigos com os padrões são normalizados. Build e lint passaram. Seis testes de produção direcionados passaram em desktop/mobile, cobrindo normalização, filtros, ordenação, paginação, refresh e histórico ([relatório](../reports/playwright-url/index.html)). Esta execução complementa os 52 testes anteriores; não substitui a suíte completa nem as medições Lighthouse acima.
 
 No domínio público informado pelo usuário, foram verificados carregamento do catálogo, service workers JavaScript com HTTP 200, acesso direto e refresh de detalhe, login e checkout simulado até o recibo, sem erros de página. Essa conferência ocorreu antes da publicação do ajuste da URL.
+
+## Revisão de autenticação — 18/10/2026
+
+A suíte atual contém **60 testes de produção** em Chromium desktop/mobile. Inclui a normalização de URL e seis verificações adicionais de autenticação (três cenários em cada viewport): validação acessível do login, conflito/cadastro de e-mail e edição de perfil com persistência e novo login. Todos passaram, sem atualizar baselines. Tipos, lint e build também passaram na área de trabalho atual. O [relatório completo](../reports/playwright/index.html) substitui o relatório da suíte anterior; as medições Lighthouse acima continuam referentes ao build anterior.
+
+Cadastro, login e perfil passam a remover espaços externos do e-mail e a normalizar maiúsculas. A comparação de conflitos aplica a mesma regra aos registros existentes. Senhas não são normalizadas. O login retorna erros de preenchimento associados aos campos e mantém a mensagem genérica para credenciais incorretas. A arquitetura permanece com autenticação simulada via API/MSW.

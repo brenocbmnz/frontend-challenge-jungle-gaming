@@ -13,7 +13,7 @@
 
 Um identificador visitante estável é enviado em `X-Guest-Id`. Sessões fictícias usam token opaco e vencem em uma hora. As chaves de cache incluem usuário e sessão; logout/troca/expiração cancelam consultas e limpam o cache. O Socket.IO recria a assinatura por identidade e libera listeners ao desmontar.
 
-O banco MSW persiste em `kurio.mock.v1` no localStorage. O token fica separado em `kurio.token`; a senha em claro não é armazenada. Essa persistência é exclusivamente demonstrativa. As regras de login mesclam itens do visitante com os do usuário por NFT/edição, limitando a disponibilidade. Logout mantém o carrinho privado no servidor simulado, sem expô-lo ao próximo usuário.
+O banco MSW persiste em `kurio.mock.v1` no localStorage. O token fica separado em `kurio.token`; a senha em claro não é armazenada. Essa persistência é exclusivamente demonstrativa. Cadastro, login e edição de perfil normalizam o e-mail com trim e conversão para minúsculas; conflitos usam a mesma comparação, inclusive para registros existentes. Senhas não são normalizadas. Campos de login vazios ou e-mail inválido retornam erros associados aos inputs; credenciais incorretas retornam uma mensagem genérica. As regras de login mesclam itens do visitante com os do usuário por NFT/edição, limitando a disponibilidade. Logout mantém o carrinho privado no servidor simulado, sem expô-lo ao próximo usuário.
 
 ## Consultas e mutations
 
