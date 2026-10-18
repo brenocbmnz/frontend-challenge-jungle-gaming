@@ -76,3 +76,13 @@ A entrada `src/main.tsx` permanece pequena e importa a interface (`src/app.tsx`)
 `src/interactions.css` acrescenta hover de cards, botões e navegação, realce de foco, movimento discreto de ícones, confirmação visual de favorito e entrada de diálogos/toasts. O estado de repouso conserva a composição do Figma; sombras e escalas não alteram o espaço ocupado pelos componentes. Hover com movimento só se aplica a dispositivos com mouse (`hover: hover` e `pointer: fine`).
 
 A navegação usa a View Transition API pelo TanStack Router, com crossfade de 100–160 ms entre caminhos distintos. A primeira carga e mudanças apenas de busca/hash não recebem essa transição nos navegadores com suporte a tipos de transição. Navegadores sem View Transition API navegam normalmente; os que suportam a API antiga usam o crossfade padrão também em navegações de busca/hash. Não há atraso artificial nem nova dependência de animação. `prefers-reduced-motion: reduce` desativa animações, transições e deslocamentos, mantendo o feedback de cor e foco. Os skeletons continuam respeitando a mesma preferência.
+
+## Navegação por seções e paginação
+
+Os quatro menus superiores usam TanStack Router, preservando os filtros ao navegar entre seções da página inicial. As âncoras têm margem de 24 px; a rolagem é suave e passa a imediata quando `prefers-reduced-motion` está ativo, inclusive se a preferência mudar com a página aberta. O menu ativo acompanha a âncora. A navegação não recarrega o documento.
+
+A paginação mantém o scroll (`resetScroll: false`, `hashScrollIntoView: false`) e o hash atual. Na troca apenas de página, TanStack Query conserva os cards anteriores como placeholder até chegar a resposta; mudanças de filtro continuam tendo seu próprio carregamento. Isso evita recolher a grade e deslocar os controles durante a consulta. Filtros e ordenação continuam reiniciando a paginação.
+
+Respostas GET /cart são validadas antes de entrar no cache: items, coupon e cada linha devem corresponder ao contrato. Uma resposta inválida gera um erro recuperável, e o cabeçalho também protege o cálculo do contador. O teste cobre um estado persistido malformado que produz uma resposta HTTP 200 sem items; não certifica a causa do erro intermitente relatado pelo usuário.
+
+Na faixa de 641–768 px, a grade passa a três colunas para evitar cards maiores que os do desktop. O celular mantém duas colunas e o desktop mantém as dimensões de referência do Figma. Não se aplica zoom global para reduzir a interface.

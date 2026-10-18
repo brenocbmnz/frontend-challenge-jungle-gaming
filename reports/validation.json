@@ -1,18 +1,18 @@
 {
   "date": "2026-10-18",
-  "scope": "Current authentication fixes, production build tested in the existing workspace",
+  "scope": "Current section navigation, pagination and cart contract validation",
   "node": "v22.17.1",
   "playwright": "1.64.1",
-  "sourceHashAlgorithm": "SHA-256 of sorted src/tests TypeScript paths and file bytes, each delimited by NUL",
-  "sourceFilesHashed": 35,
-  "sourceSha256": "b62754db64fed856b57d0b5cd11f5df9b7816a749015142988e1420c591dfc89",
-  "buildHtmlSha256": "ce81124caa9ec0b6669847e28346bf063529191db319b2c1bb6347acda5236b8",
+  "sourceHashAlgorithm": "SHA-256 of sorted src/tests TS, TSX and CSS paths and bytes delimited by NUL",
+  "sourceFilesHashed": 40,
+  "sourceSha256": "71145f9f513cfd08106d541482ece5e6c0dbc4dca6881c645c9c834dc79f4575",
+  "buildHtmlSha256": "c8ab7cbc43539514479294aac7bf828889f5aa052c2cbe2cc350f03d0e938281",
   "checks": {
     "typecheck": "passed (npm run build)",
     "lint": "passed",
     "build": "passed",
     "e2e": {
-      "passed": 60,
+      "passed": 66,
       "failed": 0,
       "baselinesUpdated": false,
       "profiles": [
@@ -20,62 +20,108 @@
         "mobile 390x844"
       ],
       "report": "playwright/index.html"
-    }
+    },
+    "viewportWidthsWithoutOverflow": [
+      390,
+      768,
+      1024,
+      1366,
+      1440
+    ],
+    "firefoxSmoke": {
+      "browser": "150.0.2",
+      "client": "Playwright 1.60.0",
+      "passed": [
+        "section navigation without reload",
+        "pagination scroll position",
+        "invalid-cart recovery by normal navigation"
+      ],
+      "limitation": "Protocol-forced reload showed service-worker reloads; not certified in Firefox. Main Chromium suite covers refresh."
+    },
+    "lighthouseRerun": false
   },
   "deployment": {
     "url": "https://frontend-challenge-jungle-gaming-rosy.vercel.app/",
     "strategy": "Vercel automatic deployment from main; local test results above do not certify deployment status"
   },
-  "previousCleanInstallValidation": {
-    "date": "2026-10-17T22:03:10.568Z",
+  "previousValidation": {
+    "date": "2026-10-18",
+    "scope": "Historical authentication and interaction validation before navigation/cart fixes; main HTML report replaced by the current suite.",
     "node": "v22.17.1",
     "playwright": "1.64.1",
-    "cleanInstallation": "npm ci --no-audit --no-fund",
-    "sourceFilesCompared": 54,
-    "sourceSha256": "85a750db12a4399c81fee75722a1e4d66711640c8d5f0cc5ef047c2401fd9110",
-    "buildHtmlSha256": "f8f21bdc5c00a0d7bbf5cd351e1c14412bb8c700fa74d9ef97feceb72f3c72d5",
+    "sourceHashAlgorithm": "SHA-256 of sorted src/tests TypeScript paths and file bytes, each delimited by NUL",
+    "sourceFilesHashed": 35,
+    "sourceSha256": "b62754db64fed856b57d0b5cd11f5df9b7816a749015142988e1420c591dfc89",
+    "buildHtmlSha256": "ce81124caa9ec0b6669847e28346bf063529191db319b2c1bb6347acda5236b8",
     "checks": {
-      "typecheck": "passed",
+      "typecheck": "passed (npm run build)",
       "lint": "passed",
       "build": "passed",
       "e2e": {
-        "passed": 52,
+        "passed": 60,
         "failed": 0,
         "baselinesUpdated": false,
         "profiles": [
           "desktop 1440x1000",
           "mobile 390x844"
         ]
-      },
-      "lighthouse": {
-        "runs": 12,
-        "allGoalsMet": true,
-        "summary": "lighthouse/summary.json"
       }
     },
-    "deployment": "User will deploy main on Vercel",
-    "scope": "Historical clean-install validation before URL and authentication fixes; the original HTML report was replaced by the current suite."
-  },
-  "interactionFollowUp": {
-    "date": "2026-10-18",
-    "scope": "Interaction effects; targeted production checks after the full authentication suite",
-    "buildHtmlSha256": "1601d5fa926b7050afedb180b06ff9ab4de8c11f9b543e9dc4e6e5ab45032fa7",
-    "typecheck": "passed (npm run build)",
-    "lint": "passed",
-    "build": "passed",
-    "e2e": {
-      "passed": 12,
-      "failed": 0,
-      "baselinesUpdated": false,
-      "report": "playwright-motion/index.html"
+    "deployment": {
+      "url": "https://frontend-challenge-jungle-gaming-rosy.vercel.app/",
+      "strategy": "Vercel automatic deployment from main; local test results above do not certify deployment status"
     },
-    "additionalBrowserChecks": [
-      "mouse hover without card layout shifts",
-      "navigation and dialog focus",
-      "reduced motion",
-      "navigation without View Transition API",
-      "mobile touch"
-    ],
-    "lighthouseRerun": false
+    "previousCleanInstallValidation": {
+      "date": "2026-10-17T22:03:10.568Z",
+      "node": "v22.17.1",
+      "playwright": "1.64.1",
+      "cleanInstallation": "npm ci --no-audit --no-fund",
+      "sourceFilesCompared": 54,
+      "sourceSha256": "85a750db12a4399c81fee75722a1e4d66711640c8d5f0cc5ef047c2401fd9110",
+      "buildHtmlSha256": "f8f21bdc5c00a0d7bbf5cd351e1c14412bb8c700fa74d9ef97feceb72f3c72d5",
+      "checks": {
+        "typecheck": "passed",
+        "lint": "passed",
+        "build": "passed",
+        "e2e": {
+          "passed": 52,
+          "failed": 0,
+          "baselinesUpdated": false,
+          "profiles": [
+            "desktop 1440x1000",
+            "mobile 390x844"
+          ]
+        },
+        "lighthouse": {
+          "runs": 12,
+          "allGoalsMet": true,
+          "summary": "lighthouse/summary.json"
+        }
+      },
+      "deployment": "User will deploy main on Vercel",
+      "scope": "Historical clean-install validation before URL and authentication fixes; the original HTML report was replaced by the current suite."
+    },
+    "interactionFollowUp": {
+      "date": "2026-10-18",
+      "scope": "Interaction effects; targeted production checks after the full authentication suite",
+      "buildHtmlSha256": "1601d5fa926b7050afedb180b06ff9ab4de8c11f9b543e9dc4e6e5ab45032fa7",
+      "typecheck": "passed (npm run build)",
+      "lint": "passed",
+      "build": "passed",
+      "e2e": {
+        "passed": 12,
+        "failed": 0,
+        "baselinesUpdated": false,
+        "report": "playwright-motion/index.html"
+      },
+      "additionalBrowserChecks": [
+        "mouse hover without card layout shifts",
+        "navigation and dialog focus",
+        "reduced motion",
+        "navigation without View Transition API",
+        "mobile touch"
+      ],
+      "lighthouseRerun": false
+    }
   }
 }

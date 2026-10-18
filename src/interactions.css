@@ -210,3 +210,15 @@ textarea:focus-visible {
     translate: none !important;
   }
 }
+
+/* Anchor navigation leaves breathing room without changing section geometry. */
+:where(#inicio, #catalogo, #criadores, #diario) {
+  scroll-margin-top: 24px;
+}
+
+/* Tablet cards should not grow larger than their desktop counterparts. */
+@media (min-width: 641px) and (max-width: 768px) {
+  .nft-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

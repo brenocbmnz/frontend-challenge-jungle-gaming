@@ -54,7 +54,7 @@ Também é possível criar uma conta. Cadastro, login e perfil ignoram espaços 
 
 `/`, `/nft/:id`, `/carrinho`, `/pagamento`, `/pedido/:id`, `/login`, `/cadastro`, `/perfil`, `/carteiras`, `/favoritos` e `/demonstracao`.
 
-Checkout, recibos, favoritos, perfil e carteiras exigem sessão. O login conserva o destino e mescla o carrinho visitante com o do usuário respeitando o estoque. A sessão dura uma hora. Logout e expiração eliminam cache privado e encerram a conexão anterior.
+Checkout, recibos, favoritos, perfil e carteiras exigem sessão. O login conserva o destino e mescla o carrinho visitante com o do usuário respeitando o estoque. Os menus superiores navegam suavemente pelas seções, preservando os filtros. A paginação do catálogo mantém a posição da tela e os cards durante a consulta. A preferência por movimento reduzido é respeitada. A sessão dura uma hora. Logout e expiração eliminam cache privado e encerram a conexão anterior.
 
 ## Cenários reproduzíveis
 

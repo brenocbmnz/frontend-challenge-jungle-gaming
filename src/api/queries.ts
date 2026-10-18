@@ -51,10 +51,35 @@ export const nftQuery = (id: string) =>
     queryKey: ["nft", id],
     queryFn: ({ signal }) => get<Nft>(`/nfts/${id}`, signal),
   });
+function parseCart(value: unknown): Cart {
+  if (
+    !value ||
+    typeof value !== "object" ||
+    !("items" in value) ||
+    !Array.isArray(value.items) ||
+    !("coupon" in value) ||
+    typeof value.coupon !== "string" ||
+    !value.items.every(
+      (item: unknown) =>
+        !!item &&
+        typeof item === "object" &&
+        "nftId" in item &&
+        typeof item.nftId === "string" &&
+        "edition" in item &&
+        ["1/1", "1/10", "1/50", "ABERTA"].includes(String(item.edition)) &&
+        "quantity" in item &&
+        Number.isInteger(item.quantity) &&
+        Number(item.quantity) > 0,
+    )
+  )
+    throw new Error("Não foi possível carregar o carrinho. Tente novamente.");
+  return value as Cart;
+}
 export const cartQuery = (uid: string) =>
   queryOptions({
     queryKey: ["cart", uid],
-    queryFn: ({ signal }) => get<Cart>("/cart", signal),
+    queryFn: async ({ signal }) =>
+      parseCart(await get<unknown>("/cart", signal)),
   });
 export const quoteQuery = (uid: string) =>
   queryOptions({

@@ -1,5 +1,10 @@
 import { Artwork } from "../components/artwork";
-import { Link, useNavigate, useSearch } from "@tanstack/react-router";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearch,
+} from "@tanstack/react-router";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import {
@@ -257,7 +262,19 @@ function Filters({
 export function Home({ background = false }: { background?: boolean }) {
   const search = validateSearch(useSearch({ strict: false }));
   const navigate = useNavigate();
-  const q = useQuery(catalogQuery(search));
+  const location = useLocation();
+  const q = useQuery({
+    ...catalogQuery(search),
+    placeholderData: (previous, previousQuery) => {
+      const previousSearch = previousQuery?.queryKey[1] as
+        CatalogSearch | undefined;
+      return previousSearch &&
+        JSON.stringify({ ...previousSearch, page: 1 }) ===
+          JSON.stringify({ ...search, page: 1 })
+        ? previous
+        : undefined;
+    },
+  });
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [input, setInput] = useState(search.q);
   useEffect(() => setInput(search.q), [search.q]);
@@ -266,7 +283,19 @@ export function Home({ background = false }: { background?: boolean }) {
     void navigate({
       to: "/",
       search: (old) => ({ ...old, ...v, page: v.page ?? 1 }),
-      hash: "catalogo",
+      hash: v.page !== undefined ? location.hash : "catalogo",
+      resetScroll: v.page === undefined,
+      hashScrollIntoView:
+        v.page !== undefined
+          ? false
+          : {
+              behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                .matches
+                ? "instant"
+                : "smooth",
+              block: "start",
+            },
+      viewTransition: false,
     });
   };
   return (

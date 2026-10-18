@@ -113,8 +113,14 @@ export function CartPage() {
       <MobileTitle title="Carrinho de NFTs" />
       {q.isPending || cart.isPending ? (
         <Skeleton cards={3} />
-      ) : q.isError ? (
-        <ErrorBox error={q.error} retry={() => void q.refetch()} />
+      ) : q.isError || cart.isError ? (
+        <ErrorBox
+          error={cart.error || q.error}
+          retry={() => {
+            void cart.refetch();
+            void q.refetch();
+          }}
+        />
       ) : !q.data?.lines.length ? (
         <Empty title="Seu carrinho está vazio">
           <p>Encontre sua próxima obra no catálogo.</p>

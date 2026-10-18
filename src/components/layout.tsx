@@ -1,4 +1,9 @@
-import { Link, useLocation, useNavigate } from "@tanstack/react-router";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearch,
+} from "@tanstack/react-router";
 import {
   Search,
   ShoppingCart,
@@ -12,15 +17,25 @@ import {
 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useState, type ReactNode } from "react";
-import { cartQuery } from "../api/queries";
+import { cartQuery, validateSearch } from "../api/queries";
 import { useSession } from "./session";
 import { Button } from "./ui/button";
 import { Dialog } from "./ui/dialog";
+import { useReducedMotion } from "../lib/motion";
 export function Header() {
   const { user, uid } = useSession();
   const { data: cart } = useQuery(cartQuery(uid));
   const location = useLocation();
   const navigate = useNavigate();
+  const validatedHomeSearch = validateSearch(useSearch({ strict: false }));
+  const homeSearch = location.pathname === "/" ? validatedHomeSearch : {};
+  const reducedMotion = useReducedMotion();
+  const sectionScroll: ScrollIntoViewOptions = {
+    behavior: reducedMotion ? "instant" : "smooth",
+    block: "start",
+  };
+  const itemCount =
+    cart?.items?.reduce((total, item) => total + item.quantity, 0) ?? 0;
   const market = ![
     "/",
     "/perfil",
@@ -28,6 +43,12 @@ export function Header() {
     "/login",
     "/cadastro",
   ].includes(location.pathname);
+  const currentSection =
+    location.pathname === "/"
+      ? location.hash || "inicio"
+      : market
+        ? "catalogo"
+        : "inicio";
   const [search, setSearch] = useState(false);
   const [q, setQ] = useState("");
   const [menu, setMenu] = useState(false);
@@ -42,28 +63,62 @@ export function Header() {
           <Search size={22} /> Explorar coleções
         </button>
       )}
-      <header className={`header ${market ? "market-header" : ""}`}>
+      <header
+        id={location.pathname === "/" ? "inicio" : undefined}
+        className={`header ${market ? "market-header" : ""}`}
+      >
         <Link to="/" className="brand" aria-label="Kurio — Início">
           KURIO
         </Link>
         <nav className="desktop-nav" aria-label="Navegação principal">
           <Link
             to="/"
+            search={homeSearch}
+            hash="inicio"
+            hashScrollIntoView={sectionScroll}
+            resetScroll={false}
+            viewTransition={false}
             activeProps={{ className: "" }}
-            className={!market ? "active" : ""}
+            className={currentSection === "inicio" ? "active" : ""}
           >
             Início
           </Link>
           <Link
             to="/"
             hash="catalogo"
+            search={homeSearch}
+            hashScrollIntoView={sectionScroll}
+            resetScroll={false}
+            viewTransition={false}
             activeProps={{ className: "" }}
-            className={market ? "active" : ""}
+            className={currentSection === "catalogo" ? "active" : ""}
           >
             Mercado
           </Link>
-          <a href="/#criadores">Criadores</a>
-          <a href="/#diario">Aprenda</a>
+          <Link
+            to="/"
+            search={homeSearch}
+            hash="criadores"
+            className={currentSection === "criadores" ? "active" : ""}
+            activeProps={{ className: "" }}
+            hashScrollIntoView={sectionScroll}
+            resetScroll={false}
+            viewTransition={false}
+          >
+            Criadores
+          </Link>
+          <Link
+            to="/"
+            search={homeSearch}
+            hash="diario"
+            className={currentSection === "diario" ? "active" : ""}
+            activeProps={{ className: "" }}
+            hashScrollIntoView={sectionScroll}
+            resetScroll={false}
+            viewTransition={false}
+          >
+            Aprenda
+          </Link>
         </nav>
         <div className="header-actions">
           <button aria-label="Buscar NFTs" onClick={() => setSearch(true)}>
@@ -71,11 +126,11 @@ export function Header() {
           </button>
           <Link
             to="/carrinho"
-            aria-label={`Carrinho, ${cart?.items.reduce((a, i) => a + i.quantity, 0) || 0} itens`}
+            aria-label={`Carrinho, ${itemCount} itens`}
             className="cart-link"
           >
             <img src="/assets/c0c08.svg" alt="" width="24.004" height="24" />
-            <span>{cart?.items.reduce((a, i) => a + i.quantity, 0) || 0}</span>
+            <span>{itemCount}</span>
           </Link>
           <Button asChild size="sm" className="account-link">
             <Link

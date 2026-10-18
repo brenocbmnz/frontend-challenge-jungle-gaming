@@ -44,7 +44,7 @@ No domínio público informado pelo usuário, foram verificados carregamento do 
 
 ## Revisão de autenticação — 18/10/2026
 
-A suíte atual contém **60 testes de produção** em Chromium desktop/mobile. Inclui a normalização de URL e seis verificações adicionais de autenticação (três cenários em cada viewport): validação acessível do login, conflito/cadastro de e-mail e edição de perfil com persistência e novo login. Todos passaram, sem atualizar baselines. Tipos, lint e build também passaram na área de trabalho atual. O [relatório completo](../reports/playwright/index.html) substitui o relatório da suíte anterior; as medições Lighthouse acima continuam referentes ao build anterior.
+Na etapa de autenticação, a suíte continha **60 testes de produção** em Chromium desktop/mobile. Inclui a normalização de URL e seis verificações adicionais de autenticação (três cenários em cada viewport): validação acessível do login, conflito/cadastro de e-mail e edição de perfil com persistência e novo login. Todos passaram, sem atualizar baselines. Tipos, lint e build também passaram na área de trabalho atual. O [relatório completo](../reports/playwright/index.html) substitui o relatório da suíte anterior; as medições Lighthouse acima continuam referentes ao build anterior.
 
 Cadastro, login e perfil passam a remover espaços externos do e-mail e a normalizar maiúsculas. A comparação de conflitos aplica a mesma regra aos registros existentes. Senhas não são normalizadas. O login retorna erros de preenchimento associados aos campos e mantém a mensagem genérica para credenciais incorretas. A arquitetura permanece com autenticação simulada via API/MSW.
 
@@ -53,3 +53,13 @@ Cadastro, login e perfil passam a remover espaços externos do e-mail e a normal
 Build (incluindo TypeScript), lint e diff check passaram. Foram executados **12 testes de produção direcionados**, todos aprovados em desktop/mobile: compra completa, favoritos com rollback, URL/refresh, teclado/foco de diálogo, regressão visual e integridade dos assets/overflow. As oito baselines foram preservadas. [Relatório desta etapa](../reports/playwright-motion/index.html).
 
 Verificações adicionais em Chromium confirmaram hover sem mudança na geometria do card, transição de navegação, foco ao abrir/fechar diálogo, ausência de animação com movimento reduzido, navegação sem View Transition API e funcionamento por toque em 390 px. Não houve erros de página nesses cenários. A suíte completa de 60 testes acima se refere à versão anterior de autenticação; nesta etapa foram repetidos os 12 casos pertinentes. Lighthouse não foi repetido.
+
+## Navegação, paginação e carrinho — 18/10/2026
+
+A suíte completa atual contém **66 testes de produção** em desktop/mobile. Foram acrescentados seis casos para menus sem reload, preservação dos filtros, rolagem suave/movimento reduzido, paginação com rede lenta em 1024 × 600 e resposta de carrinho sem items com recuperação. As oito baselines continuam preservadas. O [relatório principal](../reports/playwright/index.html) corresponde a esta etapa e substitui o relatório anterior.
+
+Build (incluindo TypeScript), lint e diff check passaram. As larguras 390, 768, 1024, 1366 e 1440 px foram verificadas sem overflow e sem zoom aplicado pela aplicação. Em 768 px, os cards passaram de 352 para 229 px; o desktop e o celular mantêm as dimensões anteriores. A fonte base continua em 14 px.
+
+Uma verificação adicional em Firefox 150.0.2, com cliente Playwright 1.60.0 compatível com o navegador já instalado, aprovou menus sem recarregar o documento, posição da paginação e recuperação do carrinho malformado por navegação normal. O reload forçado pelo protocolo de automação apresentou recarregamentos do service worker; essa modalidade específica não foi certificada no Firefox. Os testes de refresh da suíte principal foram executados no Chromium. A causa original do erro intermitente relatado pelo usuário permanece não confirmada; a validação da resposta e a proteção do contador impedem a falha de renderização para o formato reproduzido.
+
+As medições Lighthouse anteriores não foram repetidas nesta etapa.
