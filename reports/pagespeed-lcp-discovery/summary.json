@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-18",
+  "branch": "perf/pagespeed-insights",
+  "scope": "Only LCP request discovery; no merge to main",
+  "lighthouseVersion": "12.8.2",
+  "url": "http://127.0.0.1:4173/",
+  "singleLocalMobileRun": true,
+  "performanceScore": 0.9,
+  "lcpMs": 3369.8499999999995,
+  "audit": {
+    "id": "lcp-discovery-insight",
+    "score": 1,
+    "checks": {
+      "priorityHinted": {
+        "label": "fetchpriority=high applied",
+        "value": true
+      },
+      "requestDiscoverable": {
+        "label": "Request is discoverable in initial document",
+        "value": true
+      },
+      "eagerlyLoaded": {
+        "label": "lazy load not applied",
+        "value": true
+      }
+    }
+  },
+  "networkCheckedWidths": [
+    390,
+    1440
+  ],
+  "build": "passed",
+  "typecheck": "passed",
+  "lint": "passed",
+  "buildHtmlSha256": "114ddf8d0a06653e13f6a236461005a1a5508afbd0a8f4121a67c3c7f8f6c2ad",
+  "fullSuiteRerun": false,
+  "baselinesUpdated": false,
+  "limitation": "Single local Lighthouse run, not a new PageSpeed Insights measurement and not a before/after performance comparison."
+}

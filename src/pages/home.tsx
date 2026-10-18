@@ -47,6 +47,7 @@ export function NftCard({ nft, index = 0 }: { nft: Nft; index?: number }) {
             src={nft.image}
             alt={nft.name}
             loading={index < 3 ? "eager" : "lazy"}
+            fetchPriority={index === 2 ? "high" : undefined}
             width="250"
             height="250"
           />

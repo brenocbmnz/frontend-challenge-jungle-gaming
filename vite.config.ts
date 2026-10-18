@@ -26,7 +26,7 @@ export default defineConfig({
           bases.forEach((base, index) => {
           if (!base) return;
           const link = document.createElement('link');
-          link.rel = 'preload'; link.as = 'image'; link.fetchPriority = index === 0 ? 'high' : 'low';
+          link.rel = 'preload'; link.as = 'image'; link.fetchPriority = index === 0 || index === 2 ? 'high' : 'low';
           link.href = base + '-480.webp';
           link.setAttribute('imagesrcset', [320, 480, 960].map(size => base + '-' + size + '.webp ' + size + 'w').join(', '));
           link.setAttribute('imagesizes', path === '/' ? (index === 0 ? '(max-width:768px) 40vw, 450px' : '(max-width:768px) 45vw, 450px') : '(max-width:768px) calc(100vw - 56px), 404px');
