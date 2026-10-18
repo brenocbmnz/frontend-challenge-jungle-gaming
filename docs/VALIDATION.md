@@ -166,3 +166,10 @@ Os **10 testes direcionados de produção passaram**, nos dois perfis, incluindo
 Separei os refinamentos acumulados após d0ecf79 em quatro branches e integrei cada uma à main com merge explícito, preservando o histórico anterior. Os builds dos três estados intermediários de código passaram em uma worktree separada, assim como o lint da integração final. Comparei os 292 arquivos dos builds local e integrado por SHA-256: são idênticos.
 
 Após gerar o build final, os **92 testes completos de produção passaram**, com dois workers e perfis desktop/mobile: [relatório](../reports/playwright-pre-push/index.html). As oito baselines foram preservadas. Os checks de whitespace de código e documentação passaram; os dados históricos gerados pelo Playwright foram preservados sem edição. Lighthouse não foi repetido. A organização retrospectiva e as branches estão descritas em [VERSIONING.md](VERSIONING.md).
+
+
+## Aviso da fonte no Firefox — 18/10/2026
+
+O WOFF2 original do Fontsource 5.3.0 define U+00A0 como composto do glifo space vazio. Normalizei esse caractere como glifo simples vazio, preservando métricas e mapeamento. Comparei os contornos de todos os glifos nos pesos 100/400/500/700 com DecomposingRecordingPen e as métricas hmtx: idênticos. Não restam componentes vazios e a regeneração é determinística. O script de imagens não sobrescreve mais a fonte corrigida; procedimento opcional em [FONTS.md](FONTS.md).
+
+Build com TypeScript, lint e diff check passaram. Firefox 157 carregou a fonte via FontFaceSet, com U+00A0 e texto acentuado, sem erros JavaScript. Os **4 testes de regressão visual e assets/overflow passaram**, em desktop/mobile, sem atualizar baselines: [relatório](../reports/playwright-font-fix/index.html). A suíte completa de 92 casos não foi repetida e Lighthouse não foi executado novamente nesta correção.

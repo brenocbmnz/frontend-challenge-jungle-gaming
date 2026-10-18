@@ -39,7 +39,7 @@ Limitações: o mock não é um servidor multiusuário compartilhado entre abas,
 
 ## Design e acessibilidade
 
-Identidade do Figma: Roboto Mono, fundo `#140D0A`, superfície `#241612`, cobre `#D28A4C`, destaque `#E89B55`, texto `#F5F1EB`, secundário `#CFB28C`. Os quatro artworks originais reutilizados no Figma e os SVGs foram baixados para `public/assets`; a fonte vem de @fontsource e é incluída localmente, com preload. Versões WebP responsivas (320/480/960 px, qualidade 92) derivam dos PNGs originais, que permanecem preservados; não há alteração artística dos assets. `scripts/optimize-assets.mjs` reproduz essas derivações.
+Identidade do Figma: Roboto Mono, fundo `#140D0A`, superfície `#241612`, cobre `#D28A4C`, destaque `#E89B55`, texto `#F5F1EB`, secundário `#CFB28C`. Os quatro artworks originais reutilizados no Figma e os SVGs foram baixados para `public/assets`; a fonte vem de @fontsource e é incluída localmente, com preload. O componente vazio de U+00A0 foi normalizado sem alterar contornos ou métricas; a regeneração está em `docs/FONTS.md`. Versões WebP responsivas (320/480/960 px, qualidade 92) derivam dos PNGs originais, que permanecem preservados; não há alteração artística dos assets. `scripts/optimize-assets.mjs` reproduz essas derivações.
 
 O layout usa grid/flex e adapta larguras intermediárias. Radix controla foco, Escape e confinamento dos diálogos. Inputs têm labels, erros associados, alternativa para mostrar senha, foco visível e áreas de toque. Skeletons mantêm proporções e respeitam movimento reduzido. Notificações assíncronas usam regiões de status.
 

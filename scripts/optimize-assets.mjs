@@ -5,10 +5,8 @@ await fs.copyFile(
   "node_modules/@fontsource-variable/roboto-mono/LICENSE",
   "public/fonts/LICENSE.txt",
 );
-await fs.copyFile(
-  "node_modules/@fontsource-variable/roboto-mono/files/roboto-mono-latin-wght-normal.woff2",
-  "public/fonts/roboto-mono-latin.woff2",
-);
+// The normalized font is versioned in public/fonts. Regenerate with:
+// uv run scripts/prepare-font.py (see docs/FONTS.md).
 for (const name of ["8f387", "83794", "9add2", "b7cfc"])
   for (const width of [320, 480, 960]) {
     await sharp(`public/assets/${name}.png`)
