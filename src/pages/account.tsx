@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useState, type FormEvent } from "react";
-import { Wallet as WalletIcon } from "lucide-react";
+import { useState, useRef, useId, type FormEvent } from "react";
+import { Wallet as WalletIcon, ChevronDown } from "lucide-react";
 import type { Network, User, Wallet } from "../api/contracts";
 import { api, errorData, get } from "../api/client";
 import {
@@ -11,26 +11,72 @@ import {
   queryClient,
   walletsQuery,
 } from "../api/queries";
-import { Page } from "../components/layout";
+import { UserAvatar } from "../components/user-avatar";
+import { useDismissible } from "../hooks/use-dismissible";
+import { useMobile } from "../hooks/use-mobile";
+import { MobileTitle, Page } from "../components/layout";
 import { useSession } from "../components/session";
 import { Empty, ErrorBox, Field, Skeleton } from "../components/common";
 import { Button } from "../components/ui/button";
 import { Dialog } from "../components/dialog";
 import { NftCard } from "./home";
 export function AccountSidebar() {
-  const { logout } = useSession();
+  const { user, logout } = useSession();
   const navigate = useNavigate();
+  const location = useLocation();
+  const mobile = useMobile();
+  const [open, setOpen] = useState(false);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const navigationId = useId();
+  const region = useRef<HTMLElement>(null);
+  useDismissible(open && mobile, region, trigger, () => setOpen(false));
+  const current =
+    location.pathname === "/carteiras"
+      ? "Carteiras"
+      : location.pathname === "/favoritos"
+        ? "Lista de interesse"
+        : "Dados do perfil";
   return (
-    <aside className="account-sidebar">
+    <aside className="account-sidebar" ref={region}>
+      {mobile && (
+        <button
+          className="account-mobile-toggle"
+          ref={trigger}
+          aria-label="Menu da conta"
+          aria-expanded={open}
+          aria-controls={navigationId}
+          onClick={() => setOpen((value) => !value)}
+        >
+          <UserAvatar src={user?.avatar} label="Avatar da conta" />
+          <div className="account-mobile-copy">
+            <strong>Minha conta</strong>
+            <small>{current}</small>
+          </div>
+          <ChevronDown size={20} aria-hidden="true" />
+        </button>
+      )}
       <h2>Meu perfil</h2>
-      <nav aria-label="Conta do colecionador">
-        <Link to="/perfil" activeProps={{ className: "active" }}>
+      <nav
+        id={navigationId}
+        aria-label="Conta do colecionador"
+        hidden={mobile && !open}
+        onClick={(event) => {
+          if ((event.target as Element).closest("a")) setOpen(false);
+        }}
+      >
+        <Link
+          to="/perfil"
+          activeProps={{ className: "active", "aria-current": "page" }}
+        >
           <i className="account-icon">
             <img src="/assets/55e96.svg" alt="" />
           </i>
           Dados do perfil
         </Link>
-        <Link to="/carteiras" activeProps={{ className: "active" }}>
+        <Link
+          to="/carteiras"
+          activeProps={{ className: "active", "aria-current": "page" }}
+        >
           <i className="account-icon">
             <img src="/assets/8a4e9.svg" alt="" />
           </i>
@@ -42,7 +88,10 @@ export function AccountSidebar() {
           </i>
           Atividade
         </span>
-        <Link to="/favoritos" activeProps={{ className: "active" }}>
+        <Link
+          to="/favoritos"
+          activeProps={{ className: "active", "aria-current": "page" }}
+        >
           <i className="account-icon">
             <img src="/assets/8b13b.svg" alt="" />
           </i>
@@ -83,6 +132,7 @@ export function Profile() {
   });
   return (
     <Page account>
+      <MobileTitle title="Perfil" />
       <div className="account-layout">
         <AccountSidebar />
         {q.isPending ? (
@@ -97,6 +147,7 @@ export function Profile() {
   );
 }
 function ProfileForm({ profile }: { profile: User }) {
+  const mobile = useMobile();
   const { uid } = useSession();
   const [form, setForm] = useState({
     ...profile,
@@ -104,12 +155,19 @@ function ProfileForm({ profile }: { profile: User }) {
     newPassword: "",
     confirm: "",
   });
+  const [baseline, setBaseline] = useState(profile);
+  const dirty =
+    (
+      ["name", "username", "email", "ens", "walletNickname", "avatar"] as const
+    ).some((key) => (form[key] || "") !== (baseline[key] || "")) ||
+    !!(form.currentPassword || form.newPassword || form.confirm);
   const [avatarError, setAvatarError] = useState("");
   const [saved, setSaved] = useState(false);
   const mutation = useMutation({
     mutationFn: async () => (await api.patch<User>("/profile", form)).data,
     onSuccess: (data) => {
       setSaved(true);
+      setBaseline(data);
       setForm({ ...data, currentPassword: "", newPassword: "", confirm: "" });
       queryClient.setQueryData(["profile", uid], data);
       void queryClient.invalidateQueries({ queryKey: ["session"] });
@@ -126,7 +184,7 @@ function ProfileForm({ profile }: { profile: User }) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          mutation.mutate();
+          if (dirty && !mutation.isPending) mutation.mutate();
         }}
         noValidate
       >
@@ -167,7 +225,9 @@ function ProfileForm({ profile }: { profile: User }) {
           <div className="avatar-field">
             <label htmlFor="avatar">Avatar</label>
             <div>
-              {form.avatar ? (
+              {mobile ? (
+                <UserAvatar src={form.avatar} />
+              ) : form.avatar ? (
                 <img src={form.avatar} alt="Seu avatar" />
               ) : (
                 <i className="avatar-placeholder">
@@ -235,11 +295,15 @@ function ProfileForm({ profile }: { profile: User }) {
             autoComplete="new-password"
           />
         </div>
-        {mutation.isError && <ErrorBox error={mutation.error} />}{" "}
         {saved && <p role="status">Perfil salvo com sucesso.</p>}
-        <Button type="submit" disabled={mutation.isPending}>
-          {mutation.isPending ? "Salvando…" : "Salvar"}
-        </Button>
+        {dirty && (
+          <div className="profile-save-actions">
+            {mutation.isError && <ErrorBox error={mutation.error} />}
+            <Button type="submit" disabled={mutation.isPending}>
+              {mutation.isPending ? "Salvando…" : "Salvar"}
+            </Button>
+          </div>
+        )}
       </form>
     </section>
   );
@@ -258,6 +322,7 @@ export function Wallets() {
   const [editing, setEditing] = useState<Wallet>();
   return (
     <Page account>
+      <MobileTitle title="Carteiras" />
       <div className="account-layout">
         <AccountSidebar />
         <section className="wallets-page">
@@ -489,6 +554,7 @@ export function Favorites() {
   const nfts = useQuery(catalogQuery({ ...defaultSearch, page: 1 }));
   return (
     <Page account>
+      <MobileTitle title="Lista de interesse" />
       <div className="account-layout">
         <AccountSidebar />
         <section>

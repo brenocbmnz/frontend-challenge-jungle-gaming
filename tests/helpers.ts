@@ -67,3 +67,13 @@ export async function checkout(page: Page) {
     page.getByRole("dialog", { name: "Revise sua compra" }),
   ).toBeVisible();
 }
+
+export async function logout(page: Page) {
+  const exit = page.getByRole("button", { name: "Sair", exact: true });
+  if (page.viewportSize()!.width <= 768 && !(await exit.isVisible())) {
+    await page
+      .getByRole("button", { name: "Menu da conta", exact: true })
+      .click();
+  }
+  await exit.click();
+}

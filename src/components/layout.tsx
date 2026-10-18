@@ -16,7 +16,10 @@ import {
   ScanLine,
 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
-import { useState, type ReactNode } from "react";
+import { useState, useId, useRef, type ReactNode } from "react";
+import { useDismissible } from "../hooks/use-dismissible";
+import { useMobile } from "../hooks/use-mobile";
+import { UserAvatar } from "./user-avatar";
 import { cartQuery, validateSearch } from "../api/queries";
 import { useSession } from "./session";
 import { Button } from "./ui/button";
@@ -30,6 +33,7 @@ export function Header() {
   const validatedHomeSearch = validateSearch(useSearch({ strict: false }));
   const homeSearch = location.pathname === "/" ? validatedHomeSearch : {};
   const reducedMotion = useReducedMotion();
+  const mobile = useMobile();
   const sectionScroll: ScrollIntoViewOptions = {
     behavior: reducedMotion ? "instant" : "smooth",
     block: "start",
@@ -52,6 +56,10 @@ export function Header() {
   const [search, setSearch] = useState(false);
   const [q, setQ] = useState("");
   const [menu, setMenu] = useState(false);
+  const menuId = useId();
+  const menuTrigger = useRef<HTMLButtonElement>(null);
+  const menuRegion = useRef<HTMLElement>(null);
+  useDismissible(menu && mobile, menuRegion, menuTrigger, () => setMenu(false));
   return (
     <>
       {location.pathname === "/" && (
@@ -64,6 +72,7 @@ export function Header() {
         </button>
       )}
       <header
+        ref={menuRegion}
         id={location.pathname === "/" ? "inicio" : undefined}
         className={`header ${market ? "market-header" : ""}`}
       >
@@ -132,41 +141,49 @@ export function Header() {
             <img src="/assets/c0c08.svg" alt="" width="24.004" height="24" />
             <span>{itemCount}</span>
           </Link>
-          <Button asChild size="sm" className="account-link">
-            <Link
-              to={user ? "/perfil" : "/login"}
-              aria-label={user ? "Meu perfil" : "Entrar"}
-            >
-              {user ? (
-                <UserRound size={17} />
-              ) : (
-                <img src="/assets/62554.svg" alt="" />
-              )}
-              <span>{user ? "Meu perfil" : "Entrar"}</span>
-            </Link>
-          </Button>
+          {!mobile && (
+            <Button asChild size="sm" className="account-link">
+              <Link
+                to={user ? "/perfil" : "/login"}
+                aria-label={user ? "Perfil" : "Entrar"}
+              >
+                {user ? (
+                  <UserAvatar
+                    src={user.avatar}
+                    label={`Avatar de ${user.name}`}
+                  />
+                ) : (
+                  <img src="/assets/62554.svg" alt="" />
+                )}
+                <span>{user ? "Perfil" : "Entrar"}</span>
+              </Link>
+            </Button>
+          )}
           <button
             className="mobile-menu"
+            ref={menuTrigger}
+            aria-expanded={menu}
+            aria-controls={menuId}
             onClick={() => setMenu((v) => !v)}
             aria-label="Abrir navegação"
           >
             {menu ? <X /> : <Menu />}
           </button>
         </div>
+        {menu && (
+          <nav className="mobile-links" id={menuId} aria-label="Menu mobile">
+            <Link to="/" onClick={() => setMenu(false)}>
+              Início
+            </Link>
+            <Link to="/perfil" onClick={() => setMenu(false)}>
+              Meu perfil
+            </Link>
+            <Link to="/carteiras" onClick={() => setMenu(false)}>
+              Carteiras
+            </Link>
+          </nav>
+        )}
       </header>
-      {menu && (
-        <nav className="mobile-links" aria-label="Menu mobile">
-          <Link to="/" onClick={() => setMenu(false)}>
-            Início
-          </Link>
-          <Link to="/perfil" onClick={() => setMenu(false)}>
-            Meu perfil
-          </Link>
-          <Link to="/carteiras" onClick={() => setMenu(false)}>
-            Carteiras
-          </Link>
-        </nav>
-      )}
       <Dialog open={search} onOpenChange={setSearch} title="Buscar NFTs">
         <form
           action="/"
@@ -393,6 +410,9 @@ export function Breadcrumb({ children }: { children: ReactNode }) {
   );
 }
 export function BottomNav() {
+  const reducedMotion = useReducedMotion();
+  const location = useLocation();
+  const search = validateSearch(useSearch({ strict: false }));
   return (
     <nav className="bottom-nav" aria-label="Atalhos">
       <Link to="/" aria-label="Início">
@@ -404,6 +424,30 @@ export function BottomNav() {
       <Link
         to="/"
         hash="catalogo"
+        search={location.pathname === "/" ? search : {}}
+        resetScroll={false}
+        hashScrollIntoView={{
+          behavior: reducedMotion ? "instant" : "smooth",
+          block: "start",
+        }}
+        viewTransition={false}
+        onClick={(event) => {
+          if (
+            location.pathname === "/" &&
+            location.hash === "catalogo" &&
+            event.button === 0 &&
+            !event.ctrlKey &&
+            !event.metaKey &&
+            !event.shiftKey &&
+            !event.altKey
+          ) {
+            event.preventDefault();
+            document.getElementById("catalogo")?.scrollIntoView({
+              behavior: reducedMotion ? "instant" : "smooth",
+              block: "start",
+            });
+          }
+        }}
         className="scan-link"
         aria-label="Explorar catálogo"
       >
