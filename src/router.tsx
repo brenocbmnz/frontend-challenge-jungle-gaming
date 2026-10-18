@@ -166,6 +166,14 @@ export const router = createRouter({
     demo,
   ]),
   scrollRestoration: true,
+  defaultViewTransition: {
+    types: ({ fromLocation, pathChanged }) =>
+      fromLocation &&
+      pathChanged &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? ["page"]
+        : false,
+  },
   defaultPreload: "intent",
 });
 declare module "@tanstack/react-router" {

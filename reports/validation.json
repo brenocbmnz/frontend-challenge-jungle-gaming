@@ -55,5 +55,27 @@
     },
     "deployment": "User will deploy main on Vercel",
     "scope": "Historical clean-install validation before URL and authentication fixes; the original HTML report was replaced by the current suite."
+  },
+  "interactionFollowUp": {
+    "date": "2026-10-18",
+    "scope": "Interaction effects; targeted production checks after the full authentication suite",
+    "buildHtmlSha256": "1601d5fa926b7050afedb180b06ff9ab4de8c11f9b543e9dc4e6e5ab45032fa7",
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "build": "passed",
+    "e2e": {
+      "passed": 12,
+      "failed": 0,
+      "baselinesUpdated": false,
+      "report": "playwright-motion/index.html"
+    },
+    "additionalBrowserChecks": [
+      "mouse hover without card layout shifts",
+      "navigation and dialog focus",
+      "reduced motion",
+      "navigation without View Transition API",
+      "mobile touch"
+    ],
+    "lighthouseRerun": false
   }
 }

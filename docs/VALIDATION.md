@@ -47,3 +47,9 @@ No domínio público informado pelo usuário, foram verificados carregamento do 
 A suíte atual contém **60 testes de produção** em Chromium desktop/mobile. Inclui a normalização de URL e seis verificações adicionais de autenticação (três cenários em cada viewport): validação acessível do login, conflito/cadastro de e-mail e edição de perfil com persistência e novo login. Todos passaram, sem atualizar baselines. Tipos, lint e build também passaram na área de trabalho atual. O [relatório completo](../reports/playwright/index.html) substitui o relatório da suíte anterior; as medições Lighthouse acima continuam referentes ao build anterior.
 
 Cadastro, login e perfil passam a remover espaços externos do e-mail e a normalizar maiúsculas. A comparação de conflitos aplica a mesma regra aos registros existentes. Senhas não são normalizadas. O login retorna erros de preenchimento associados aos campos e mantém a mensagem genérica para credenciais incorretas. A arquitetura permanece com autenticação simulada via API/MSW.
+
+## Efeitos de interação — 18/10/2026
+
+Build (incluindo TypeScript), lint e diff check passaram. Foram executados **12 testes de produção direcionados**, todos aprovados em desktop/mobile: compra completa, favoritos com rollback, URL/refresh, teclado/foco de diálogo, regressão visual e integridade dos assets/overflow. As oito baselines foram preservadas. [Relatório desta etapa](../reports/playwright-motion/index.html).
+
+Verificações adicionais em Chromium confirmaram hover sem mudança na geometria do card, transição de navegação, foco ao abrir/fechar diálogo, ausência de animação com movimento reduzido, navegação sem View Transition API e funcionamento por toque em 390 px. Não houve erros de página nesses cenários. A suíte completa de 60 testes acima se refere à versão anterior de autenticação; nesta etapa foram repetidos os 12 casos pertinentes. Lighthouse não foi repetido.

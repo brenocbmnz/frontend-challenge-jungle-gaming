@@ -1,0 +1,212 @@
+/* Interaction feedback preserves the resting Figma layout and hit areas. */
+:root {
+  --interaction-duration: 160ms;
+  --interaction-ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.ui-button,
+.header-actions > button,
+.header-actions > a,
+.pagination button,
+.edition-selector button,
+.product-thumbs button,
+.catalog-favorite,
+.dialog-close {
+  transition:
+    background-color var(--interaction-duration) ease,
+    border-color var(--interaction-duration) ease,
+    color var(--interaction-duration) ease,
+    box-shadow var(--interaction-duration) ease;
+}
+
+.desktop-nav a,
+.account-sidebar nav a,
+.account-sidebar nav button,
+.catalog-tabs button,
+.filters button,
+.footer a,
+.bottom-nav a,
+.forgot-link,
+.auth-switch a {
+  transition: color var(--interaction-duration) ease;
+}
+
+input,
+select,
+textarea {
+  transition:
+    border-color var(--interaction-duration) ease,
+    background-color var(--interaction-duration) ease;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-color: #d28a4c;
+}
+
+.nft-card {
+  transition: box-shadow 180ms ease;
+}
+
+.nft-art img,
+.ui-button > svg,
+.ui-button > img,
+.header-actions > button > img,
+.header-actions > a > img,
+.bottom-nav a > svg,
+.bottom-nav a > img,
+.dialog-close > svg,
+.catalog-favorite > svg {
+  transition:
+    scale 180ms var(--interaction-ease),
+    translate 180ms var(--interaction-ease);
+}
+
+.nft-card:has(> a:focus-visible) {
+  box-shadow: 0 0 0 3px #d28a4c33;
+}
+
+/* Hover-only movement does not leave sticky states on touch screens. */
+@media (hover: hover) and (pointer: fine) {
+  .ui-button:not(:disabled):not([aria-disabled="true"]):hover {
+    box-shadow: 0 3px 12px #0003;
+  }
+
+  .ui-button:not(:disabled):hover > svg,
+  .ui-button:not(:disabled):hover > img,
+  .header-actions > button:not(:disabled):hover > img,
+  .header-actions > a:hover > img,
+  .bottom-nav a:hover > svg,
+  .bottom-nav a:hover > img {
+    translate: 0 -1px;
+  }
+
+  .nft-card:has(> a:hover) {
+    box-shadow: 0 5px 16px #0004;
+  }
+
+  .nft-card > a:hover .nft-art img,
+  .nft-card > a:focus-visible .nft-art img {
+    scale: 1.015;
+  }
+
+  .desktop-nav a:hover,
+  .account-sidebar nav a:hover,
+  .account-sidebar nav button:hover,
+  .catalog-tabs button:hover,
+  .filters button:not(:disabled):hover,
+  .footer a:hover,
+  .bottom-nav a:hover,
+  .forgot-link:hover,
+  .auth-switch a:hover {
+    color: #e89b55;
+  }
+
+  .pagination button:not(:disabled):hover,
+  .edition-selector button:not(:disabled):hover,
+  .product-thumbs button:hover {
+    box-shadow: 0 0 0 1px #d28a4c;
+  }
+
+  .catalog-favorite:not(:disabled):hover > svg {
+    scale: 1.1;
+  }
+
+  .dialog-close:hover > svg {
+    scale: 1.1;
+  }
+}
+
+/* Press feedback works for touch, pointer and keyboard activation. */
+.ui-button:not(:disabled):active > svg,
+.ui-button:not(:disabled):active > img,
+.catalog-favorite:not(:disabled):active > svg {
+  scale: 0.94;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dialog-overlay,
+  .mobile-links {
+    animation: interaction-fade-in 140ms ease-out;
+  }
+
+  .dialog-content {
+    animation: interaction-dialog-in 180ms var(--interaction-ease);
+  }
+
+  .toast {
+    animation: interaction-dialog-in 160ms var(--interaction-ease);
+  }
+
+  .catalog-favorite[aria-pressed="true"] > svg,
+  .favorite-button[aria-pressed="true"] > svg {
+    animation: interaction-favorite 200ms var(--interaction-ease);
+  }
+
+  ::view-transition-old(root) {
+    animation: interaction-fade-out 100ms ease-out both;
+  }
+
+  ::view-transition-new(root) {
+    animation: interaction-fade-in 160ms ease-out both;
+  }
+}
+
+@keyframes interaction-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes interaction-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes interaction-dialog-in {
+  from {
+    opacity: 0;
+    translate: 0 5px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes interaction-favorite {
+  0%,
+  100% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+
+  /* Keep color/focus feedback, remove spatial movement as well as timing. */
+  .nft-art img,
+  .ui-button > svg,
+  .ui-button > img,
+  .header-actions > button > img,
+  .header-actions > a > img,
+  .bottom-nav a > svg,
+  .bottom-nav a > img,
+  .dialog-close > svg,
+  .catalog-favorite > svg {
+    scale: none !important;
+    translate: none !important;
+  }
+}

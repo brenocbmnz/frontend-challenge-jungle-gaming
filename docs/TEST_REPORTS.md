@@ -19,3 +19,13 @@ npm run test:export
 ```
 
 Para executar sem conflitar com outro preview, use `PLAYWRIGHT_PORT=4183 PLAYWRIGHT_PRODUCTION=1 npm test`. Para abrir o relatório versionado, execute `npx playwright show-report reports/playwright`.
+
+## Verificação posterior dos efeitos de interação
+
+A suíte completa de 60 testes acima foi executada antes dos novos efeitos. Após o ajuste, 12 casos relevantes passaram novamente, preservando as baselines. [Relatório dos efeitos](../reports/playwright-motion/index.html).
+
+```sh
+PLAYWRIGHT_PRODUCTION=1 PLAYWRIGHT_HTML_OUTPUT_DIR=reports/playwright-motion npx playwright test --grep 'regressão visual|assets visíveis|teclado, foco|favorito otimista|URL omite|compra completa'
+```
+
+As verificações adicionais de hover, movimento reduzido, fallback sem View Transition API e toque estão descritas em VALIDATION.md.
