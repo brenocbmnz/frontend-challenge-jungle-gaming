@@ -15,7 +15,7 @@ import { Page } from "../components/layout";
 import { useSession } from "../components/session";
 import { Empty, ErrorBox, Field, Skeleton } from "../components/common";
 import { Button } from "../components/ui/button";
-import { Dialog } from "../components/ui/dialog";
+import { Dialog } from "../components/dialog";
 import { NftCard } from "./home";
 export function AccountSidebar() {
   const { logout } = useSession();

@@ -14,7 +14,7 @@ import {
 import { useSession } from "../components/session";
 import { Breadcrumb, Page } from "../components/layout";
 import { Empty, ErrorBox, Quantity, Skeleton } from "../components/common";
-import { Dialog } from "../components/ui/dialog";
+import { Dialog } from "../components/dialog";
 import { Button } from "../components/ui/button";
 import { eth } from "../lib/money";
 import { Related } from "./home";

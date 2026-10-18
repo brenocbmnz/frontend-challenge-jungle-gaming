@@ -6,7 +6,7 @@ import { api, errorData } from "../api/client";
 import { useSession } from "../components/session";
 import { ErrorBox, Field } from "../components/common";
 import { Button } from "../components/ui/button";
-import { Dialog } from "../components/ui/dialog";
+import { Dialog } from "../components/dialog";
 import { Home } from "./home";
 export function Auth({ register = false }: { register?: boolean }) {
   const navigate = useNavigate();

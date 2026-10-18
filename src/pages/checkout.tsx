@@ -16,7 +16,7 @@ import { useSession } from "../components/session";
 import { Breadcrumb, MobileTitle, Page } from "../components/layout";
 import { Empty, ErrorBox, Field, Skeleton } from "../components/common";
 import { Button } from "../components/ui/button";
-import { Dialog } from "../components/ui/dialog";
+import { Dialog } from "../components/dialog";
 import { eth } from "../lib/money";
 import { validateCollector } from "../lib/collector";
 import { Coupon, Totals } from "./cart";
