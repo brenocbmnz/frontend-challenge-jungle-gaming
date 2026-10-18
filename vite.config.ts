@@ -12,6 +12,40 @@ export default defineConfig({
     react(),
     tailwindcss(),
     {
+      name: "bootstrap-module-preloads",
+      transformIndexHtml: {
+        order: "post",
+        handler(_html, context) {
+          if (!context.bundle) return [];
+          const bundle = context.bundle;
+          const entry = Object.values(bundle).find(
+            (output) => output.type === "chunk" && output.isEntry,
+          );
+          if (!entry || entry.type !== "chunk") return [];
+          const initialModules = new Set<string>();
+          function include(fileName: string) {
+            if (initialModules.has(fileName)) return;
+            const output = bundle[fileName];
+            if (!output || output.type !== "chunk") return;
+            initialModules.add(fileName);
+            output.imports.forEach(include);
+          }
+          // Discover the app and mocks together with the entry. Keep route/dialog
+          // dynamic imports lazy and keep bootstrap's worker-ready barrier intact.
+          entry.dynamicImports.forEach(include);
+          return [...initialModules].map((fileName) => ({
+            tag: "link",
+            attrs: {
+              rel: "modulepreload",
+              crossorigin: "",
+              href: `/${fileName}`,
+            },
+            injectTo: "head-prepend" as const,
+          }));
+        },
+      },
+    },
+    {
       name: "route-artwork-preload",
       transformIndexHtml() {
         return [
