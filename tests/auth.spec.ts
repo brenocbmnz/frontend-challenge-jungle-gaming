@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { start, login } from "./helpers";
+import { start, login, logout } from "./helpers";
 
 test.beforeEach(async ({ page }) => {
   await start(page);
@@ -68,7 +68,7 @@ test("cadastro rejeita e-mail equivalente e persiste o endereço normalizado", a
   await expect(page.getByLabel("E-mail", { exact: true })).toHaveValue(
     "newcollector@kurio.test",
   );
-  await page.getByRole("button", { name: "Sair", exact: true }).click();
+  await logout(page);
   await login(page, " NEWCOLLECTOR@kurio.test ", "Other123!");
   await expect(page.getByLabel("Nome de usuário", { exact: true })).toHaveValue(
     "casecheck",
@@ -102,7 +102,7 @@ test("perfil bloqueia e-mail de outro usuário e mantém login após normalizaç
   ).toBeVisible();
   await page.reload();
   await expect(email).toHaveValue("changed@kurio.test");
-  await page.getByRole("button", { name: "Sair", exact: true }).click();
+  await logout(page);
   await login(page, " CHANGED@kurio.test ");
   await expect(page.getByLabel("Nome de usuário", { exact: true })).toHaveValue(
     "nova",

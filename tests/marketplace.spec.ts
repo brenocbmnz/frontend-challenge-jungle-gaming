@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { start, login, add, checkout, control } from "./helpers";
+import { start, login, add, checkout, control, logout } from "./helpers";
 test.beforeEach(async ({ page }) => {
   await start(page);
 });
@@ -284,7 +284,7 @@ test("sessão expirada preserva contexto e isola usuários", async ({ page }) =>
     page.getByRole("heading", { name: "Carteira selecionada" }),
   ).toBeVisible();
   await page.goto("/perfil");
-  await page.getByRole("button", { name: "Sair", exact: true }).click();
+  await logout(page);
   await login(page, "breno@kurio.test", "Kurio123!", "/carrinho");
   await expect(
     page.getByRole("heading", { name: "Seu carrinho está vazio" }),
@@ -366,7 +366,7 @@ test("perfil e carteira persistem e validam dados", async ({ page }) => {
   await page.getByLabel("Senha atual", { exact: true }).fill("Kurio123!");
   await page.getByRole("button", { name: "Salvar", exact: true }).click();
   await expect(page.getByText("Perfil salvo com sucesso.")).toBeVisible();
-  await page.getByRole("button", { name: "Sair", exact: true }).click();
+  await logout(page);
   await login(page, "nova@kurio.test", "NovaSenha123!");
   await page.goto("/carteiras");
   await page.getByRole("button", { name: "Adicionar carteira" }).click();

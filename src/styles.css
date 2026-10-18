@@ -1377,7 +1377,7 @@ small {
   flex-direction: column;
   gap: 18px;
 }
-.profile-form form > button {
+.profile-save-actions > button {
   margin-top: 32px;
   min-width: 132px;
 }
@@ -2801,7 +2801,7 @@ small {
   .password-fields {
     max-width: none;
   }
-  .profile-form form > button {
+  .profile-save-actions > button {
     width: 100%;
     min-height: 50px;
   }
@@ -3668,6 +3668,12 @@ small {
 .wallet-primary-form > [role="status"] {
   grid-column: 1/-1;
 }
+.wallet-primary-form > label:has(> select) {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+}
 .wallet-primary-form select {
   margin-top: 0;
   height: 40px;
@@ -3894,5 +3900,236 @@ small {
     width: 48px;
     height: 48px;
     padding: 14px;
+  }
+}
+
+/* Shared account avatar and mobile account disclosure. */
+.user-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border: 1.5px solid #d28a4c;
+  border-radius: 50%;
+  color: #e89b55;
+  background: #2f1d15;
+}
+.user-avatar > img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+.avatar-field .user-avatar {
+  width: 50px;
+  height: 50px;
+}
+.avatar-field .user-avatar > img {
+  width: 100%;
+  height: 100%;
+}
+.header-actions .account-link:has(.user-avatar) {
+  min-height: 32px;
+  height: auto;
+  padding: 0;
+  gap: 8px;
+  background: transparent;
+  color: #cfb28c;
+}
+.header-actions .user-avatar {
+  width: 32px;
+  height: 32px;
+}
+.account-mobile-toggle {
+  display: none;
+}
+.account-sidebar nav[hidden] {
+  display: none;
+}
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+    z-index: 45;
+    height: 48px;
+  }
+  .header-actions {
+    gap: 14px;
+  }
+  .header-actions .account-link:has(.user-avatar) {
+    min-height: 36px;
+    padding: 0;
+  }
+  .header-actions .user-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  .mobile-links {
+    position: absolute;
+    z-index: 1;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    max-height: min(320px, calc(100dvh - 100px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-shadow: 0 12px 28px #0a060466;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 8px;
+    border: 1px solid #55321f;
+    border-radius: 12px;
+    background: #241612;
+  }
+  .mobile-links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+  .mobile-links a:focus-visible,
+  .mobile-links a:hover {
+    background: #2f1d15;
+  }
+  .account-sidebar {
+    position: relative;
+    z-index: 35;
+    width: 100%;
+    border: 1px solid #55321f;
+    border-radius: 14px;
+    overflow: visible;
+  }
+  .account-sidebar .account-mobile-toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 72px;
+    padding: 12px 14px;
+    gap: 12px;
+    border: 0;
+    font-size: 14px;
+  }
+  .account-mobile-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
+  }
+  .account-mobile-copy strong {
+    color: #f5f1eb;
+    font-weight: 500;
+  }
+  .account-mobile-copy small {
+    color: #cfb28c;
+    font-size: 12px;
+  }
+  .account-mobile-toggle > svg {
+    flex-shrink: 0;
+    transition: transform 140ms ease;
+  }
+  .account-mobile-toggle[aria-expanded="true"] > svg {
+    transform: rotate(180deg);
+  }
+  .account-sidebar nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: -1px;
+    right: -1px;
+    z-index: 1;
+    max-height: min(320px, max(120px, calc(100dvh - 190px)));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid #55321f;
+    border-radius: 14px;
+    background: #241612;
+    box-shadow: 0 12px 28px #0a060466;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 6px;
+    gap: 3px;
+    border-top: 1px solid #55321f;
+  }
+  .account-sidebar nav > a,
+  .account-sidebar nav > button {
+    min-height: 46px;
+    font-size: 14px;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+  }
+  .account-sidebar nav > .active {
+    border: 0;
+    background: #3a271b;
+    color: #e89b55;
+    box-shadow: inset 3px 0 #d28a4c;
+  }
+  .account-sidebar nav > button {
+    margin-top: 5px;
+    border-top: 1px solid #55321f;
+    border-radius: 0 0 8px 8px;
+  }
+  .account-sidebar .account-mobile-toggle:focus-visible,
+  .account-sidebar nav > a:focus-visible,
+  .account-sidebar nav > button:focus-visible {
+    outline-offset: -3px;
+  }
+}
+@media (max-width: 389px) {
+  .header-actions {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-form {
+    padding-bottom: calc(160px + env(safe-area-inset-bottom));
+  }
+  .profile-save-actions {
+    position: fixed;
+    z-index: 25;
+    left: 28px;
+    right: 28px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    max-width: 712px;
+    margin: 0 auto;
+    padding: 12px;
+    background: #241612;
+    border: 1px solid #55321f;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px #0a060466;
+  }
+  .profile-save-actions > button {
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    margin: 0;
+    border-radius: 8px;
+  }
+  .profile-save-actions > [role="status"],
+  .profile-save-actions > .error-box {
+    margin: 0 0 8px;
+    font-size: 12px;
+  }
+  .profile-save-actions > .error-box {
+    padding: 8px;
+  }
+}
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .profile-save-actions {
+    animation: profile-save-appear 160ms ease-out both;
+  }
+}
+@keyframes profile-save-appear {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -115,6 +115,21 @@ test("dados adicionais do checkout têm erros associados e são preservados no p
 test("edição da carteira principal e secundária persiste", async ({ page }) => {
   await login(page, undefined, undefined, "/carteiras");
   const primary = page.locator(".wallet-primary-form");
+  if (page.viewportSize()!.width > 768) {
+    for (const [selectLabel, inputLabel] of [
+      ["Rede", "Nome do perfil"],
+      ["Tipo de carteira", "Código de indicação"],
+    ]) {
+      const selectBox = await primary
+        .getByRole("combobox", { name: new RegExp(`^${selectLabel}\\b`) })
+        .boundingBox();
+      const inputBox = await primary
+        .getByLabel(inputLabel, { exact: true })
+        .boundingBox();
+      expect(Math.abs(selectBox!.y - inputBox!.y)).toBeLessThanOrEqual(1);
+      expect(selectBox!.height).toBe(inputBox!.height);
+    }
+  }
   await primary
     .getByLabel("Apelido da carteira", { exact: true })
     .fill("Principal atualizada");
