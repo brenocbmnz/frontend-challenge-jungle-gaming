@@ -8,8 +8,8 @@ Este documento registra a situação atual da entrega. Evidências, comandos e l
 
 | Área | Situação |
 | --- | --- |
-| Stack | React, TypeScript, Router/Query, Axios, REST, Socket.IO, Tailwind, componentes no padrão shadcn/ui sobre Radix, MSW, Playwright e Lighthouse participam da solução |
-| Descoberta | Destaques, catálogo, filtros combinados, busca, ordenação e paginação persistidos na URL; menus com rolagem suave e paginação sem reposicionar a tela |
+| Stack | React, TypeScript, Router/Query, Axios, REST, Socket.IO, Tailwind, Button e Dialog oficiais do shadcn/ui personalizados sobre Radix, MSW, Playwright e Lighthouse participam da solução |
+| Descoberta | Destaques, catálogo, filtros combinados, busca, ordenação e paginação persistidos na URL; menus com rolagem suave, paginação sem reposicionar a tela, com 6 itens no mobile e 9 no desktop |
 | Detalhe e favoritos | Acesso direto, galeria, edição, quantidade, indisponibilidade, favoritos persistidos e atualização otimista com rollback |
 | Carrinho | Quantidades, remoção, cupons, persistência após refresh/login e valores ETH calculados com BigInt |
 | Compra | Dados do colecionador, rede/carteira, conexão simulada, revisão de cotação, pedidos idempotentes, recusa e recuperação após timeout |
@@ -20,7 +20,7 @@ Este documento registra a situação atual da entrega. Evidências, comandos e l
 | Tempo real | Cliente Socket.IO interceptado por MSW; versões, duplicatas, eventos antigos, isolamento de sessão e reconciliação REST |
 | Cenários | Dois usuários fictícios, falhas reproduzíveis, painel de demonstração e reset |
 | Acessibilidade | Foco de diálogos, atalho de conteúdo, erros associados, feedback acessível e reflow de telas privadas |
-| Testes | Suíte de 66 testes de produção desktop/mobile e oito baselines versionadas; relatório HTML em reports/playwright |
+| Testes | 92 testes completos de produção aprovados em desktop/mobile antes do envio das branches; oito baselines preservadas nesta execução. [Relatório recente](../reports/playwright-pre-push/index.html) |
 | Instalação | npm ci, tipos, lint, build e suíte anterior verificados em cópia isolada; verificações posteriores discriminadas em VALIDATION.md |
 | Performance | Últimas medianas Lighthouse: desktop 100/100, mobile 92/93 em performance; demais categorias 100; medições anteriores ao ajuste de autenticação |
 | Entrega | Repositório público, lockfile, assets locais, mocks, contratos, configurações, documentação e aplicação publicada na Vercel |
@@ -34,3 +34,5 @@ A persistência e autenticação são demonstrativas, locais ao navegador. Os mo
 Blockchain, extensão real de carteira e gateway real estão fora do escopo. Páginas editoriais, suporte, atividade, ofertas e downloads também não fazem parte da entrega. Login social e recuperação de senha informam a limitação sem aparentar sucesso.
 
 Testes aprovados não certificam todos os estados, navegadores ou equivalência visual com o Figma. As medições Lighthouse documentam o build e as condições em que foram executadas; não foram repetidas após as correções de autenticação.
+
+A migração dos componentes shadcn/ui foi realizada localmente e ainda não foi publicada. Origem e adaptações: [SHADCN.md](SHADCN.md).

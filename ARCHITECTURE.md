@@ -6,7 +6,7 @@
 - `src/api/client.ts`: Axios, cancelamento, cabeçalhos de identidade e tratamento central de sessão expirada. Sem dados fictícios.
 - `src/api/queries.ts`: chaves de cache por usuário e parâmetros, políticas de consulta e validação de search params.
 - `src/mocks/`: servidor de demonstração. Fixtures, regras de negócio, persistência, REST e Socket.IO compartilham um banco. Nenhum componente cria respostas simuladas.
-- `src/pages/`: fluxos da interface; `src/components/ui/`: componentes no padrão shadcn/ui sobre Radix, CVA e Tailwind.
+- `src/pages/`: fluxos da interface; `src/components/ui/`: componentes Button e Dialog importados pelo CLI oficial do shadcn/ui e personalizados com Radix, CVA e Tailwind. O adaptador de carregamento/foco dos diálogos fica em `src/components/dialog*.tsx`. Origem, cópias dos arquivos instalados e adaptações estão em [docs/SHADCN.md](docs/SHADCN.md).
 - `src/lib/money.ts`: conversão decimal ↔ wei por BigInt. Nenhum cálculo financeiro em ponto flutuante.
 
 ## Sessão e carrinho
@@ -86,3 +86,40 @@ A paginação mantém o scroll (`resetScroll: false`, `hashScrollIntoView: false
 Respostas GET /cart são validadas antes de entrar no cache: items, coupon e cada linha devem corresponder ao contrato. Uma resposta inválida gera um erro recuperável, e o cabeçalho também protege o cálculo do contador. O teste cobre um estado persistido malformado que produz uma resposta HTTP 200 sem items; não certifica a causa do erro intermitente relatado pelo usuário.
 
 Na faixa de 641–768 px, a grade passa a três colunas para evitar cards maiores que os do desktop. O celular mantém duas colunas e o desktop mantém as dimensões de referência do Figma. Não se aplica zoom global para reduzir a interface.
+
+## Fluxo dos cards do catálogo
+
+Todos os cards mostram nome e preço, inclusive o oitavo item de cada página. Não há ocultação por índice para reproduzir uma referência visual. O catálogo mantém os links completos em bloco e as linhas alinhadas, sem deslocar os cards pares por transform. Isso faz com que o grid reserve espaço real para o nome e o preço antes da próxima linha. O teste de layout cobre celulares, tablet e desktop, inclusive nomes que ocupam mais de uma linha.
+
+O banner mobile segue a referência visual com arte principal e miniatura decorativa sobreposta no canto inferior esquerdo, ambas usando os assets locais exportados. O grupo mantém suas proporções e limita a arte principal a 138 px; título e descrição se ajustam até 320 px para manter o link Explorar dentro do banner de 190 px. Os indicadores usam o SVG local em seu tamanho original de 40 × 8 px, centralizado no banner. O controle de filtros usa Button no tamanho de ícone, com `aria-label="Filtros"`, e o ícone Settings2 de duas linhas com círculos, centralizado e com traço de 1,5 px. O desktop mantém sua composição anterior.
+
+## Filtros, favoritos e raridade dos cards
+
+Os filtros mantêm checkboxes nativos, estado checked e foco de teclado, mas a seleção visual usa apenas a cor do rótulo e da contagem, sem prefixo de checkmark. O favorito fica oculto nos cards até 768 px; o detalhe do NFT continua oferecendo a ação no mobile. No desktop, todos os cards revelam o coração ao passar o mouse pela arte ou pelo controle, com fade e deslocamento de 120 ms. A ação também aparece quando o link ou o botão recebe foco visível pelo teclado. Focar com um clique do mouse não mantém o coração permanentemente visível ao sair da imagem. Movimento reduzido desativa as transições.
+
+A tag “RARO” é renderizada a partir de `Nft.rarity`, não do índice do card, e aparece em desktop e mobile. As fixtures declaram quais IDs são raros; esse dado não é inferido da imagem ou do preço. A inicialização preenche o campo nos dados antigos sem apagar os demais recursos. Os contratos REST e os eventos carregam o mesmo metadado.
+
+
+## Paginação responsiva e controles mobile
+
+Até 768 px, a API usa `pageSize=6`; no desktop, o padrão continua sendo 9. O tamanho participa da chave TanStack Query para não reutilizar páginas com tamanhos diferentes ao mudar de viewport. O campo `page` da URL identifica somente a página atual, tanto em mobile quanto em desktop. Filtros reiniciam a paginação; refresh e histórico recuperam a seleção. Se a mudança de viewport deixa a página acima do limite disponível, a URL é ajustada para a última página válida sem criar outra entrada no histórico. Durante uma troca de página com o mesmo tamanho, os cards anteriores ficam como placeholder e a posição da tela é preservada. A listagem não carrega itens automaticamente ao rolar, mantendo o acesso às seções seguintes.
+
+A barra de compra mobile ocupa 140 px, acrescidos da safe area quando presente. O controle de menos mantém fundo sólido quando desabilitado. O menu inferior desenha o recorte em um pseudo-elemento separado dos links, usando `clip-path: shape()` com uma máscara radial como alternativa; o botão central não tem sombra circular preta. O recorte não impede foco ou clique nos links.
+
+
+## Navegação de conta e avatar
+
+No mobile, AccountSidebar usa um painel expansível: um botão identifica “Minha conta” e a seção atual, controla a lista vertical de links por `aria-expanded`/`aria-controls` e permite fechar com Escape retornando o foco ao botão. Os painéis mobile são posicionados de forma absoluta abaixo do controle e se sobrepõem ao conteúdo, sem alterar sua posição. O link ativo recebe `aria-current="page"`; ao selecionar outra seção, o painel fecha. O hook useDismissible fecha ao clicar ou focar fora e restaura o foco ao controle com Escape; os listeners são removidos ao fechar ou desmontar. O painel possui rolagem própria quando limitado pela altura da tela. Os itens têm altura mínima de 46 px. O desktop mantém a navegação lateral sempre visível; o botão e o resumo de “Minha conta” só são renderizados até 768 px. O menu geral do cabeçalho também usa links em lista e suporte a Escape. A referência de interação é o padrão [Disclosure Navigation da W3C](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/), adaptado às cores e tipografia da aplicação; os links preservam sua semântica de navegação.
+
+UserAvatar é usado no cabeçalho desktop, resumo da conta mobile e editor do perfil mobile. O editor desktop conserva o avatar e o placeholder originais. O cabeçalho desktop usa o rótulo “Perfil”, com a tipografia existente; o mobile não renderiza esse acesso no cabeçalho e mantém somente busca, carrinho e menu. O contorno é circular e laranja; o ícone UserRound aparece quando não há imagem. O formulário mostra a prévia ao selecionar o arquivo. Após salvar, a consulta da sessão é invalidada e o avatar salvo aparece nos demais pontos. A persistência, validação de arquivo e isolamento entre contas continuam passando pela API mock e pelo cache da sessão.
+
+A seta de próxima página só é renderizada quando a resposta da API informa mais de uma página. Na última página de um resultado com várias páginas, permanece desabilitada.
+
+
+## Ações fixas e navegação para o catálogo no mobile
+
+O botão central da navegação inferior preserva os filtros, usa `hashScrollIntoView` com rolagem suave e desativa a transição de página nessa navegação por âncora. Um novo toque quando a URL já contém `#catalogo` rola diretamente para a seção, evitando que a navegação para o mesmo hash seja ignorada. A preferência por movimento reduzido troca o comportamento por instantâneo; cliques com modificadores mantêm o comportamento normal do link.
+
+Até 768 px, o grupo de ações do perfil fica fixo no rodapé da viewport, somente enquanto há alterações em relação à última resposta salva, incluindo avatar e campos de senha. Ao desfazer as alterações ou salvar, a barra é removida; a confirmação permanece no formulário. O grupo contém o botão Salvar, estado de envio e erros. Ele continua dentro do formulário e conserva a submissão e as validações existentes. O formulário reserva espaço inferior para deixar os últimos campos acessíveis acima da ação flutuante. A entrada usa fade e deslocamento de 6 px por 160 ms, desativados com movimento reduzido. No desktop, o grupo permanece no fluxo original.
+
+Nas telas mobile da conta, MobileTitle mostra “Perfil”, “Carteiras” ou “Lista de interesse”, com retorno ao início, seguindo o padrão do carrinho e substituindo o cabeçalho geral. O desktop mantém o cabeçalho original.

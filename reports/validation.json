@@ -1,6 +1,6 @@
 {
   "date": "2026-10-18",
-  "scope": "Current section navigation, pagination and cart contract validation",
+  "scope": "Previous published navigation/cart validation; the local shadcn migration is recorded in localShadcnMigration.",
   "node": "v22.17.1",
   "playwright": "1.64.1",
   "sourceHashAlgorithm": "SHA-256 of sorted src/tests TS, TSX and CSS paths and bytes delimited by NUL",
@@ -123,5 +123,386 @@
       ],
       "lighthouseRerun": false
     }
+  },
+  "localShadcnMigration": {
+    "date": "2026-10-18",
+    "scope": "Official shadcn/ui Button and Dialog imported and themed; changes kept local without commit/push/deploy",
+    "cli": "shadcn@4.22.0",
+    "provenance": "../design/reference/shadcn/provenance.json",
+    "sourceHashAlgorithm": "SHA-256 of sorted src/tests TS, TSX and CSS paths and bytes delimited by NUL",
+    "sourceFilesHashed": 41,
+    "sourceSha256": "f4cd6b6fd4389bd5a9b95a41254b14ad28c37b8c4b86666452478059b7b672fe",
+    "buildHtmlSha256": "a54bb55bbe5e62990ac0a33d35d986a0a44f4509bb8c189779e7b2e9be210c7b",
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "build": "passed",
+    "dependenciesAndLockfile": "unchanged",
+    "e2e": {
+      "passed": 66,
+      "failed": 0,
+      "baselinesUpdated": false,
+      "profiles": [
+        "desktop 1440x1000",
+        "mobile 390x844"
+      ],
+      "report": "playwright-shadcn/index.html"
+    },
+    "additionalBrowserChecks": [
+      "official data-slot attributes in rendered UI",
+      "Button asChild renders link",
+      "Dialog title and description",
+      "Escape and focus return",
+      "development preview on localhost:5173 without page errors"
+    ],
+    "lighthouseRerun": false
+  },
+  "localCatalogLayoutFix": {
+    "date": "2026-10-18",
+    "scope": "Local fix after shadcn migration; no commit/push/deploy",
+    "fixes": [
+      "show eighth card title and price on desktop",
+      "remove overflowing mobile card staggering",
+      "reserve block flow for complete catalogue links"
+    ],
+    "buildHtmlSha256": "5ac2ec9b30e24d2f2b3be934ddde5bb223755ca67c81e9544f133202385d0e2f",
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "suiteCaseCount": 68,
+    "fullSuiteRerun": false,
+    "targetedTests": {
+      "passed": 14,
+      "failed": 0,
+      "report": "playwright-catalog-layout/index.html"
+    },
+    "layoutWidths": [
+      320,
+      390,
+      683,
+      768,
+      1024,
+      1440
+    ],
+    "cataloguePages": [
+      1,
+      4
+    ],
+    "intentionallyUpdatedBaselines": [
+      "inicio-desktop-linux.png",
+      "inicio-mobile-linux.png"
+    ],
+    "otherBaselines": "unchanged"
+  },
+  "localMobileBannerFix": {
+    "date": "2026-10-18",
+    "scope": "Local removal of decorative banner thumbnail and filter icon centering; no commit/push/deploy",
+    "buildHtmlSha256": "9913f51fe9b775a8e8faaff4299a416b5e5070641f33e8e8d84c97b954f245fe",
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "targetedTests": {
+      "passed": 10,
+      "failed": 0,
+      "report": "playwright-mobile-banner/index.html"
+    },
+    "suiteCaseCount": 68,
+    "fullSuiteRerun": false,
+    "updatedBaseline": "inicio-mobile-linux.png",
+    "otherSevenBaselines": "unchanged relative to previous local catalogue fix",
+    "measuredAtWidth": 683,
+    "filterButtonSize": [
+      45,
+      45
+    ],
+    "filterIconSize": [
+      22,
+      22
+    ],
+    "filterIconCenterOffset": [
+      0,
+      0
+    ]
+  },
+  "localCatalogInteractions": {
+    "date": "2026-10-18",
+    "scope": "Local changes only; no commit/push/deploy",
+    "changes": [
+      "selected filters without visual checkmark",
+      "desktop artwork hover and keyboard favorites with 120ms animation; hidden on mobile cards",
+      "explicit API rarity independent of catalogue position",
+      "backfill persisted rarity while preserving cart and other data"
+    ],
+    "rareNftIds": [
+      "3",
+      "14",
+      "25",
+      "32"
+    ],
+    "buildHtmlSha256": "80e6cd3e80f22c9fc17069e687b6d3ff8b5a6a8935418d8b49bb0a590d240360",
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "fullSuiteRerun": true,
+    "e2e": {
+      "passed": 76,
+      "failed": 0,
+      "profiles": [
+        "desktop",
+        "mobile"
+      ],
+      "report": "playwright-catalog-interactions/index.html"
+    },
+    "intentionallyUpdatedBaselines": [
+      "inicio-desktop-linux.png",
+      "inicio-mobile-linux.png"
+    ],
+    "otherSixBaselines": "unchanged",
+    "lighthouseRerun": false
+  },
+  "localReceiptWalletFix": {
+    "date": "2026-10-18",
+    "scope": "Local only; no commit/push/deploy",
+    "fixes": [
+      "center receipt with symmetric safe spacing",
+      "suppress own-purchase stock warning while reconciling cache",
+      "keep external stock and price warnings",
+      "align native wallet selects with adjacent inputs"
+    ],
+    "buildHtmlSha256": "b7ff854ec0252871f1638555e719e118b7ba323dd52bfeaefc091a0cde79f794",
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "fullSuiteRerun": false,
+    "targetedTests": {
+      "distinctPassed": 18,
+      "initialPassed": 17,
+      "initialFailed": 1,
+      "initialFailure": "New wallet test selector did not match implicit select label; corrected to combobox role",
+      "rerunPassed": 1,
+      "reports": [
+        "playwright-receipt-wallet/index.html",
+        "playwright-wallet-alignment/index.html"
+      ]
+    },
+    "baselinesUpdated": false,
+    "lighthouseRerun": false
+  },
+  "localMobilePaginationAndControls": {
+    "date": "2026-10-18",
+    "scope": "Local only; no commit/push/deploy",
+    "catalogue": {
+      "mobileMaxWidth": 768,
+      "mobilePageSize": 6,
+      "desktopPageSize": 9,
+      "manualPagination": true,
+      "automaticScrollLoading": false,
+      "urlAndHistoryPreserved": true,
+      "viewportPageClamp": true,
+      "cachePartitionedByPageSize": true
+    },
+    "purchaseBar": {
+      "heightExcludingSafeArea": 140,
+      "buyButton": [
+        168,
+        48
+      ],
+      "cartButton": [
+        48,
+        48
+      ],
+      "quantityButton": [
+        20,
+        28
+      ],
+      "disabledMinus": "solid background, opacity 1, no border"
+    },
+    "bottomNavigation": "shaped inset with radial-mask fallback; no central black circle shadow",
+    "buildHtmlSha256": "bca47e7149255136bacd6abb845d68bf1b37e6796d56889f3b064e2d096b33d6",
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "fullSuiteRerun": true,
+    "e2e": {
+      "passed": 82,
+      "failed": 0,
+      "workers": 2,
+      "profiles": [
+        "desktop",
+        "mobile"
+      ],
+      "report": "playwright-mobile-pagination/index.html"
+    },
+    "targetedTests": {
+      "passed": 10,
+      "failed": 0,
+      "report": "playwright-mobile-pagination-targeted/index.html"
+    },
+    "intentionallyUpdatedBaselines": [
+      "inicio-mobile-linux.png",
+      "detalhe-mobile-linux.png"
+    ],
+    "otherSixBaselines": "unchanged relative to previous local stage",
+    "lighthouseRerun": false
+  },
+  "localBannerReferenceRefinement": {
+    "date": "2026-10-18",
+    "scope": "Local mobile banner/filter refinement from supplied reference; no commit/push/deploy",
+    "changes": [
+      "main artwork with proportional lower-left companion thumbnail",
+      "layered curved gradient background",
+      "centered original 40x8 indicators",
+      "responsive title and description; Explore remains inside banner at 320px",
+      "24x24 Settings2 icon inside centered accessible 45x45 filter button"
+    ],
+    "reference": "User-supplied mobile image and existing local Figma assets; Figma context/screenshot calls rate-limited during this stage",
+    "widths": [
+      320,
+      390,
+      414,
+      683,
+      768,
+      1024,
+      1440
+    ],
+    "buildHtmlSha256": "9d0f230c17eb3bf3ab76277edc851fdc0cb3597ff13d654f8156bd59690c3994",
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "fullSuiteRerun": false,
+    "suiteCaseCount": 82,
+    "targetedTests": {
+      "passed": 12,
+      "failed": 0,
+      "workers": 2,
+      "report": "playwright-banner-refinement/index.html"
+    },
+    "updatedBaseline": "inicio-mobile-linux.png",
+    "otherSevenBaselines": "unchanged relative to previous local stage",
+    "lighthouseRerun": false
+  },
+  "localAccountNavigationAndAvatar": {
+    "date": "2026-10-18",
+    "scope": "Local only; no commit/push/deploy",
+    "changes": [
+      "omit next-page arrow for single-page results",
+      "collapsible mobile account navigation with vertical links, active section, Escape/focus return and close on navigation",
+      "vertical mobile header navigation with expanded state and Escape",
+      "shared circular orange-bordered avatar, fallback person icon and saved profile photo in header/account/editor"
+    ],
+    "reference": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/",
+    "buildHtmlSha256": "5bcaa619d0bfe095cfc15365272f9c3cdcacf98154d354ef90037e0574323f73",
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "fullSuiteRerun": true,
+    "e2e": {
+      "passed": 88,
+      "failed": 0,
+      "workers": 2,
+      "profiles": [
+        "desktop",
+        "mobile"
+      ],
+      "report": "playwright-account-navigation/index.html"
+    },
+    "targetedTests": {
+      "passed": 16,
+      "failed": 0,
+      "report": "playwright-account-navigation-targeted/index.html"
+    },
+    "intentionallyUpdatedBaselines": [
+      "pagamento-desktop-linux.png",
+      "carrinho-mobile-linux.png"
+    ],
+    "otherSixBaselines": "unchanged relative to previous local stage",
+    "lighthouseRerun": false
+  },
+  "localAccountLayoutOverlaysAndFloatingSave": {
+    "date": "2026-10-18",
+    "scope": "Local only; no commit/push/deploy",
+    "buildHtmlSha256": "6f4c883becc7acf88cef27971288ae927c44a498487b2e0a3f541c89b1b7d39f",
+    "changes": [
+      "Restore desktop account sidebar/avatar editor; header label Perfil",
+      "Mobile header contains search, cart and hamburger only",
+      "Overlay dropdowns without layout shift; outside click and Escape dismissal",
+      "Smooth catalogue navigation including repeated hash, preserved filters and reduced motion",
+      "Floating mobile profile Save with 160ms entrance, visible feedback and reserved form space; desktop remains static"
+    ],
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "suiteCaseCount": 92,
+    "fullSuiteRerun": false,
+    "lastFullSuitePassed": 88,
+    "targetedTests": {
+      "passed": 20,
+      "failed": 0,
+      "workers": 2,
+      "report": "playwright-floating-profile-actions/index.html"
+    },
+    "updatedBaseline": "pagamento-desktop-linux.png",
+    "otherSevenBaselines": "unchanged relative to previous local stage",
+    "lighthouseRerun": false
+  },
+  "localProfileDirtySaveAndTitle": {
+    "date": "2026-10-18",
+    "scope": "Local only; no commit/push/deploy",
+    "buildHtmlSha256": "7416b3a98e96e1734ab271604e7e3c64bcb7ea69a14e20fa007e22663c02cbb4",
+    "changes": [
+      "Save appears only for edited profile/avatar/password fields and disappears after revert or successful save",
+      "Mobile profile uses shared Perfil title/back arrow; desktop header preserved"
+    ],
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "targetedTests": {
+      "passed": 10,
+      "failed": 0,
+      "report": "playwright-profile-dirty/index.html"
+    },
+    "fullSuiteRerun": false,
+    "baselinesUpdated": false
+  },
+  "localAccountMobileTitles": {
+    "date": "2026-10-18",
+    "scope": "Local only; no commit/push/deploy",
+    "changes": [
+      "Shared mobile title/back arrow on wallets and wishlist; desktop preserved"
+    ],
+    "buildHtmlSha256": "f0c9c06f787c0bdaba378201227a66d4c6954796033c255b18c3dd96f051383b",
+    "typecheck": "passed (npm run build)",
+    "lint": "passed",
+    "targetedTests": {
+      "passed": 10,
+      "failed": 0,
+      "report": "playwright-account-titles/index.html"
+    },
+    "fullSuiteRerun": false,
+    "baselinesUpdated": false
+  },
+  "branchIntegrationValidation": {
+    "date": "2026-10-18",
+    "scope": "Retrospective separation of pending changes into topic branches, sequential no-ff merges; previous commits preserved",
+    "baseCommit": "d0ecf79",
+    "branches": [
+      "refactor/shadcn-components",
+      "fix/catalog-checkout-mobile",
+      "feat/account-navigation-profile",
+      "docs/validation-history"
+    ],
+    "intermediateBuildsPassed": 3,
+    "finalBuild": "passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "buildHtmlSha256": "f0c9c06f787c0bdaba378201227a66d4c6954796033c255b18c3dd96f051383b",
+    "localAndIntegratedBuilds": {
+      "identical": true,
+      "filesCompared": 292,
+      "algorithm": "SHA-256"
+    },
+    "fullSuiteRerun": true,
+    "e2e": {
+      "passed": 92,
+      "failed": 0,
+      "workers": 2,
+      "profiles": [
+        "desktop",
+        "mobile"
+      ],
+      "report": "playwright-pre-push/index.html"
+    },
+    "baselinesUpdated": false,
+    "lighthouseRerun": false
   }
 }
