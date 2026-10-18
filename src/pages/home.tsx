@@ -1,3 +1,4 @@
+import { useMobile } from "../hooks/use-mobile";
 import { Artwork } from "../components/artwork";
 import {
   Link,
@@ -7,13 +8,7 @@ import {
 } from "@tanstack/react-router";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import {
-  ArrowRight,
-  ChevronRight,
-  Heart,
-  SlidersHorizontal,
-  X,
-} from "lucide-react";
+import { ArrowRight, ChevronRight, Heart, Settings2, X } from "lucide-react";
 import type { CatalogSearch, Nft } from "../api/contracts";
 import {
   catalogQuery,
@@ -45,7 +40,9 @@ export function NftCard({ nft, index = 0 }: { nft: Nft; index?: number }) {
     <article className={`nft-card nft-slot-${index % 9}`}>
       <Link to="/nft/$id" params={{ id: nft.id }}>
         <div className="nft-art">
-          {index === 2 && <span className="catalog-rarity">RARO</span>}
+          {nft.rarity === "rare" && (
+            <span className="catalog-rarity">RARO</span>
+          )}
           <Artwork
             src={nft.image}
             alt={nft.name}
@@ -61,7 +58,7 @@ export function NftCard({ nft, index = 0 }: { nft: Nft; index?: number }) {
         </p>
         {!nft.stock && <span className="sold-label">Esgotado</span>}
       </Link>
-      {index === 0 && <CardFavorite nft={nft} />}
+      <CardFavorite nft={nft} />
     </article>
   );
 }
@@ -263,18 +260,38 @@ export function Home({ background = false }: { background?: boolean }) {
   const search = validateSearch(useSearch({ strict: false }));
   const navigate = useNavigate();
   const location = useLocation();
+  const mobile = useMobile();
   const q = useQuery({
-    ...catalogQuery(search),
+    ...catalogQuery(search, mobile ? 6 : 9),
     placeholderData: (previous, previousQuery) => {
       const previousSearch = previousQuery?.queryKey[1] as
         CatalogSearch | undefined;
       return previousSearch &&
+        previousQuery?.queryKey[2] === (mobile ? 6 : undefined) &&
         JSON.stringify({ ...previousSearch, page: 1 }) ===
           JSON.stringify({ ...search, page: 1 })
         ? previous
         : undefined;
     },
   });
+  useEffect(() => {
+    if (
+      !q.data ||
+      q.isPlaceholderData ||
+      !q.data.pages ||
+      search.page <= q.data.pages
+    )
+      return;
+    void navigate({
+      to: "/",
+      search: { ...search, page: q.data.pages },
+      hash: location.hash,
+      replace: true,
+      resetScroll: false,
+      hashScrollIntoView: false,
+      viewTransition: false,
+    });
+  }, [q.data, q.isPlaceholderData, search, navigate, location.hash]);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [input, setInput] = useState(search.q);
   useEffect(() => setInput(search.q), [search.q]);
@@ -334,24 +351,28 @@ export function Home({ background = false }: { background?: boolean }) {
             </Button>
             <img className="hero-dots" src="/assets/a11b7.svg" alt="" />
           </div>
-          <Artwork
-            src="/assets/8f387.png"
-            className="hero-art"
-            alt="Emerald Ape, macaco com óculos e jaqueta verde"
-            width="450"
-            height="450"
-            fetchPriority="high"
-            loading="eager"
-            sizes="(max-width:768px) 40vw, 450px"
-          />
-          <Artwork
-            src="/assets/83794.png"
-            className="hero-companion"
-            alt=""
-            width="59"
-            height="59"
-            loading="eager"
-          />
+          <div className="hero-artwork">
+            <Artwork
+              src="/assets/8f387.png"
+              className="hero-art"
+              alt="Emerald Ape, macaco com óculos e jaqueta verde"
+              width="450"
+              height="450"
+              fetchPriority="high"
+              loading="eager"
+              sizes="(max-width:768px) 38vw, 450px"
+            />
+            <Artwork
+              className="hero-companion"
+              src="/assets/83794.png"
+              alt=""
+              width="59"
+              height="59"
+              sizes="59px"
+              loading="eager"
+            />
+          </div>
+          <img className="hero-mobile-dots" src="/assets/a11b7.svg" alt="" />
         </section>
         <section
           className="catalog"
@@ -446,12 +467,13 @@ export function Home({ background = false }: { background?: boolean }) {
               </Button>
               <Button
                 className="filter-trigger"
+                aria-label="Filtros"
+                size="icon"
                 type="button"
                 variant="outline"
                 onClick={() => setFiltersOpen(true)}
               >
-                <SlidersHorizontal size={18} />
-                Filtros
+                <Settings2 size={24} strokeWidth={1.5} />
               </Button>
             </form>
             {search.q && (
@@ -469,9 +491,11 @@ export function Home({ background = false }: { background?: boolean }) {
               </p>
             )}
             {q.isPending ? (
-              <Skeleton cards={9} />
+              <Skeleton cards={mobile ? 6 : 9} />
             ) : q.isError ? (
               <ErrorBox error={q.error} retry={() => void q.refetch()} />
+            ) : !q.data ? (
+              <Skeleton cards={mobile ? 6 : 9} />
             ) : q.data.items.length === 0 ? (
               <Empty title="Nenhum NFT encontrado">
                 <p>Tente outra busca ou remova alguns filtros.</p>
@@ -502,13 +526,15 @@ export function Home({ background = false }: { background?: boolean }) {
                       {i + 1}
                     </button>
                   ))}
-                  <button
-                    aria-label="Próxima página"
-                    disabled={search.page >= q.data.pages}
-                    onClick={() => update({ page: search.page + 1 })}
-                  >
-                    <ChevronRight size={18} />
-                  </button>
+                  {q.data.pages > 1 && (
+                    <button
+                      aria-label="Próxima página"
+                      disabled={search.page >= q.data.pages}
+                      onClick={() => update({ page: search.page + 1 })}
+                    >
+                      <ChevronRight size={18} />
+                    </button>
+                  )}
                 </nav>
               </>
             )}

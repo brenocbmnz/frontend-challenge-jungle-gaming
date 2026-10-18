@@ -43,6 +43,8 @@ const images = [
   "b7cfc.png",
   "b7cfc.png",
 ];
+// Declared metadata of specific fixtures, independent of catalogue position.
+const rareNftIds = new Set(["3", "14", "25", "32"]);
 export const nfts: Nft[] = Array.from({ length: 36 }, (_, i) => ({
   id: String(i + 1),
   name:
@@ -56,6 +58,7 @@ export const nfts: Nft[] = Array.from({ length: 36 }, (_, i) => ({
   previousPrice: i === 2 ? "2.29" : undefined,
   image: `/assets/${images[i % 9]}`,
   category: categories[i % categories.length],
+  rarity: rareNftIds.has(String(i + 1)) ? "rare" : "common",
   network:
     i < 9 ? "Ethereum" : (["Ethereum", "Polygon", "Solana"] as const)[i % 3],
   stock: 20,

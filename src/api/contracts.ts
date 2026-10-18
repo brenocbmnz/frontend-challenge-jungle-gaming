@@ -1,5 +1,6 @@
 export type Network = "Ethereum" | "Polygon" | "Solana";
 export type Edition = "1/1" | "1/10" | "1/50" | "ABERTA";
+export type Rarity = "common" | "rare";
 export interface Nft {
   id: string;
   name: string;
@@ -8,6 +9,7 @@ export interface Nft {
   previousPrice?: string;
   image: string;
   category: string;
+  rarity: Rarity;
   network: Network;
   stock: number;
   version: number;
@@ -121,6 +123,8 @@ export interface ResourceEvent {
   userId?: string;
 }
 export interface NftEvent extends ResourceEvent {
+  /** Compra que originou a atualização de estoque, quando aplicável. */
+  orderId?: string;
   nft: Nft;
 }
 export interface OrderEvent extends ResourceEvent {

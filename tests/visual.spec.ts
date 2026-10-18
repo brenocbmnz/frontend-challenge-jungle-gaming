@@ -2,7 +2,9 @@ import { test, expect } from "@playwright/test";
 import { start, add, login } from "./helpers";
 test("regressão visual das quatro telas principais", async ({ page }) => {
   await start(page);
-  await expect(page.locator(".nft-grid .nft-card")).toHaveCount(9);
+  await expect(page.locator(".nft-grid .nft-card")).toHaveCount(
+    page.viewportSize()!.width <= 768 ? 6 : 9,
+  );
   await page.evaluate(() => document.fonts.ready);
   await expect(page).toHaveScreenshot("inicio.png", { fullPage: true });
   await page.goto("/nft/1");
@@ -35,7 +37,9 @@ test("assets visíveis carregam e layout não tem overflow em 390, 768 e 1440", 
             img.loading = "eager";
             try {
               await img.decode();
-            } catch { /* A missing image is reported by the assertion below. */ }
+            } catch {
+              /* A missing image is reported by the assertion below. */
+            }
           }
         }
       });

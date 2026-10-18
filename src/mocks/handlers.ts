@@ -67,12 +67,15 @@ function notifyOrder(order: (typeof db.orders)[number]) {
       userId: order.userId,
       order: safe,
     });
+    if (order.status !== "confirmed") return;
     for (const line of order.quote.lines) {
       const n = db.nfts.find((n) => n.id === line.nftId)!;
       nftUpdated({
         id: `nft-${n.id}-${n.version}`,
         resourceId: n.id,
         version: n.version,
+        userId: order.userId,
+        orderId: order.id,
         nft: structuredClone(n),
       });
     }
@@ -115,10 +118,11 @@ export const handlers = [
     if (db.scenario === "empty") items = [];
     const total = items.length;
     const page = Math.max(1, Number(p.get("page")) || 1);
+    const pageSize = p.get("pageSize") === "6" ? 6 : 9;
     return HttpResponse.json({
-      items: items.slice((page - 1) * 9, page * 9),
+      items: items.slice((page - 1) * pageSize, page * pageSize),
       total,
-      pages: Math.ceil(total / 9),
+      pages: Math.ceil(total / pageSize),
       counts: Object.fromEntries(
         db.nfts.flatMap((n) => [
           [n.network, db.nfts.filter((i) => i.network === n.network).length],
