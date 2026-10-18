@@ -127,3 +127,8 @@ Os **92 testes completos de produção passaram**, em desktop/mobile e com dois 
 ```sh
 PLAYWRIGHT_PRODUCTION=1 PLAYWRIGHT_HTML_OUTPUT_DIR=reports/playwright-pre-push npx playwright test --workers=2
 ```
+
+
+## Fonte normalizada — 18/10/2026
+
+Após normalizar o espaço não separável do WOFF2, os **4 testes visuais e de assets/overflow passaram** nos dois perfis, sem atualizar baselines: [relatório](../reports/playwright-font-fix/index.html). Firefox 157 também carregou a fonte corrigida. A última suíte completa de 92 casos é a etapa de integração acima; não foi repetida nesta correção.

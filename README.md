@@ -120,7 +120,7 @@ Na última execução completa, os **92 testes de produção passaram** em Chrom
 
 Para executar os testes de produção em outra porta, use `PLAYWRIGHT_PORT=4183 PLAYWRIGHT_PRODUCTION=1 npm test`. O comando `npm run test:update` atualiza as imagens de referência dos testes visuais; essas alterações precisam ser revisadas antes de serem aceitas.
 
-Incluí também `node scripts/optimize-assets.mjs` para recriar as versões WebP responsivas e copiar a fonte local, preservando os assets originais.
+Incluí também `node scripts/optimize-assets.mjs` para recriar as versões WebP responsivas, preservando os assets originais. A fonte local normalizada já está versionada; documentei a regeneração em [FONTS.md](docs/FONTS.md).
 
 ## Publicação e documentação
 

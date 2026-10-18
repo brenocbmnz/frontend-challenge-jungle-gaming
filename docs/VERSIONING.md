@@ -19,3 +19,5 @@ git log --graph --oneline --all
 ```
 
 Para próximas alterações, começo uma branch a partir da `main`, implemento e valido o assunto, e só então integro. Os relatórios históricos documentam o estado testado em cada etapa; a validação mais recente está em [TEST_REPORTS.md](TEST_REPORTS.md).
+
+A correção posterior da fonte usa a branch `fix/font-empty-glyph`, criada a partir da main integrada e incorporada por merge explícito após validação.
