@@ -1,0 +1,21 @@
+# Kurio — NFT Marketplace
+
+> Projeto demonstrativo de marketplace de NFTs desenvolvido por Breno Menezes para o desafio frontend da Jungle Gaming.
+
+O site permite explorar NFTs, buscar coleções, filtrar por categoria e rede,
+ordenar resultados e consultar detalhes de cada obra. Há versões desktop e mobile.
+Os fluxos de conta, carteira e compra usam dados simulados no navegador com MSW;
+não realizam pagamentos, transferências de NFTs ou conexões com carteiras reais.
+A aplicação não publica agentes, ferramentas MCP ou uma API remota para automação.
+
+## Navegação pública
+
+- [Catálogo de NFTs](https://frontend-challenge-jungle-gaming-rosy.vercel.app/#catalogo): Busca, filtros, ordenação e paginação das obras.
+- [Criadores](https://frontend-challenge-jungle-gaming-rosy.vercel.app/#criadores): Destaques e coleções selecionadas.
+- [Diário da Cunhagem](https://frontend-challenge-jungle-gaming-rosy.vercel.app/#diario): Conteúdo introdutório sobre NFTs e colecionismo.
+
+## Documentação
+
+- [README do projeto](https://raw.githubusercontent.com/brenocbmnz/frontend-challenge-jungle-gaming/main/README.md): Instalação, tecnologias, contas fictícias e avaliação das simulações.
+- [Arquitetura](https://raw.githubusercontent.com/brenocbmnz/frontend-challenge-jungle-gaming/main/ARCHITECTURE.md): Organização da aplicação e integração dos dados simulados.
+- [Contrato REST simulado](https://raw.githubusercontent.com/brenocbmnz/frontend-challenge-jungle-gaming/main/docs/API.md): Contratos dos endpoints interceptados pelo MSW no navegador.

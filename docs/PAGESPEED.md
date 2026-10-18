@@ -45,3 +45,18 @@ Build com TypeScript, lint e check de whitespace do código passaram. Os **6 tes
 Na execução local mobile com Lighthouse **13.5.0**, viewport 412 × 823 e DPR 1,75, **Improve image delivery passou com score 1, tabela de problemas vazia e desperdício estimado de 0 bytes**. LCP request discovery e Network dependency tree também mantiveram score 1. A nota geral dessa amostra foi 77 e o LCP foi 3,9 s; não são uma nova medição do PageSpeed publicado nem evidência de melhora na nota geral.
 
 [Auditoria HTML](../reports/pagespeed-image-delivery/mobile.report.html), [JSON completo](../reports/pagespeed-image-delivery/mobile.report.json), [comparação dos arquivos](../reports/pagespeed-image-delivery/resource-comparison.json), [resumo](../reports/pagespeed-image-delivery/summary.json) e [testes Playwright](../reports/playwright-image-delivery/index.html). As correções continuam somente na branch perf/pagespeed-insights, sem merge na main.
+
+
+## 4. Agentic Browsing
+
+As URLs de descoberta não tinham arquivos próprios e eram capturadas pelo fallback da SPA na Vercel. Isso fazia o auditor receber index.html no lugar de Markdown/JSON. Publiquei `/llms.txt` com H1, resumo do projeto e links reais de navegação e documentação. Criei `/.well-known/ai-catalog.json` com specVersion 1.0 e entries vazio, validado pelo schema ARD usado pelo Lighthouse 13.5. O projeto não oferece agentes, MCP ou A2A; não anuncio serviços que não existem. A documentação REST é identificada como simulação no navegador.
+
+Adicionei os links de descoberta no head e excluí llms.txt e /.well-known/ do rewrite da SPA na Vercel. As rotas de interface continuam cobertas pelo fallback; assets, fontes, robots e workers continuam excluídos. Na Netlify, os arquivos existentes são servidos antes do fallback já configurado.
+
+Referências: [llms.txt no Chrome](https://developer.chrome.com/docs/lighthouse/agentic-browsing/llms-txt), [formato llms.txt](https://llmstxt.org/) e [ARD](https://agenticresourcediscovery.org/spec/). O catálogo usa o nome e a versão aceitos pelo auditor 13.5; não adiciona suporte a ferramentas WebMCP.
+
+Build com TypeScript, lint e check de whitespace do código passaram. Verifiquei HTTP 200, MIME text/plain e application/json, conteúdo Markdown/JSON em vez de HTML, schema ARD sem erros ou avisos e padrão de rewrite preservando /perfil, /carteiras, /favoritos e /nft/1. Essa última checagem é local sobre a configuração; não é um teste de deploy na Vercel.
+
+No Lighthouse **13.5.0**, **Agentic Browsing passou com 4/4 auditorias aplicáveis**: árvore de acessibilidade, CLS, llms.txt e schema ARD. As três verificações de WebMCP ficam não aplicáveis. Não repeti a suíte E2E completa nem as auditorias de performance nesta alteração de arquivos estáticos e roteamento.
+
+[Auditoria HTML](../reports/pagespeed-agentic-browsing/mobile.report.html), [JSON completo](../reports/pagespeed-agentic-browsing/mobile.report.json), [checagens HTTP](../reports/pagespeed-agentic-browsing/http-checks.json) e [resumo](../reports/pagespeed-agentic-browsing/summary.json). Tudo permanece na branch perf/pagespeed-insights, sem merge na main.

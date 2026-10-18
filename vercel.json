@@ -3,7 +3,7 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/((?!assets/|fonts/|mockServiceWorker.js|apiMockServiceWorker.js|robots.txt).*)",
+      "source": "/((?!assets/|fonts/|mockServiceWorker\\.js$|apiMockServiceWorker\\.js$|robots\\.txt$|llms\\.txt$|\\.well-known/).*)",
       "destination": "/index.html"
     }
   ]
