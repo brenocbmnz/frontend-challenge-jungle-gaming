@@ -68,6 +68,13 @@ export async function initialize() {
     db = await fresh();
   }
   db.connections ??= {};
+  // Upgrade existing fixtures without resetting accounts, carts or orders.
+  for (const nft of db.nfts) {
+    if (nft.rarity !== "rare" && nft.rarity !== "common") {
+      nft.rarity =
+        nfts.find((fixture) => fixture.id === nft.id)?.rarity ?? "common";
+    }
+  }
   save();
 }
 export function save() {

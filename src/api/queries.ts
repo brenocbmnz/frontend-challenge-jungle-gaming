@@ -40,11 +40,15 @@ export const sessionQuery = () =>
     enabled: !!token(),
     retry: false,
   });
-export const catalogQuery = (search: CatalogSearch) =>
+export const catalogQuery = (search: CatalogSearch, pageSize = 9) =>
   queryOptions({
-    queryKey: ["catalog", search],
+    queryKey:
+      pageSize === 9 ? ["catalog", search] : ["catalog", search, pageSize],
     queryFn: ({ signal }) =>
-      get<Catalog>(`/nfts?${searchParams(search)}`, signal),
+      get<Catalog>(
+        `/nfts?${searchParams(search)}${pageSize === 9 ? "" : `&pageSize=${pageSize}`}`,
+        signal,
+      ),
   });
 export const nftQuery = (id: string) =>
   queryOptions({

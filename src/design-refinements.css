@@ -501,13 +501,15 @@
 }
 .receipt-page {
   min-height: 100dvh;
-  padding: 166px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 24px;
   background: #140d0a;
 }
 .receipt-page .receipt {
   width: 578px;
   max-width: 100%;
-  margin: 0 auto;
+  margin: auto;
   border-radius: 0;
   border-bottom: 10px solid #d28a4c;
 }

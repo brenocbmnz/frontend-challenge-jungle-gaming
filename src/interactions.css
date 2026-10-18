@@ -10,7 +10,6 @@
 .pagination button,
 .edition-selector button,
 .product-thumbs button,
-.catalog-favorite,
 .dialog-close {
   transition:
     background-color var(--interaction-duration) ease,
@@ -220,5 +219,50 @@ textarea:focus-visible {
 @media (min-width: 641px) and (max-width: 768px) {
   .nft-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Card favorites stay off touch layouts; keyboard users can reveal the action. */
+@media (min-width: 769px) {
+  .catalog-favorite {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #d28a4c55;
+    border-radius: 50%;
+    background: #241612ed;
+    color: #e89b55;
+    box-shadow: 0 3px 12px #0004;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(4px) scale(0.92);
+    transition:
+      opacity 120ms ease-out,
+      transform 120ms ease-out,
+      visibility 0s linear 120ms;
+  }
+  .nft-card:has(> a:focus-visible) > .catalog-favorite,
+  .catalog-favorite:focus-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition-delay: 0s;
+  }
+}
+@media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+  .nft-card:has(.nft-art:hover) > .catalog-favorite,
+  .catalog-favorite:hover {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition-delay: 0s;
   }
 }

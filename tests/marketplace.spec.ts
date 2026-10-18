@@ -45,12 +45,17 @@ test("URL omite padrões, normaliza links antigos e preserva filtros ativos", as
   await page.goto(
     "/?q=&categories=%5B%5D&networks=%5B%5D&min=&max=&sort=recent&page=1&tab=all",
   );
-  await expect(page.locator(".nft-grid .nft-card")).toHaveCount(9);
+  await expect(page.locator(".nft-grid .nft-card")).toHaveCount(
+    page.viewportSize()!.width <= 768 ? 6 : 9,
+  );
   await expect.poll(() => new URL(page.url()).search).toBe("");
   await page.getByRole("button", { name: "Página 2", exact: true }).click();
   await expect.poll(() => new URL(page.url()).search).toBe("?page=2");
   await page.reload();
   await expect(page.locator(".pagination [aria-current]")).toHaveText("2");
+  await expect(page.locator(".nft-grid .nft-card")).toHaveCount(
+    page.viewportSize()!.width <= 768 ? 6 : 9,
+  );
   await page.goto("/");
   await expect.poll(() => new URL(page.url()).search).toBe("");
   await page.goto("/?q=Emerald&sort=price-asc");
@@ -78,7 +83,9 @@ test("busca e resultado vazio", async ({ page }) => {
   ).toBeVisible();
   await expect(page).toHaveURL(/q=inexistente/);
   await page.getByRole("button", { name: "Limpar busca e filtros" }).click();
-  await expect(page.locator(".nft-grid .nft-card")).toHaveCount(9);
+  await expect(page.locator(".nft-grid .nft-card")).toHaveCount(
+    page.viewportSize()!.width <= 768 ? 6 : 9,
+  );
 });
 test("acesso direto ao detalhe e NFT inexistente", async ({ page }) => {
   await page.goto("/nft/1");
@@ -134,6 +141,26 @@ test("compra completa e recibo estável após alteração no catálogo", async (
     }),
   ).toBeVisible();
   await expect(page.locator(".receipt")).toContainText("1.206 ETH");
+  await expect(page.locator(".toast")).not.toContainText(
+    "Revise seu carrinho antes de comprar",
+  );
+  const initialViewport = page.viewportSize()!;
+  for (const height of [1000, 600]) {
+    await page.setViewportSize({ width: initialViewport.width, height });
+    const box = await page.locator(".receipt").boundingBox();
+    expect(box).not.toBeNull();
+    expect(
+      Math.abs(box!.x + box!.width / 2 - initialViewport.width / 2),
+    ).toBeLessThanOrEqual(1);
+    if (box!.height + 96 <= height) {
+      expect(
+        Math.abs(box!.y + box!.height / 2 - height / 2),
+      ).toBeLessThanOrEqual(1);
+    } else {
+      expect(box!.y).toBeGreaterThanOrEqual(16);
+    }
+  }
+  await page.setViewportSize(initialViewport);
   const url = page.url();
   await control(page, "event", { type: "price", id: "1" });
   await page.reload();
@@ -196,6 +223,9 @@ test("Socket.IO atualiza cotação e ignora eventos duplicados e antigos", async
     duplicate: true,
     stale: true,
   });
+  await expect(page.locator(".toast")).toContainText(
+    "Revise seu carrinho antes de comprar",
+  );
   await expect(page.getByRole("dialog")).toContainText(
     "Preço ou disponibilidade alterado",
   );

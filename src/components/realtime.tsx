@@ -69,9 +69,11 @@ export function Realtime() {
           void queryClient.invalidateQueries({ queryKey: ["catalog"] });
           void queryClient.invalidateQueries({ queryKey: ["quote", uid] });
           void queryClient.invalidateQueries({ queryKey: ["cart", uid] });
-          setMessage(
-            "Preço ou disponibilidade atualizado. Revise seu carrinho antes de comprar.",
-          );
+          if (!e.orderId || e.userId !== uid) {
+            setMessage(
+              "Preço ou disponibilidade atualizado. Revise seu carrinho antes de comprar.",
+            );
+          }
         });
         socket.on("order.updated", (e: OrderEvent) => {
           if (!active || e.userId !== uid) return;
