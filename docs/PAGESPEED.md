@@ -30,3 +30,18 @@ Na validação final com **Lighthouse 13.5.0**, a mesma versão do relatório en
 O resultado geral desta amostra local foi performance 80 e LCP de 3,7 s. Não representa uma nova medição no PageSpeed publicado nem prova de ganho na nota geral. A auditoria anterior do item 1 e a execução intermediária usaram Lighthouse 12.8.2; a comparação de árvores está preservada e identificada como intermediária. Nesta última, os hints ainda estavam no fim do head e a entrada continuava na cadeia. Não comparo diretamente os tempos entre versões como benchmark.
 
 [Auditoria final HTML](../reports/pagespeed-network-dependencies/mobile-lh13.report.html), [JSON final](../reports/pagespeed-network-dependencies/mobile-lh13.report.json), [resumo final](../reports/pagespeed-network-dependencies/summary.json), [comparação intermediária](../reports/pagespeed-network-dependencies/comparison.json) e [checagem de preloads](../reports/pagespeed-network-dependencies/preload-checks.json). A branch permanece sem merge na main.
+
+
+## 3. Improve image delivery
+
+O diário e as promoções herdavam uma indicação genérica de largura, que levava o navegador a escolher arquivos maiores. A miniatura do banner tinha 59 px, mas o menor candidato disponível era 320 px. Ajustei sizes para cada seção, considerando a altura das imagens com object-fit: cover, e acrescentei versões intermediárias 384/640 px e miniaturas 64/128/192 px. O componente e o preload compartilham a lista dos candidatos principais. Mantive os PNGs originais e os carregamentos eager/prioridades definidos na primeira correção.
+
+Regenerei as versões WebP com qualidade 86 e esforço 6. A orientação do [Chrome](https://developer.chrome.com/docs/performance/insights/image-delivery) recomenda combinar imagens responsivas adequadas ao tamanho exibido com compressão eficiente. O script continua preservando a fonte normalizada.
+
+Em 412 px e DPR 1,75, a miniatura passou de 320 para 128 px, as promoções de 480 para 384 px e o diário de 480 para 320 px. A soma dos arquivos únicos selecionados para essas seções caiu de 155.238 para 84.064 bytes, redução de aproximadamente 46%. Isso não representa o tráfego total da página nem uma comparação cronometrada de download. As dimensões de layout permaneceram iguais nas sete larguras 320/390/412/768/1024/1300/1440 px.
+
+Build com TypeScript, lint e check de whitespace do código passaram. Os **6 testes direcionados de produção passaram**, cobrindo layout de cards/banner em sete larguras, regressão visual das quatro telas principais e assets/overflow nos dois perfis. Nenhuma baseline foi atualizada; a suíte completa não foi repetida.
+
+Na execução local mobile com Lighthouse **13.5.0**, viewport 412 × 823 e DPR 1,75, **Improve image delivery passou com score 1, tabela de problemas vazia e desperdício estimado de 0 bytes**. LCP request discovery e Network dependency tree também mantiveram score 1. A nota geral dessa amostra foi 77 e o LCP foi 3,9 s; não são uma nova medição do PageSpeed publicado nem evidência de melhora na nota geral.
+
+[Auditoria HTML](../reports/pagespeed-image-delivery/mobile.report.html), [JSON completo](../reports/pagespeed-image-delivery/mobile.report.json), [comparação dos arquivos](../reports/pagespeed-image-delivery/resource-comparison.json), [resumo](../reports/pagespeed-image-delivery/summary.json) e [testes Playwright](../reports/playwright-image-delivery/index.html). As correções continuam somente na branch perf/pagespeed-insights, sem merge na main.

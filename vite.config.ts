@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import { ARTWORK_WIDTHS } from "./src/lib/artwork";
 import { nfts } from "./src/mocks/fixtures";
 const artworkById = Object.fromEntries(
   nfts.map((nft) => [nft.id, nft.image.slice(0, -4)]),
@@ -54,6 +55,7 @@ export default defineConfig({
             injectTo: "head",
             children: `(() => {
           const artworks = ${JSON.stringify(artworkById)};
+          const widths = ${JSON.stringify(ARTWORK_WIDTHS)};
           const path = location.pathname;
           const id = /^\\/nft\\/([^/]+)\\/?$/.exec(path)?.[1];
           const bases = path === '/' ? (location.search ? [artworks['1']] : [artworks['1'], artworks['2'], artworks['3']]) : [artworks[id]];
@@ -62,7 +64,7 @@ export default defineConfig({
           const link = document.createElement('link');
           link.rel = 'preload'; link.as = 'image'; link.fetchPriority = index === 0 || index === 2 ? 'high' : 'low';
           link.href = base + '-480.webp';
-          link.setAttribute('imagesrcset', [320, 480, 960].map(size => base + '-' + size + '.webp ' + size + 'w').join(', '));
+          link.setAttribute('imagesrcset', widths.map(size => base + '-' + size + '.webp ' + size + 'w').join(', '));
           link.setAttribute('imagesizes', path === '/' ? (index === 0 ? '(max-width:768px) 40vw, 450px' : '(max-width:768px) 45vw, 450px') : '(max-width:768px) calc(100vw - 56px), 404px');
           document.head.appendChild(link);
           });

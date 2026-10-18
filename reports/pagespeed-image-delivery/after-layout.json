@@ -1,0 +1,380 @@
+[
+  {
+    "width": 320,
+    "images": [
+      {
+        "class": "hero-companion",
+        "width": 44.171875,
+        "height": 44.171875,
+        "sizes": "59px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-128.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 122.390625,
+        "height": 200,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-384.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 122.390625,
+        "height": 200,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-384.webp"
+      },
+      {
+        "class": "",
+        "width": 128,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-320.webp"
+      },
+      {
+        "class": "",
+        "width": 128,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-320.webp"
+      },
+      {
+        "class": "",
+        "width": 128,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-320.webp"
+      },
+      {
+        "class": "",
+        "width": 128,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/b7cfc-320.webp"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "images": [
+      {
+        "class": "hero-companion",
+        "width": 55.546875,
+        "height": 55.546875,
+        "sizes": "59px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-128.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 153.890625,
+        "height": 200,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-384.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 153.890625,
+        "height": 200,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-384.webp"
+      },
+      {
+        "class": "",
+        "width": 163,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-320.webp"
+      },
+      {
+        "class": "",
+        "width": 163,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-320.webp"
+      },
+      {
+        "class": "",
+        "width": 163,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-320.webp"
+      },
+      {
+        "class": "",
+        "width": 163,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/b7cfc-320.webp"
+      }
+    ]
+  },
+  {
+    "width": 412,
+    "images": [
+      {
+        "class": "hero-companion",
+        "width": 58.984375,
+        "height": 58.984375,
+        "sizes": "59px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-128.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 163.796875,
+        "height": 200,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-384.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 163.796875,
+        "height": 200,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-384.webp"
+      },
+      {
+        "class": "",
+        "width": 174,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-320.webp"
+      },
+      {
+        "class": "",
+        "width": 174,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-320.webp"
+      },
+      {
+        "class": "",
+        "width": 174,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-320.webp"
+      },
+      {
+        "class": "",
+        "width": 174,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/b7cfc-320.webp"
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "images": [
+      {
+        "class": "hero-companion",
+        "width": 58.984375,
+        "height": 58.984375,
+        "sizes": "59px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-128.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 324,
+        "height": 200,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-640.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 324,
+        "height": 200,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-640.webp"
+      },
+      {
+        "class": "",
+        "width": 352,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-640.webp"
+      },
+      {
+        "class": "",
+        "width": 352,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-640.webp"
+      },
+      {
+        "class": "",
+        "width": 352,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-640.webp"
+      },
+      {
+        "class": "",
+        "width": 352,
+        "height": 160,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/b7cfc-640.webp"
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "images": [
+      {
+        "class": "hero-companion",
+        "width": 0,
+        "height": 0,
+        "sizes": "59px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-128.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 220.5,
+        "height": 250,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-480.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 220.5,
+        "height": 250,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-480.webp"
+      },
+      {
+        "class": "",
+        "width": 214,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-384.webp"
+      },
+      {
+        "class": "",
+        "width": 214,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-384.webp"
+      },
+      {
+        "class": "",
+        "width": 214,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-384.webp"
+      },
+      {
+        "class": "",
+        "width": 214,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/b7cfc-384.webp"
+      }
+    ]
+  },
+  {
+    "width": 1300,
+    "images": [
+      {
+        "class": "hero-companion",
+        "width": 0,
+        "height": 0,
+        "sizes": "59px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-128.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 288.109375,
+        "height": 250,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-640.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 288.109375,
+        "height": 250,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-640.webp"
+      },
+      {
+        "class": "",
+        "width": 283,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-640.webp"
+      },
+      {
+        "class": "",
+        "width": 283,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-640.webp"
+      },
+      {
+        "class": "",
+        "width": 283,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-640.webp"
+      },
+      {
+        "class": "",
+        "width": 283,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/b7cfc-640.webp"
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "images": [
+      {
+        "class": "hero-companion",
+        "width": 0,
+        "height": 0,
+        "sizes": "59px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-128.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 287,
+        "height": 250,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-640.webp"
+      },
+      {
+        "class": "promo-art",
+        "width": 287,
+        "height": 250,
+        "sizes": "(max-width: 768px) max(200px, calc((100vw - 56px) * 0.45)), (max-width: 900px) 250px, (max-width: 1300px) max(250px, calc((100vw - 124px) * 0.245)), 287px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-640.webp"
+      },
+      {
+        "class": "",
+        "width": 268,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/9add2-480.webp"
+      },
+      {
+        "class": "",
+        "width": 268,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/8f387-480.webp"
+      },
+      {
+        "class": "",
+        "width": 268,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/83794-480.webp"
+      },
+      {
+        "class": "",
+        "width": 268,
+        "height": 195,
+        "sizes": "(max-width: 768px) max(160px, calc((100vw - 72px) / 2)), (max-width: 1300px) max(195px, calc((100vw - 168px) / 4)), 268px",
+        "currentSrc": "http://127.0.0.1:4173/assets/b7cfc-480.webp"
+      }
+    ]
+  }
+]
